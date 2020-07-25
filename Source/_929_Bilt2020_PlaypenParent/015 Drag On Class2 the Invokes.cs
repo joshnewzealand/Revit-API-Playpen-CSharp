@@ -45,7 +45,7 @@ namespace _929_Bilt2020_PlaypenParent
                         Properties.Settings.Default.DevelopmentPathRoot = dlg.SelectedPath;
                         Properties.Settings.Default.Save();
 
-                        Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Pedersen Read Limited\\cSharpPlaypen joshnewzealand", true).SetValue("DEVELOPDIR", dlg.SelectedPath);
+                      //  Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Pedersen Read Limited\\cSharpPlaypen joshnewzealand", true).SetValue("DEVELOPDIR", dlg.SelectedPath);
 
                         TaskDialog.Show("Done", "Path has been set to: " + Environment.NewLine + Properties.Settings.Default.DevelopmentPathRoot);
                     }

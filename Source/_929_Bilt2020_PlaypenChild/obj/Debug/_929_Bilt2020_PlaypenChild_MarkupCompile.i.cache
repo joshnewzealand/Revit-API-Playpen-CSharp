@@ -4,7 +4,7 @@
 library
 C#
 .cs
-R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\
 _929_Bilt2020_PlaypenChild
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 2-1236875651
 2852148816
 171406711215
-191828114936
+20252408095
 Window1.xaml;Window2.xaml;
 
-False
+True
 
