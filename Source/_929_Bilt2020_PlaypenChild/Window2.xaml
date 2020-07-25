@@ -1,0 +1,38 @@
+﻿<Window x:Class="_929_Bilt2020_PlaypenChild.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
+        mc:Ignorable="d"
+        Title="Window2" Height="395.951" Width="671.412" Background="#FFD6EDFF" Topmost="True" ResizeMode="CanResizeWithGrip">
+    <Grid>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="213*"/>
+                <ColumnDefinition Width="452*"/>
+            </Grid.ColumnDefinitions>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="myListBoxTypeParameters" Grid.Row="1" Margin="10,23,0,10" FontSize="11" DisplayMemberPath="theParameterName" SelectionChanged="myListBoxTypeParameters_SelectionChanged" SelectionMode="Single"/>
+                <ListBox x:Name="myListBoxInstanceParameters" Margin="10,23,0,0" FontSize="11" SelectionChanged="myListBoxInstanceParameters_SelectionChanged" DisplayMemberPath="theParameterName"  SelectionMode="Single"/>
+                <Label Content="String based Instance Parameters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontSize="10"/>
+                <Label Content="String based Type Parameters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" FontSize="10" Grid.Row="1"/>
+            </Grid>
+            <TextBox x:Name="myTextBoxPrevious" Grid.Column="1" Margin="70,0,44,125" TextWrapping="Wrap" BorderThickness="1" FontSize="14" IsEnabled="False" Height="70" VerticalAlignment="Bottom"/>
+            <Button x:Name="myButtonSave" Content="Save" HorizontalAlignment="Right" Margin="0,0,223,18" VerticalAlignment="Bottom" Width="76" Grid.Column="1" Height="20" Click="myButtonSave_Click"/>
+            <Button x:Name="myButtonCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,138,18" VerticalAlignment="Bottom" Width="76" Grid.Column="1" Height="20" Click="myButtonCancel_Click"/>
+            <TextBox x:Name="myTextBoxNew" Margin="70,0,44,50" TextWrapping="Wrap" BorderThickness="1" FontSize="14" Grid.Column="1" Height="70" VerticalAlignment="Bottom" AcceptsReturn="True" IsUndoEnabled="False" IsEnabled="False"/>
+            <Label Content="Element ID" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,43,0" VerticalAlignment="Top" Width="67"/>
+            <Label x:Name="myLabelElementID" Content="null" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,110,0" VerticalAlignment="Top" Width="118" FlowDirection="RightToLeft"/>
+            <Button x:Name="myButtonAddParameters" Content="Add Parameters codally add/edit directly, alternative &#xA;manufacturer directly with code*&#xA;do UNID properly" Grid.Column="1" HorizontalAlignment="Left" Margin="63,116,0,0" VerticalAlignment="Top" Width="356" Height="35" Click="myButtonAddParameters_Click"/>
+            <Label Content="• first demonstrate with [enter]&#xA;• then the 1's&#xD;&#xA;• first add Description, Lookup&#xA;• then list up 2, 3&#xA;• then the 2's, 3's" Grid.Column="1" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="184" Height="94"/>
+            <Label Content="will need to gray when nothing selected" Grid.Column="1" HorizontalAlignment="Left" Margin="70,-4,0,0" VerticalAlignment="Top" Width="246" Height="24" Foreground="Red" FontSize="8"/>
+        </Grid>
+        <Button x:Name="myButtonAcquireSelected" Content="🔄 Acquire Selected" HorizontalAlignment="Right" Margin="0,27,43,0" VerticalAlignment="Top" Width="174" Height="41" FontSize="16" Click="MyButtonAcquireSelected_Click" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,52 @@
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\AddIn\_929_Bilt2020_PlaypenChild.dll
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\AddIn\_929_Bilt2020_PlaypenChild.pdb
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.baml
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.g.cs
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.cache
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.g.resources
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csproj.CoreCompileInputs.cache
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.dll.config
+C:\ProgramData\Autodesk\Revit\Macros\2019\Revit\AppHookup\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csproj.CopyComplete
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.dll.config
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.dll
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.pdb
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.baml
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.g.cs
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.cache
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.g.resources
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csproj.CopyComplete
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.g.cs
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.lref
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.baml
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.baml
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.g.cs
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.g.cs
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.cache
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.lref
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.dll.config
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.dll
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\_929_Bilt2020_PlaypenChild.pdb
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.baml
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.g.resources
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csproj.CopyComplete
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\PlayPenSharedParametersInstance.txt
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\PlayPenSharedParametersType.txt
+C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\PlayPenSharedParametersInstance.txt
+R:\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenChild\Addin\PlayPenSharedParametersType.txt
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.baml
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.g.cs
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.g.cs
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.cache
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.lref
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
+C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb

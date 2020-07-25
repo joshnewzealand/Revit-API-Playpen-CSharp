@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_929_Bilt2020_PlaypenParent", "_929_Bilt2020_PlaypenParent\_929_Bilt2020_PlaypenParent.csproj", "{42E897D3-E4EA-4114-8B09-8C151592DFBB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "cSharpPlaypen joshnewzealand", "cSharpPlaypen joshnewzealand\cSharpPlaypen joshnewzealand.vdproj", "{F07D087C-A7E5-4100-B342-19510DE5965C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{5C92C62A-B64C-44BF-8F7A-D75F8B6EAD8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_952_PRLoogleClassLibrary", "..\..\..\_952_PRLoogle\_952_PRLoogle\_952_PRLoogleClassLibrary\_952_PRLoogleClassLibrary.csproj", "{14105134-846A-45CB-8D8F-F6DA90B35044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_929_Bilt2020_PlaypenChild", "_929_Bilt2020_PlaypenChild\_929_Bilt2020_PlaypenChild.csproj", "{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42E897D3-E4EA-4114-8B09-8C151592DFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E897D3-E4EA-4114-8B09-8C151592DFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E897D3-E4EA-4114-8B09-8C151592DFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E897D3-E4EA-4114-8B09-8C151592DFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07D087C-A7E5-4100-B342-19510DE5965C}.Debug|Any CPU.ActiveCfg = Debug
+		{F07D087C-A7E5-4100-B342-19510DE5965C}.Release|Any CPU.ActiveCfg = Release
+		{5C92C62A-B64C-44BF-8F7A-D75F8B6EAD8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C92C62A-B64C-44BF-8F7A-D75F8B6EAD8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C92C62A-B64C-44BF-8F7A-D75F8B6EAD8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C92C62A-B64C-44BF-8F7A-D75F8B6EAD8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14105134-846A-45CB-8D8F-F6DA90B35044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14105134-846A-45CB-8D8F-F6DA90B35044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14105134-846A-45CB-8D8F-F6DA90B35044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14105134-846A-45CB-8D8F-F6DA90B35044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {395F59F8-E044-43DB-8B0C-C5886FAF1735}
+	EndGlobalSection
+EndGlobal
