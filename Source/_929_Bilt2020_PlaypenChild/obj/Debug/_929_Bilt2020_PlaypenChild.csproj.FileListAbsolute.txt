@@ -50,3 +50,5 @@ C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\
 C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild_MarkupCompile.lref
 C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
 C:\Users\Joshua.Lumley\source\repos\NewRepo2\_929_Bilt2020_PlaypenParent\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
