@@ -71,3 +71,27 @@ C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_B
 C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenParent\Source\ClassLibrary1\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenParent\Source\ClassLibrary1\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Joshua.Lumley\OneDrive - Pedersen Read\Revit Apps in Development\_929_Bilt2020_Playpen\_929_Bilt2020_PlaypenParent\Source\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Ookii.Dialogs.Wpf.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Xceed.Wpf.AvalonDock.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Xceed.Wpf.Toolkit.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Ookii.Dialogs.Wpf.xml
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.csprojAssemblyReference.cache
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

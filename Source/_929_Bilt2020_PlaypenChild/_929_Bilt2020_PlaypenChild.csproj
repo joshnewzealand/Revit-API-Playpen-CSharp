@@ -73,12 +73,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\_952_PRLoogle\_952_PRLoogle\_952_PRLoogleClassLibrary\20181201 Loaded.cs">
-      <Link>_952_LinkedCode\20181201 Loaded.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\_952_PRLoogle\_952_PRLoogle\_952_PRLoogleClassLibrary\DatabaseMethods.cs">
-      <Link>_952_LinkedCode\DatabaseMethods.cs</Link>
-    </Compile>
     <Compile Include="EE04_Part1.cs" />
     <Compile Include="EE03_Part1.cs" />
     <Compile Include="EE02_Part1.cs" />
@@ -104,6 +98,8 @@
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="_952_LinkedCode\20181201 Loaded Stripped.cs" />
+    <Compile Include="_952_LinkedCode\DatabaseMethods Stripped.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Window1.xaml" />
@@ -130,10 +126,4 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <Import Project="..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets'))" />
-  </Target>
 </Project>
