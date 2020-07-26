@@ -64,22 +64,33 @@ namespace _929_Bilt2020_PlaypenChild
                 using (Transaction y = new Transaction(doc, "Foreach on each wall type."))
                 {
                     y.Start();
-                    Element myElement = doc.GetElement(new ElementId(511246));
-
-                    FilteredElementCollector myFEC_WallTypes = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType();
-
-                    double myX = 93;
-
-                    foreach (ElementId myElementID in myFEC_WallTypes.ToElementIds())
+                    List<ElementId> myFEC_Walls = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().Where(x => x.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).AsString() == "Example 2 Walls").Select(x => x.Id).ToList();
+                    if (myFEC_Walls.Count != 0)
                     {
-                        // Create a geometry line in Revit application
-                        XYZ startPoint = new XYZ(myX, 47, 0);
-                        XYZ endPoint = new XYZ(myX, 57, 0);
-                        Line geomLine = Line.CreateBound(startPoint, endPoint);
+                        doc.Delete(myFEC_Walls);
+                    } else
+                    {
+                        ///                  TECHNIQUE 2 OF 19
+                        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE OF EACH WAL L↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-                        Wall.Create(doc, geomLine, myElementID, new ElementId(311), 10, 0, false, false);  //not '311' in this line is a 'hardcoding' to LevelID. 
+                        FilteredElementCollector myFEC_WallTypes = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType();
 
-                        myX = myX + 2;
+                        double myX = 0;
+                        Element myLevel = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().First();
+
+                        foreach (ElementId myElementID in myFEC_WallTypes.ToElementIds())
+                        {
+                            // Creates a geometry line in Revit application
+                            XYZ startPoint = new XYZ(myX, 0, 0);
+                            XYZ endPoint = new XYZ(myX, 10, 0);
+                            Line geomLine = Line.CreateBound(startPoint, endPoint);
+
+                            Wall myWall = Wall.Create(doc, geomLine, myElementID, myLevel.Id, 10, 0, false, false);
+                            myWall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Example 2 Walls");
+
+                            myX = myX + 3;
+                        }
+                        ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
                     }
 
                     y.Commit();
@@ -113,30 +124,45 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+                Document doc = uidoc.Document; 
 
                 if (uidoc.Selection.GetElementIds().Count != 1) return;
 
                 Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
 
-                if (myElement.GetType() != typeof(Wall))
+
+                ///                  TECHNIQUE 3 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+                if (myElement.GetTypeId() == null)
                 {
-                    MessageBox.Show("Selected entity is not a wall.");
+                    MessageBox.Show("Selected entity does not have types.");
                     return;
                 }
 
-                Wall myWall = myElement as Wall;
-
                 using (Transaction tx = new Transaction(doc))
                 {
-                    tx.Start("Set Default Wall");
+                    tx.Start("Set Default Type");
 
-                    ElementId doorCategoryId = new ElementId(BuiltInCategory.OST_Walls);
-
-                    doc.SetDefaultElementTypeId(ElementTypeGroup.WallType, myWall.GetTypeId());
-
+                    if (myElement.GetType() == typeof(FamilyInstance))
+                    {
+                        doc.SetDefaultFamilyTypeId(myElement.Category.Id, ((FamilyInstance)myElement).Symbol.Id);
+                        
+                    } else
+                    {
+                        ElementType myElementType = doc.GetElement(myElement.GetTypeId()) as ElementType;
+                        foreach (ElementTypeGroup myElementTypeGroup in Enum.GetValues(typeof(ElementTypeGroup)))
+                        {
+                            if (myElementTypeGroup.ToString() == myElementType.GetType().Name)
+                            {
+                                doc.SetDefaultElementTypeId(myElementTypeGroup, myElement.GetTypeId());
+                            }
+                        }
+                    }
                     tx.Commit();
                 }
+                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
             }
 
             #region catch and finally

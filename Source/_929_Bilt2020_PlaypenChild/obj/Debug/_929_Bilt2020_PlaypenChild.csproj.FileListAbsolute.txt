@@ -83,7 +83,6 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csproj.CopyComplete
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\PlayPenSharedParametersInstance.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\PlayPenSharedParametersType.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\_929_Bilt2020_PlaypenChild.dll.config
@@ -91,17 +90,23 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\_929_Bilt2020_PlaypenChild.pdb
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\RevitAPI.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\RevitAPIUI.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Ookii.Dialogs.Wpf.xml
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\System.Data.SQLite.xml
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\System.Data.SQLite.dll.config
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\de\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\es\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\fr\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\hu\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\it\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\ro\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\ru\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\sv\Xceed.Wpf.AvalonDock.resources.dll
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\01 of 19 Select element with code.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\05 of 19 insert text here - Copy (3).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\06 of 19 insert text here - Copy (4).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\07 of 19 insert text here - Copy (5).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\08 of 19 insert text here - Copy (6).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\09 of 19 insert text here - Copy (7).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\10 of 19 insert text here - Copy (8).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\11 of 19 insert text here - Copy (9).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\12 of 19 insert text here - Copy (10).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\13 of 19 insert text here - Copy (11).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\14 of 19 insert text here - Copy (12).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\15 of 19 insert text here - Copy (13).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\16 of 19 insert text here - Copy (14).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\17 of 19 insert text here - Copy (15).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\18 of 19 insert text here - Copy (16).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\19 of 19 insert text here - Copy (17).txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\02 of 19 One of each wall.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\03 of 19 Set default type.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\04 of 19 Manual Colour Override.txt

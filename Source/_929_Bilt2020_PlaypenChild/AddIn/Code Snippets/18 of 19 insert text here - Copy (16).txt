@@ -1,0 +1,15 @@
+﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
+                int myInt = myElement_ProjectInformation.Id.IntegerValue;
+                ///the above lines are important for this example, but is not the 'technique'.
+
+
+                ///                  TECHNIQUE 1 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+                Element myElement = doc.GetElement(new ElementId(myInt));
+                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
+
+                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

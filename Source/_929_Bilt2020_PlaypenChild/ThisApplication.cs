@@ -29,20 +29,15 @@ namespace _929_Bilt2020_PlaypenChild
 
 		}
 
+        public string messageConst { get; set; }
         //this is is the method that invoked from outside
         public Result OpenWindowForm(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            //UIDocument uidoc = commandData.Application.ActiveUIDocument;
-
-            //if (uidoc.Selection.GetElementIds().Count != 1)
-            //{
-            //    TaskDialog.Show("Me", "Please only select one entity");
-            //    return Result.Succeeded;
-            //}
+            messageConst = message;
 
             try
             {
-                Window1 myWindow1 = new Window1(commandData);
+                Window1 myWindow1 = new Window1(commandData, this);
 
                 myWindow1.Show();
             }

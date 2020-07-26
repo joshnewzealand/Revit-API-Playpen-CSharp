@@ -126,7 +126,7 @@ namespace _929_Bilt2020_PlaypenParent
                         if (objType.Name.ToLower() == strCommandName.ToLower())
                         {
                             object ibaseObject = Activator.CreateInstance(objType);
-                            object[] arguments = new object[] { commandData, "Button02", elements };
+                            object[] arguments = new object[] { commandData, "Button_01_Invoke01|" + path, elements };
                             object result = null;
 
                             result = objType.InvokeMember("OpenWindowForm", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);
@@ -140,7 +140,8 @@ namespace _929_Bilt2020_PlaypenParent
             #region catch and finally
             catch (Exception ex)
             {
-                TaskDialog.Show("Me", ex.Message);
+                ParentSupportMethods.writeDebug("Invoke01" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+
             }
             finally
             {
@@ -206,7 +207,7 @@ namespace _929_Bilt2020_PlaypenParent
                         if (objType.Name.ToLower() == strCommandName.ToLower())
                         {
                             object ibaseObject = Activator.CreateInstance(objType);
-                            object[] arguments = new object[] { commandData, "Button02", elements };
+                            object[] arguments = new object[] { commandData, "Button_01_Invoke01Development|" + path, elements };
                             object result = null;
 
                             result = objType.InvokeMember("OpenWindowForm", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);

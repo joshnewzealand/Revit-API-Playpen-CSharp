@@ -27,6 +27,7 @@ using Numerics = System.Numerics;
 using Transform = Autodesk.Revit.DB.Transform;
 using Binding = Autodesk.Revit.DB.Binding;
 using Autodesk.Revit.DB.Events;
+using System.IO;
 
 namespace _929_Bilt2020_PlaypenChild
 {
@@ -95,8 +96,11 @@ namespace _929_Bilt2020_PlaypenChild
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
 
-        public Window1(ExternalCommandData cD)
+        public ThisApplication myThisApplication { get; set; }
+
+        public Window1(ExternalCommandData cD, ThisApplication tA)
         {
+            myThisApplication = tA;
             commandData = cD;
 
             InitializeComponent();
@@ -728,12 +732,12 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                uidoc.Selection.SetElementIds(new List<ElementId>() { new ElementId(262427) });
+                //uidoc.Selection.SetElementIds(new List<ElementId>() { new ElementId(262427) });
                 //528229
 
                 if (!myHostId_To_Selection()) { acquring(true); } else { return; };
 
-                myFormerWindow3();
+                //myFormerWindow3();
             }
 
             #region catch and finally
@@ -816,12 +820,20 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                Element myElement = doc.GetElement(new ElementId(182328));
+                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
+                int myInt = myElement_ProjectInformation.Id.IntegerValue;
+                ///the above lines are important for this example, but is not the 'technique'.
+
+
+                ///                  TECHNIQUE 1 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+                Element myElement = doc.GetElement(new ElementId(myInt));
                 uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
 
-                MessageBox.Show("OK, selecting by ID");
+                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-                uidoc.Selection.SetElementIds(new List<ElementId>());
+
             }
 
             #region catch and finally
@@ -1009,7 +1021,6 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
-
                 myExternalEvent_EE01_Part1_ManualColorOverride.Raise();
             }
 
@@ -1342,6 +1353,46 @@ namespace _929_Bilt2020_PlaypenChild
             {
             }
             #endregion   
+        }
+
+        private void myMethod_ShowCodeButtons(string myString_Filename)
+        {
+            try
+            {
+                if (myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")
+                {
+                    string myString_TempPath = myThisApplication.messageConst.Split('|')[1] + @"\Code Snippets\" + myString_Filename;
+
+                    FileInfo myFileInfo_Start = new FileInfo(myString_TempPath);
+                    string destDir = System.IO.Path.GetTempPath();
+
+                    FileInfo myFileInfo_End = new FileInfo(Path.Combine(destDir, myString_Filename));
+
+                    myFileInfo_Start.CopyTo(myFileInfo_End.FullName, true);
+                    System.Diagnostics.Process.Start(myFileInfo_End.FullName);
+
+                }
+                if (myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
+                {
+                    string myString_TempPath = myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild\Code Snippets\01 of 19 Select element with code.txt";
+                    System.Diagnostics.Process.Start(myString_TempPath);
+                }
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myMethod_ShowCodeButtons" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion   
+        }
+
+        private void myButtonShowCode_SelectElementWithCode_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("01 of 19 Select element with code.txt");
         }
     }
 }

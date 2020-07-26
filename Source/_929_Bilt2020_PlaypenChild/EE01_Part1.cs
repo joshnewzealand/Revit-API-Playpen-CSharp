@@ -61,16 +61,30 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+                Document doc = uidoc.Document; 
 
-                //MessageBox.Show("hello");
+                Element myElement = null;
+                if (uidoc.Selection.GetElementIds().Count == 0)
+                {
+                    string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();
+                    int n;
+                    if (!int.TryParse(myString_RememberLast, out n)) return;
+                    myElement = doc.GetElement(new ElementId(n));
+                } else
+                {
+                    myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
+                }
+                if (myElement == null) return;
 
+
+                ///                  TECHNIQUE 4 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ COLOUR OVERWRITE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 using (Transaction tx = new Transaction(doc))
                 {
                     tx.Start("Manual Color Override");
 
                     OverrideGraphicSettings ogs = new OverrideGraphicSettings();
-                    OverrideGraphicSettings ogsCheeck = doc.ActiveView.GetElementOverrides(new ElementId(182328));
+                    OverrideGraphicSettings ogsCheeck = doc.ActiveView.GetElementOverrides(myElement.Id);
                     FillPatternElement myFillPattern = new FilteredElementCollector(doc).OfClass(typeof(FillPatternElement)).Cast<FillPatternElement>().First(a => a.Name.Contains("Solid fill"));
 
                     ogs.SetSurfaceBackgroundPatternId(myFillPattern.Id);
@@ -78,15 +92,20 @@ namespace _929_Bilt2020_PlaypenChild
 
                     if (ogsCheeck.SurfaceBackgroundPatternId.IntegerValue != -1)
                     {
-                        doc.ActiveView.SetElementOverrides(new ElementId(182328), new OverrideGraphicSettings());
+                        doc.ActiveView.SetElementOverrides(myElement.Id, new OverrideGraphicSettings());
                     }
                     else
                     {
-                        doc.ActiveView.SetElementOverrides(new ElementId(182328), ogs);
+                        doc.ActiveView.SetElementOverrides(myElement.Id, ogs);
                     }
 
+                    uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).Set(myElement.Id.IntegerValue.ToString());
                     tx.Commit();
                 }
+                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+                uidoc.Selection.SetElementIds(new List<ElementId>());
             }
 
             #region catch and finally
