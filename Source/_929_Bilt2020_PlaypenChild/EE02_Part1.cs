@@ -81,8 +81,8 @@ namespace _929_Bilt2020_PlaypenChild
                         foreach (ElementId myElementID in myFEC_WallTypes.ToElementIds())
                         {
                             // Creates a geometry line in Revit application
-                            XYZ startPoint = new XYZ(myX, 0, 0);
-                            XYZ endPoint = new XYZ(myX, 10, 0);
+                            XYZ startPoint = new XYZ(myX, 10, 0);
+                            XYZ endPoint = new XYZ(myX, 0, 0);
                             Line geomLine = Line.CreateBound(startPoint, endPoint);
 
                             Wall myWall = Wall.Create(doc, geomLine, myElementID, myLevel.Id, 10, 0, false, false);
@@ -126,7 +126,11 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document; 
 
-                if (uidoc.Selection.GetElementIds().Count != 1) return;
+                if (uidoc.Selection.GetElementIds().Count != 1)
+                {
+                    MessageBox.Show("Please select ONE Element.");
+                    return;
+                }
 
                 Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
 
@@ -139,6 +143,7 @@ namespace _929_Bilt2020_PlaypenChild
                     MessageBox.Show("Selected entity does not have types.");
                     return;
                 }
+
 
                 using (Transaction tx = new Transaction(doc))
                 {
@@ -161,6 +166,9 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                     tx.Commit();
                 }
+
+                MessageBox.Show("'" + doc.GetElement(myElement.GetTypeId()).Name + "'" + Environment.NewLine + Environment.NewLine + "Is now the defaulf of category." + Environment.NewLine + Environment.NewLine + "'" + myElement.Category.Name + "'"  );
+
                 ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
             }

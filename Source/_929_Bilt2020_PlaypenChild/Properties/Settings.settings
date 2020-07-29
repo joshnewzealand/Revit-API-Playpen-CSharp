@@ -14,5 +14,11 @@
     <Setting Name="Height" Type="System.Double" Scope="User">
       <Value Profile="(Default)">300</Value>
     </Setting>
+    <Setting Name="Win3Top" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="Win3Left" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

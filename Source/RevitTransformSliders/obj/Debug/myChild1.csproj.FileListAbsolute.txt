@@ -1,0 +1,11 @@
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Addin\myChild1.dll.config
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Addin\myChild1.dll
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Addin\myChild1.pdb
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1.csprojAssemblyReference.cache
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\Window1.baml
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\Window1.g.cs
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1_MarkupCompile.cache
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1.g.resources
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1.csproj.CopyComplete
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1.dll
+C:\Users\Joshua.Lumley\Source\Repos\RevitTransformSliders\myChild1\Source\myChild1\obj\Debug\myChild1.pdb

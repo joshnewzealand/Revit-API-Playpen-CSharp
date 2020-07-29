@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.Window4"
+        mc:Ignorable="d"
+        Title="Extensible storage" Height="225" Width="371.333">
+    <Grid>
+
+        <xctk:IntegerUpDown x:Name="myIntegerUpDown" HorizontalAlignment="Left" Margin="91,157,0,0" VerticalAlignment="Top" Height="22" Width="62"/>
+        <Button x:Name="myButtonNext" Content="Next" HorizontalAlignment="Left" Margin="158,157,0,0" VerticalAlignment="Top" Width="76" Height="22"/>
+        <Button x:Name="myButtonPrevious" Content="Previous" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="76" Height="22"/>
+        <Button x:Name="myButtonSave" Content="Save" HorizontalAlignment="Left" Margin="254,91,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="myButtonDelete" Content="Delete" HorizontalAlignment="Left" Margin="254,116,0,0" VerticalAlignment="Top" Width="91"/>
+        <ListView x:Name="myListView" HorizontalAlignment="Left" Height="142" Margin="10,10,0,0" VerticalAlignment="Top" Width="224">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="myButtonPlaceRoom" Content="Place room&#xD;&#xA;(click once only)" HorizontalAlignment="Left" Margin="254,29,0,0" VerticalAlignment="Top" Width="91" Height="42"/>
+
+    </Grid>
+</Window>

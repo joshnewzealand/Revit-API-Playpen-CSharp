@@ -1,0 +1,50 @@
+                    while (myWindow1.mySlideInProgress)
+                    {
+                        wait(100); myIntTimeOut++;
+
+                        if (myDouble_ChangePosition != myWindow1.mySlider.Value)
+                        {
+                            myDouble_ChangePosition = myWindow1.mySlider.Value;
+                            myWindow1.myLabel_ChangeCount.Content = myInt_ChangeCount++.ToString();
+                            using (Transaction y = new Transaction(doc, "a Transform"))
+                            {
+                                y.Start();
+
+                                double myDoubleRotateAngle = myDouble_ChangePosition;
+
+                                Transform myTransform_Temp = Transform.Identity;
+
+                                myTransform_Temp.BasisX = myTransform.BasisX;
+                                myTransform_Temp.BasisY = myTransform.BasisY; 
+                                myTransform_Temp.BasisZ = myTransform.BasisZ;
+
+                                switch (myWindow1.mySlider.Name)
+                                {
+                                    case "mySlider_Move_X":
+                                        myTransform_Temp.Origin = myTransform.Origin + new XYZ(myDoubleRotateAngle, 0, 0);
+                                        break;
+                                    case "mySlider_Move_Y":
+                                        myTransform_Temp.Origin = myTransform.Origin + new XYZ(0, myDoubleRotateAngle, 0);
+                                        break;
+                                    case "mySlider_Move_Z":
+                                        myTransform_Temp.Origin = myTransform.Origin + new XYZ(0, 0, myDoubleRotateAngle);
+                                        break;
+                                }
+
+                                myReferencePoint_Centre.SetCoordinateSystem(myTransform_Temp);
+
+                                y.Commit();
+                            }
+                        }
+
+                        myWindow1.myLabel_Setting.Content = myWindow1.mySlider.Value.ToString();
+
+                        if (myIntTimeOut == 200)
+                        {
+                            MessageBox.Show("Timeout");
+                            break;
+                        }
+                    }
+
+                    transGroup.Assimilate();
+                }

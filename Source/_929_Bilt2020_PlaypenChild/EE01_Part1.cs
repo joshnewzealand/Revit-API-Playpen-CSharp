@@ -133,29 +133,67 @@ namespace _929_Bilt2020_PlaypenChild
 
         [DllImport("user32.dll", SetLastError = true)]
         static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+        //////////List<ElementId> _added_element_ids = new List<ElementId>();
 
         public Window1 myWindow1 { get; set; }
+        //public string myString_NameOfFamiliy { get; set; }
 
-        List<ElementId> _added_element_ids = new List<ElementId>();
+        public FamilySymbol myFamilySymbol { get; set; }
 
         void OnDocumentChanged(object sender, DocumentChangedEventArgs e)
         {
             try
             {
-                _added_element_ids.AddRange(e.GetAddedElementIds());
+                // e.GetModifiedElementIds
 
-                if (e.GetAddedElementIds().Count == 0) return;
 
                 UIDocument uidoc = uiapp.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                if (e.GetAddedElementIds().Count == 0 & e.GetModifiedElementIds().Count == 0) return;
+
+
+                if (e.GetAddedElementIds().Count > 0)
+                {
+                    Element myElement = doc.GetElement(e.GetAddedElementIds().First());
+
+                    if (myElement.GetType().Name != "FamilyInstance") return;
+                }
+
+
+                if (e.GetModifiedElementIds().Count > 0)
+                {
+                    Element myElement = doc.GetElement(e.GetModifiedElementIds().First());
+
+                    if (myElement.GetType().Name != "FamilyInstance") return;
+                }
+
+
+
+                //ElementType myElementType = doc.GetElement(myElement.GetTypeId()) as ElementType;
+
+                //if (myElementType == null) return;
+
+                //  MessageBox.Show(myElement.GetType().Name);
+
+
+                ////////_added_element_ids.AddRange(e.GetAddedElementIds());
+
+                ////////if (e.GetAddedElementIds().Count == 0) return;
+
+
                 uidoc.Application.Application.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
 
-                //MessageBox.Show(_added_element_ids[0].IntegerValue.ToString());
+                    //  MessageBox.Show("this works");
 
-                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                    //MessageBox.Show(_added_element_ids[0].IntegerValue.ToString());
+
+                    SetForegroundWindow(uidoc.Application.MainWindowHandle); //this is an excape event
+                    keybd_event(0x1B, 0, 0, 0);
+                    keybd_event(0x1B, 0, 2, 0);
                 keybd_event(0x1B, 0, 0, 0);
                 keybd_event(0x1B, 0, 2, 0);
-                keybd_event(0x1B, 0, 0, 0);
-                keybd_event(0x1B, 0, 2, 0);
+
             }
 
             #region catch and finally
@@ -174,31 +212,32 @@ namespace _929_Bilt2020_PlaypenChild
 
         public void Execute(UIApplication uiappp)
         {
+            uiapp = uiappp;
+
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Document doc = uidoc.Document;
+
+            uidoc.Application.Application.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
+
+            PromptForFamilyInstancePlacementOptions myPromptForFamilyInstancePlacementOptions = new PromptForFamilyInstancePlacementOptions();
+
+            if (uidoc.ActiveView.SketchPlane.Name != "Level 1")
+            {
+                Level myLevel = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().First() as Level;
+                using (Transaction y = new Transaction(doc, "SetDefaultPlane"))
+                {
+                    y.Start();
+                    uidoc.ActiveView.SketchPlane = SketchPlane.Create(doc, myLevel.GetPlaneReference());
+                    y.Commit();
+
+                }
+            }
+
+            myPromptForFamilyInstancePlacementOptions.FaceBasedPlacementType = FaceBasedPlacementType.PlaceOnWorkPlane;
+
             try
             {
-                uiapp = uiappp;
-
-                UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
-
-                string myString_AdaptiveCarrier = "Women Tipping Hat Man";
-
-                IEnumerable<Element> myIEnumerableElement = new FilteredElementCollector(doc).WherePasses(new ElementClassFilter(typeof(Family))).Where(x => x.Name == myString_AdaptiveCarrier);
-
-                if (myIEnumerableElement.Count() == 0)
-                {
-                    MessageBox.Show(myString_AdaptiveCarrier + Environment.NewLine + Environment.NewLine + "Is not present in model");
-                    return;
-                }
-
-                FamilySymbol myFamilySymbol_Carrier = doc.GetElement(((Family)myIEnumerableElement.First()).GetFamilySymbolIds().First()) as FamilySymbol;
-
-                _added_element_ids.Clear();
-
-                uidoc.Application.Application.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
-
-                uidoc.PromptForFamilyInstancePlacement(myFamilySymbol_Carrier);
-
+                uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
             }
 
             #region catch and finally
@@ -207,12 +246,18 @@ namespace _929_Bilt2020_PlaypenChild
                 if (ex.Message != "The user aborted the pick operation.")
                 {
                     _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE01_Part1_PlaceAFamily" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                  
+                } else
+                {
+                    uidoc.Application.Application.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
                 }
             }
             finally
             {
             }
             #endregion
+
+            SetForegroundWindow(uidoc.Application.MainWindowHandle); //this is an excape event
         }
 
         public string GetName()
@@ -254,117 +299,116 @@ namespace _929_Bilt2020_PlaypenChild
 
                     if (pickedRef == null) break;
 
+
+
+                            //Reference pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Face, "Please select a Face");
+                            Element myElement = doc.GetElement(pickedRef.ElementId);
+                        Face myFace = myElement.GetGeometryObjectFromReference(pickedRef) as Face;
+
+                        if (myFace == null) return;
+
+                        Transform myXYZ_FamilyTransform = Transform.Identity;
+
+                        if (pickedRef.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                        {
+                            myXYZ_FamilyTransform = (myElement as FamilyInstance).GetTotalTransform();
+                        }
+
+                        Transform myTransform = Transform.Identity; 
+
+                        if (myFace.GetType() != typeof(PlanarFace)) continue;
+
+
+                            PlanarFace myPlanarFace = myFace as PlanarFace;
+
+                        myTransform.Origin = pickedRef.GlobalPoint;
+                        myTransform.BasisX = myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
+                        myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
+                        myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
+
+
+                        // Create a geometry line
+                        XYZ startPoint = new XYZ(0, 0, 0);
+                        XYZ endPoint = new XYZ(10, 10, 0);
+
+                        // Create a arc
+                        XYZ origin = myTransform.OfPoint(new XYZ(0, 0, 0));
+                        XYZ normal = myTransform.OfPoint(new XYZ(1, 1, 0));
+                        XYZ end02 = myTransform.OfPoint((new XYZ(-.7, -.9, 0)));
+                        XYZ end12 = myTransform.OfPoint((new XYZ(.7, -.9, 0)));
+                        XYZ pointOnCurve2 = myTransform.OfPoint((new XYZ(0, -1.25, 0)));
+                        Arc geomArc2 = Arc.Create(end02, end12, pointOnCurve2);
+
+                        // Create a geometry circle in Revit application
+                        XYZ xVec = myTransform.OfVector(XYZ.BasisX);
+                        XYZ yVec = myTransform.OfVector(XYZ.BasisY);
+                        double startAngle = 0;
+                        double endAngle = 2 * Math.PI;
+                        double radius = .3;
+                        Arc geomPlane2 = Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
+                        Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
+
+                        ////////////////////// stright lines
+                        Line L2 = Line.CreateBound(myTransform.OfPoint(new XYZ(-.2, -.5, 0)), myTransform.OfPoint(new XYZ(.2, -.5, 0)));
+                        Line L3 = Line.CreateBound(myTransform.OfPoint(new XYZ(.2, -.5, 0)), myTransform.OfPoint(new XYZ(0, .1, 0)));
+
+                        // Create a ellipse
+                        double param0 = 0.0;
+                        double param1 = 2 * Math.PI;
+                        double radiusEllipse = 1.4;
+                        double radiusEllipse2 = 1.4 * 1.2;
+                        Curve myCurve_Ellipse = Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
+                 
+                    
+                    MyPreProcessor preproccessor = new MyPreProcessor();
+
                     using (Transaction y = new Transaction(doc, "Simily Face"))
                     {
+
+
                         y.Start();
-                        Element myElement = doc.GetElement(pickedRef.ElementId);
-                        Face myFace = myElement.GetGeometryObjectFromReference(pickedRef) as Face;
-                        //if we are not going to convert back to normal face we will need to put an oftype(PlanarFace) trip in here
-                        if (myFace == null) return;
-                        ////////// get handle to application from document
-                        ////////Autodesk.Revit.ApplicationServices.Application application = doc.Application;
 
 
+                        FailureHandlingOptions options = y.GetFailureHandlingOptions();
+                        options.SetFailuresPreprocessor(preproccessor);
+                        y.SetFailureHandlingOptions(options);
 
-                        XYZ myXYZ_Normal = myFace.ComputeNormal(UV.Zero);
 
-                        if (pickedRef.ConvertToStableRepresentation(doc)
-                          .Contains("INSTANCE"))
+                        //  SketchPlane sketch = SketchPlane.Create(doc, geomPlane);
+                        SketchPlane sketch2 = SketchPlane.Create(doc, pickedRef);
+
+                        try
                         {
-                            Transform myXYZ_FamilyTransform = (myElement as FamilyInstance).GetTotalTransform();
-
-                            //computedFaceNormal = trans.OfVector(computedFaceNormal);
-                            myXYZ_Normal = myXYZ_FamilyTransform.BasisZ;
-
-                            myXYZ_Normal = myXYZ_FamilyTransform.BasisZ;
-                            if (myElement.Category.Name == "Doors") myXYZ_Normal = -myXYZ_FamilyTransform.BasisY;
-                            if (myElement.Category.Name == "Windows") myXYZ_Normal = -myXYZ_FamilyTransform.BasisY;
-                            if (myElement.Category.Name == "Curtain Panels") myXYZ_Normal = -myXYZ_FamilyTransform.BasisY;
-                            //faceNormal = trans.OfVector(faceNormal);
-
+                            doc.Create.NewModelCurve(geomArc2, sketch2);
+                            doc.Create.NewModelCurve(myCurve_Ellipse, sketch2);
+                            doc.Create.NewModelCurve(geomPlane2, sketch2);
+                            doc.Create.NewModelCurve(geomPlane3, sketch2);
+                            doc.Create.NewModelCurve(L2, sketch2);
+                            doc.Create.NewModelCurve(L3, sketch2);
                         }
 
-                        Plane geomPlane = Plane.CreateByNormalAndOrigin(myXYZ_Normal, pickedRef.GlobalPoint);
-
-                        //////if (true)
-                        //////{
-                        //////    // Create a geometry plane & sketch plane in Revit application
-                        //////    XYZ origin = new XYZ(0, 0, 0);
-                        //////    XYZ normal = new XYZ(1, 1, 0);
-
-                        //////    XYZ startPoint = (geomPlane.YVec * -1) + pickedRef.GlobalPoint;
-                        //////    XYZ endPoint = (geomPlane.YVec * 1) + pickedRef.GlobalPoint;
-                        //////    Line geomLine = Line.CreateBound(startPoint, endPoint);
-
-                        //////    // Create a geometry circle in Revit application
-                        //////    double startAngle = 0;
-                        //////    double endAngle = 2 * Math.PI;
-                        //////    double radius = 1.23;
-                        //////    Arc geomPlane2 = Arc.Create(geomPlane, radius, startAngle, endAngle);
-
-                        //////    PointOnFace myPointOnFace = uidoc.Application.Application.Create.NewPointOnFace(pickedRef, pickedRef.UVPoint + new UV(10, 10));
-
-
-                        //////    SketchPlane sketch = SketchPlane.Create(doc, geomPlane);
-
-                        //////    ModelLine line = doc.Create.NewModelCurve(geomLine, sketch) as ModelLine;
-                        //////    ModelArc arc1 = doc.Create.NewModelCurve(geomLine, sketch) as ModelArc;
-                        //////    ModelArc arc2 = doc.Create.NewModelCurve(geomPlane2, sketch) as ModelArc;
-                        //////    ModelArc arc3 = doc.Create.NewModelCurve(ArcsToCornerOfSurface(pickedRef.GlobalPoint, geomPlane), sketch) as ModelArc;
-                        //////}
-
-
-                        if(true)
+                        #region catch and finally
+                        catch (Exception ex)
                         {
-                            Transform myTransform = Transform.Identity;  //front
-                                                                         //myTransform.Origin = myFace.GetEdgesAsCurveLoops()[0].ElementAt(0).GetEndPoint(0);
-                            myTransform.Origin = pickedRef.GlobalPoint;
-                            myTransform.BasisX = geomPlane.XVec;
-                            myTransform.BasisY = geomPlane.YVec;
-                            myTransform.BasisZ = geomPlane.Normal;
-
-
-                            // Create a geometry line
-                            XYZ startPoint = new XYZ(0, 0, 0);
-                            XYZ endPoint = new XYZ(10, 10, 0);
-
-                            // Create a arc
-                            XYZ origin = myTransform.OfPoint(new XYZ(0, 0, 0));
-                            XYZ normal = myTransform.OfPoint(new XYZ(1, 1, 0));
-                            XYZ end02 = myTransform.OfPoint((new XYZ(-.7, -.9, 0)));
-                            XYZ end12 = myTransform.OfPoint((new XYZ(.7, -.9, 0)));
-                            XYZ pointOnCurve2 = myTransform.OfPoint((new XYZ(0, -1.25, 0)));
-                            Arc geomArc2 = Arc.Create(end02, end12, pointOnCurve2);
-
-                            // Create a geometry circle in Revit application
-                            XYZ xVec = myTransform.OfVector(XYZ.BasisX);
-                            XYZ yVec = myTransform.OfVector(XYZ.BasisY);
-                            double startAngle = 0;
-                            double endAngle = 2 * Math.PI;
-                            double radius = .3;
-                            Arc geomPlane2 = Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
-                            Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
-
-                            ////////////////////// stright lines
-                            Line L2 = Line.CreateBound(myTransform.OfPoint(new XYZ(-.2, -.5, 0)), myTransform.OfPoint(new XYZ(.2, -.5, 0)));
-                            Line L3 = Line.CreateBound(myTransform.OfPoint(new XYZ(.2, -.5, 0)), myTransform.OfPoint(new XYZ(0, .1, 0)));
-
-                            // Create a ellipse
-                            double param0 = 0.0;
-                            double param1 = 2 * Math.PI;
-                            double radiusEllipse = 1.4;
-                            double radiusEllipse2 = 1.4 * 1.2;
-                            Curve myCurve_Ellipse = Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
-
-                            SketchPlane sketch = SketchPlane.Create(doc, geomPlane);
-
-                            doc.Create.NewModelCurve(geomArc2, sketch);
-                            doc.Create.NewModelCurve(myCurve_Ellipse, sketch);
-                            doc.Create.NewModelCurve(geomPlane2, sketch);
-                            doc.Create.NewModelCurve(geomPlane3, sketch);
-                            doc.Create.NewModelCurve(L2, sketch);
-                            doc.Create.NewModelCurve(L3, sketch);
+                            if (ex.Message != "Curve must be in the plane\r\nParameter name: pCurveCopy")
+                            {
+                                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE01_Part1_PlaceAFamily" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                            } else
+                            {
+                                //MessageBox.Show("hello");
+                            }
                         }
+                        finally
+                        {
+                        }
+                        #endregion
+
+
+
+                        // myModelCurve.SketchPlane =  (SketchPlane)myFace;
+
+                        // sketch.
+                        //myModelCurve.host
 
 
 
@@ -400,24 +444,49 @@ namespace _929_Bilt2020_PlaypenChild
             return "External Event Example";
         }
 
-        public static Arc ArcsToCornerOfSurface(XYZ myXYZ_Origin, Plane geomPlane)
+        public class MyPreProcessor : IFailuresPreprocessor
         {
-            // Create a geometry arc in Revit application
-            Transform myTransform = Transform.Identity;  //front
-                                                         //myTransform.Origin = myFace.GetEdgesAsCurveLoops()[0].ElementAt(0).GetEndPoint(0);
-            myTransform.Origin = myXYZ_Origin;
-            myTransform.BasisX = geomPlane.XVec;
-            myTransform.BasisY = geomPlane.YVec;
-            myTransform.BasisZ = geomPlane.Normal;
+            FailureProcessingResult IFailuresPreprocessor.PreprocessFailures(FailuresAccessor failuresAccessor)
+            {
+                String transactionName = failuresAccessor.GetTransactionName();
 
-            XYZ end0 = myTransform.OfPoint(new XYZ(-1, 0, 0));
-            XYZ end1 = myTransform.OfPoint(new XYZ(1, 0, 0));
-            XYZ pointOnCurve = myTransform.OfPoint(new XYZ(0, -1, 0));
-            return Arc.Create(end0, end1, pointOnCurve);
+                IList<FailureMessageAccessor> fmas = failuresAccessor.GetFailureMessages();
+
+                if (fmas.Count == 0) return FailureProcessingResult.Continue;
+
+                foreach (FailureMessageAccessor fma in fmas)
+                {
+                    FailureSeverity fseverity = fma.GetSeverity();
+
+                    if (fseverity == FailureSeverity.Warning) failuresAccessor.DeleteWarning(fma);
+                }
+
+                return FailureProcessingResult.Continue;
+            }
         }
+
+        ////public static Arc ArcsToCornerOfSurface(XYZ myXYZ_Origin, Plane geomPlane)
+        ////{
+        ////    // Create a geometry arc in Revit application
+        ////    Transform myTransform = Transform.Identity;  //front
+        ////                                                 //myTransform.Origin = myFace.GetEdgesAsCurveLoops()[0].ElementAt(0).GetEndPoint(0);
+        ////    myTransform.Origin = myXYZ_Origin;
+        ////    myTransform.BasisX = geomPlane.XVec;
+        ////    myTransform.BasisY = geomPlane.YVec;
+        ////    myTransform.BasisZ = geomPlane.Normal;
+
+        ////    XYZ end0 = myTransform.OfPoint(new XYZ(-1, 0, 0));
+        ////    XYZ end1 = myTransform.OfPoint(new XYZ(1, 0, 0));
+        ////    XYZ pointOnCurve = myTransform.OfPoint(new XYZ(0, -1, 0));
+        ////    return Arc.Create(end0, end1, pointOnCurve);
+        ////}
+
+
+
+
     }
 
-    
+
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE01_Part1_GridOutCirclesOnFace : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {

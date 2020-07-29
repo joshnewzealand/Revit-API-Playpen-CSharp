@@ -1,0 +1,138 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Name="myWindow" x:Class="RevitTransformSliders.Window1"
+    
+	Title="Moving and Transforming with code" Height="500" Width="1050" MinHeight="500" MinWidth="1050" Topmost="True" Closing="Window_Closing" ResizeMode="CanResizeWithGrip" Loaded="myWindow_Loaded" >
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Header="STAGE 1 - Moving: Easy coding" HorizontalAlignment="Left" Height="275" Margin="10,103,0,0" VerticalAlignment="Top" Width="284"/>
+        <GroupBox Header="STAGE 2 - ROTATING: A little harder (but still easy)" HorizontalAlignment="Left" Height="275" Margin="310,103,0,0" VerticalAlignment="Top" Width="284"/>
+        <GroupBox Header="STAGE 3 - INTERPOLATION: Difficult coding" HorizontalAlignment="Left" Height="312" Margin="613,45,0,0" VerticalAlignment="Top" Width="285"/>
+        <Slider x:Name="mySliderRotate_AGM_A"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragStarted="mySliderRotate_AGM_A_DragStarted" Thumb.DragCompleted="mySliderRotate_AGM_A_DragCompleted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="612,98,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySlider_Interpolate"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragStarted="mySlider_Interpolate_DragStarted" Thumb.DragCompleted="mySlider_Interpolate_DragCompleted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="612,186,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySliderRotate_AGM_B"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragStarted="mySliderRotate_AGM_B_DragStarted" Thumb.DragCompleted="mySliderRotate_AGM_B_DragCompleted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="612,277,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Label x:Name="myLabel_Progress" Content="Not in Progress" HorizontalAlignment="Left" Margin="635,357,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="myLabel_Setting" Content="value" HorizontalAlignment="Left" Margin="745,357,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label x:Name="myLabel_ChangeCount" Content="change count" HorizontalAlignment="Left" Margin="799,357,0,0" VerticalAlignment="Top" Width="88"/>
+        <xctk:IntegerUpDown x:Name="myIntUpDown_Middle2" HorizontalAlignment="Left" Margin="220,68,0,0" VerticalAlignment="Top" Width="78" IsEnabled="False"/>
+        <Button x:Name="myButton_PickMiddle" Content="← Set" HorizontalAlignment="Left" Margin="304,68,0,0" VerticalAlignment="Top" Width="42" Height="20" Click="myButton_PickMiddle_Click" />
+        <Button x:Name="myButton_PickA" Content="← Set" HorizontalAlignment="Left" Margin="984,147,0,0" VerticalAlignment="Top" Width="41" Height="20" Click="myButton_PickA_Click" />
+        <Button x:Name="myButton_PickB" Content="← Set" HorizontalAlignment="Left" Margin="984,322,0,0" VerticalAlignment="Top" Width="41" Height="20" Click="myButton_PickB_Click" />
+        <xctk:IntegerUpDown x:Name="myIntUpDown_A" HorizontalAlignment="Left" Margin="903,147,0,0" VerticalAlignment="Top" Width="77" IsEnabled="False"/>
+        <xctk:IntegerUpDown x:Name="myIntUpDown_B" HorizontalAlignment="Left" Margin="903,322,0,0" VerticalAlignment="Top" Width="77" IsEnabled="False"/>
+        <Slider x:Name="mySlider_Move_X"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Move_X_DragCompleted" Thumb.DragStarted="mySlider_Move_X_DragStarted"
+            Minimum="-12" Maximum="12" Value="0"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="-6" SelectionEnd="6" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="11,153,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySlider_Move_Y"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Move_Y_DragCompleted" Thumb.DragStarted="mySlider_Move_Y_DragStarted"    
+            Minimum="-12" Maximum="12" Value="0"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="-6" SelectionEnd="6" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="11,236,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySlider_Move_Z"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Move_Z_DragCompleted" Thumb.DragStarted="mySlider_Move_Z_DragStarted"
+            Minimum="-12" Maximum="12" Value="0"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="-6" SelectionEnd="6" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="11,317,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Label Content="X" HorizontalAlignment="Left" Margin="142,126,0,0" VerticalAlignment="Top"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="142,208,0,0" VerticalAlignment="Top"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="142,290,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="mySlider_Rotate_BasisX"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Rotate_BasisX_DragCompleted" Thumb.DragStarted="mySlider_Rotate_BasisX_DragStarted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="309,153,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySlider_Rotate_BasisY"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Rotate_BasisY_DragCompleted" Thumb.DragStarted="mySlider_Rotate_BasisY_DragStarted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="309,236,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Slider x:Name="mySlider_Rotate_BasisZ"  VerticalAlignment="Top" Height="26"  Foreground="Blue" Thumb.DragCompleted="mySlider_Rotate_BasisZ_DragCompleted" Thumb.DragStarted="mySlider_Rotate_BasisZ_DragStarted"
+            Minimum="0" Maximum="24" Value="12"
+            IsSelectionRangeEnabled="True"
+            SelectionStart="6" SelectionEnd="18" IsSnapToTickEnabled="True"
+            TickPlacement="BottomRight"
+            TickFrequency="1"  Margin="309,317,0,0" HorizontalAlignment="Left" Width="140"   >
+            <Slider.LayoutTransform>
+                <ScaleTransform  CenterX="0" CenterY="0" ScaleX="2" ScaleY="2" />
+            </Slider.LayoutTransform>
+        </Slider>
+        <Label Content="BasisX normal" HorizontalAlignment="Left" Margin="411,126,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="BasisY normal" HorizontalAlignment="Left" Margin="411,208,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="BasisZ normal" HorizontalAlignment="Left" Margin="411,290,0,0" VerticalAlignment="Top" Width="87"/>
+        <Button x:Name="myButton_PlaceCenterAGM" Content="Place AGM" HorizontalAlignment="Left" Margin="172,19,0,0" VerticalAlignment="Top" Width="126" Height="42" HorizontalContentAlignment="Center" Click="myButton_PlaceCenterAGM_Click" />
+        <Button x:Name="myButton_PlaceAGM_A" Content="Place AGM-A" HorizontalAlignment="Left" Margin="903,115,0,0" VerticalAlignment="Top" Width="122" Height="27" HorizontalContentAlignment="Center" Click="myButton_PlaceAGM_A_Click" />
+        <Button x:Name="myButton_PlaceAGM_B" Content="Place AGM-B" HorizontalAlignment="Left" Margin="903,290,0,0" VerticalAlignment="Top" Width="122" Height="27" HorizontalContentAlignment="Center" Click="myButton_PlaceAGM_B_Click" />
+        <Button x:Name="myButton_Reset" Content="Reset" HorizontalAlignment="Left" Margin="304,19,0,0" VerticalAlignment="Top" Width="96" Height="41" Click="myButton_Reset_Click"   />
+        <Label Content="Spin AGM-A in its BasisZ" HorizontalAlignment="Left" Margin="683,75,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Interpolate" HorizontalAlignment="Left" Margin="715,161,0,0" VerticalAlignment="Top" Width="77"/>
+        <Label Content="Spin AGM-B in its BasisZ" HorizontalAlignment="Left" Margin="683,252,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label x:Name="myLabel_TransformXBasis" Content="..." HorizontalAlignment="Left" Margin="311,379,0,0" VerticalAlignment="Top" Width="411" />
+        <Label  Content="BasisX" HorizontalAlignment="Left" Margin="263,379,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label x:Name="myLabel_TransformYBasis" Content="..." HorizontalAlignment="Left" Margin="311,395,0,0" VerticalAlignment="Top" Width="404"/>
+        <Label  Content="BasisY" HorizontalAlignment="Left" Margin="263,395,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label x:Name="myLabel_TransformZBasis" Content="..." HorizontalAlignment="Left" Margin="311,411,0,0" VerticalAlignment="Top" Width="404"/>
+        <Label  Content="BasisZ" HorizontalAlignment="Left" Margin="263,411,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label x:Name="myLabel_TransformOrigin" Content="..." HorizontalAlignment="Left" Margin="311,432,0,0" VerticalAlignment="Top" Width="438"/>
+        <Label  Content="Origin" HorizontalAlignment="Left" Margin="263,432,0,0" VerticalAlignment="Top" Width="48"/>
+        <Button x:Name="myButton_Cycle" Content="Cycle" HorizontalAlignment="Left" Margin="903,203,0,0" VerticalAlignment="Top" Width="75" Click="MyButton_Cycle_Click"/>
+        <xctk:IntegerUpDown x:Name="myUpDown_CycleNumber" HorizontalAlignment="Left" Margin="983,203,0,0" VerticalAlignment="Top" Width="49" Value="5" Minimum="1" Maximum="100"/>
+    </Grid>
+</Window>

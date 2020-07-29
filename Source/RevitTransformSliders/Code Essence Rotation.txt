@@ -1,0 +1,59 @@
+                    while (myWindow1.mySlideInProgress)
+                    {
+                        wait(100); myIntTimeOut++;
+
+                        if (myDouble_ChangePosition != myWindow1.mySlider.Value)
+                        {
+                            myDouble_ChangePosition = myWindow1.mySlider.Value;
+                            myWindow1.myLabel_ChangeCount.Content = myInt_ChangeCount++.ToString();
+                            using (Transaction y = new Transaction(doc, "a Transform"))
+                            {
+                                y.Start();
+
+                                double myDoubleRotateAngle = ((Math.PI * 2) / 24) * myDouble_ChangePosition;
+
+                                Transform myTransform_Rotate = Transform.CreateRotationAtPoint(XYZ.BasisZ, Math.PI + -myDoubleRotateAngle, XYZ.Zero); //1 places line and DOUBLE normally (z) negative , 3 places method
+
+                                switch (myWindow1.mySlider.Name)
+                                {
+                                    case "mySlider_Rotate_BasisY":
+                                        myTransform_Rotate = Transform.CreateRotationAtPoint(XYZ.BasisY, Math.PI + -myDoubleRotateAngle, XYZ.Zero); //1 places line and DOUBLE normally (z) negative , 3 places method
+                                        myBool_Perform_Unhost_And_Rehost = false;
+                                        break;
+                                    case "mySlider_Rotate_BasisX":
+                                        myTransform_Rotate = Transform.CreateRotationAtPoint(XYZ.BasisX, Math.PI + -myDoubleRotateAngle, XYZ.Zero); //1 places line and DOUBLE normally (z) negative , 3 places method
+                                        myBool_Perform_Unhost_And_Rehost = false;
+                                        break;
+                                }
+
+                                Transform myTransform_Temp = Transform.Identity;
+                                myTransform_Temp.Origin = myReferencePoint_Centre.GetCoordinateSystem().Origin;
+
+                                myTransform_Temp.BasisX = myTransform_ToMakeTheRotationRelative.OfVector(myTransform_Rotate.BasisX);
+                                myTransform_Temp.BasisY = myTransform_ToMakeTheRotationRelative.OfVector(myTransform_Rotate.BasisY);
+                                myTransform_Temp.BasisZ = myTransform_ToMakeTheRotationRelative.OfVector(myTransform_Rotate.BasisZ);
+
+                                myReferencePoint_Centre.SetCoordinateSystem(myTransform_Temp);
+
+                                if(myBool_InterpolateMiddle_WhenEitherA_or_B)
+                                {
+                                    myWindow1.myMethod_whichTook_120Hours_OfCoding();
+
+                                    myReferencePoint_Middle.SetCoordinateSystem(myWindow1.myListTransform_Interpolate[(int)myWindow1.mySlider_Interpolate.Value]);
+
+                                    myWindow1.setSlider(myWindow1.myIntUpDown_Middle2, myWindow1.mySlider_Rotate_BasisZ);
+                                    myWindow1.setSlider(myWindow1.myIntUpDown_Middle2, myWindow1.mySlider_Rotate_BasisX);
+                                    myWindow1.setSlider(myWindow1.myIntUpDown_Middle2, myWindow1.mySlider_Rotate_BasisY);
+                                }
+                                y.Commit();
+                            }
+                        }
+
+                        myWindow1.myLabel_Setting.Content = myWindow1.mySlider.Value.ToString();
+
+                        if (myIntTimeOut == 200)
+                        {
+                            MessageBox.Show("Timeout");
+                            break;
+                        }
+                    }

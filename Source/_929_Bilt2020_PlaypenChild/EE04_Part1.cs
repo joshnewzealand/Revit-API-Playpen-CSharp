@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +53,110 @@ namespace _929_Bilt2020_PlaypenChild
 
 
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class EE04_Part2_2DShapes : IExternalEventHandler 
+    public class EE04_UnderStandingTransforms : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
+    {
+        public Window1 myWindow1 { get; set; }
+
+        public void Execute(UIApplication uiapp)
+        {
+            string dllModuleName = "RevitTransformSliders";
+            string myString_TempPath = "";
+            try
+            {
+                if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")
+                {
+                    myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1];
+
+                    //string path = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Pedersen Read Limited\\cSharpPlaypen joshnewzealand").GetValue("TARGETDIR").ToString(); ;
+
+                    System.Reflection.Assembly objAssembly01 = System.Reflection.Assembly.Load(System.IO.File.ReadAllBytes(myString_TempPath + "\\" + dllModuleName + ".dll"));
+                    string strCommandName = "ThisApplication";
+
+                    IEnumerable<Type> myIEnumerableType = GetTypesSafely(objAssembly01);
+                    foreach (Type objType in myIEnumerableType)
+                    {
+                        if (objType.IsClass)
+                        {
+                            if (objType.Name.ToLower() == strCommandName.ToLower())
+                            {
+                                object ibaseObject = Activator.CreateInstance(objType);
+                                object[] arguments = new object[] { myWindow1.commandData, "Button_01_Invoke01|" + myString_TempPath, new ElementSet() };
+
+                                object result = null;
+
+                                result = objType.InvokeMember("OpenWindowForm", System.Reflection.BindingFlags.Default | System.Reflection.BindingFlags.InvokeMethod, null, ibaseObject, arguments);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+                if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
+                {
+
+                    myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1];
+
+                    System.Reflection.Assembly objAssembly01 = System.Reflection.Assembly.Load(System.IO.File.ReadAllBytes(myString_TempPath + "\\" + dllModuleName + "\\AddIn\\" + dllModuleName + ".dll"));
+
+                    string strCommandName = "ThisApplication";
+
+                    IEnumerable<Type> myIEnumerableType = GetTypesSafely(objAssembly01);
+                    foreach (Type objType in myIEnumerableType)
+                    {
+                        if (objType.IsClass)
+                        {
+                            if (objType.Name.ToLower() == strCommandName.ToLower())
+                            {
+                                object ibaseObject = Activator.CreateInstance(objType);
+                                object[] arguments = new object[] { myWindow1.commandData, "Button_01_Invoke01Development|" + myString_TempPath, new ElementSet() };
+                                object result = null;
+
+                                result = objType.InvokeMember("OpenWindowForm", System.Reflection.BindingFlags.Default | System.Reflection.BindingFlags.InvokeMethod, null, ibaseObject, arguments);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                string pathHeader = "Please check this file (and directory) exist: " + Environment.NewLine;
+                // string path = myWindow1.myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild";
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug(pathHeader + myString_TempPath, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+        public string GetName()
+        {
+            return "External Event Example";
+        }
+
+        private static IEnumerable<Type> GetTypesSafely(System.Reflection.Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (System.Reflection.ReflectionTypeLoadException ex)
+            {
+                return ex.Types.Where(x => x != null);
+            }
+        }
+    }
+
+
+    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
+    public class EE04_Part2_2DShapes : IExternalEventHandler
     {
         public Window1 myWindow1 { get; set; }
 
@@ -96,7 +200,7 @@ namespace _929_Bilt2020_PlaypenChild
                     XYZ myXYZ_Corner1 = uiview.GetZoomCorners()[0];
                     XYZ myXYZ_Corner2 = uiview.GetZoomCorners()[1];
 
-                    XYZ myXYZ_Centre = uiview.GetZoomCorners()[0] + ((uiview.GetZoomCorners()[1] - uiview.GetZoomCorners()[0])/2);
+                    XYZ myXYZ_Centre = uiview.GetZoomCorners()[0] + ((uiview.GetZoomCorners()[1] - uiview.GetZoomCorners()[0]) / 2);
 
 
                     // Create a geometry line
@@ -169,6 +273,8 @@ namespace _929_Bilt2020_PlaypenChild
     {
         public Window1 myWindow1 { get; set; }
 
+        public Wall myWall;
+
         public void Execute(UIApplication uiapp)
         {
             try
@@ -176,19 +282,50 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
 
-                using (Transaction tx = new Transaction(doc))
+                //if(myWall == null)
+               // {
+                    if (uidoc.Selection.GetElementIds().Count != 1)
+                    {
+                        if (myWall == null) MessageBox.Show("Please select ONE Wall.");
+                        return;
+                    }
+
+                    Element myElementWall = doc.GetElement(uidoc.Selection.GetElementIds().First());
+
+                    if (myElementWall.Category.Name != "Walls")
+                    {
+                        if (myWall == null) MessageBox.Show("Selected entity must be a Wall.");
+                        return;
+                    }
+
+                    myWall = myElementWall as Wall;
+              //  }
+
+
+               List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (x.GetType() == typeof(FamilyInstance)) ? ((FamilyInstance)x).Host.Id == myWall.Id : false).ToList();
+
+                //Element myElement = doc.GetElement(new ElementId(138390));
+
+                //MessageBox.Show(myManTippingHat.Count().ToString());
+
+                //myManTippingHat 
+                //  List<ElementId> myFEC_ManTippingHat = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().Where(x => x.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).AsString() == "Example 2 Walls").Select(x => x.Id).ToList();
+                if(myListOfStuffOnWall.Count() > 0)
                 {
-                    tx.Start("Rotate Man");
+                    using (Transaction tx = new Transaction(doc))
+                    {
+                        tx.Start("Rotate Man");
 
-                    FamilyInstance myFamilyInstance = doc.GetElement(new ElementId(536235)) as FamilyInstance;
+                        FamilyInstance myFamilyInstance = myListOfStuffOnWall.First() as FamilyInstance;
 
-                    XYZ myXYZInstance = ((LocationPoint)myFamilyInstance.Location).Point;
+                        XYZ myXYZInstance = ((LocationPoint)myFamilyInstance.Location).Point;
 
-                    Line myLineBasisY = Line.CreateUnbound(myXYZInstance, myFamilyInstance.GetTransform().BasisZ); //  tf_01072_4 = Transform.CreateRotation(myTransform_FakeBasis2.BasisZ, d1 / 10 * myInt_DivideInteger);
+                        Line myLineBasisY = Line.CreateUnbound(myXYZInstance, myFamilyInstance.GetTransform().BasisZ); //  tf_01072_4 = Transform.CreateRotation(myTransform_FakeBasis2.BasisZ, d1 / 10 * myInt_DivideInteger);
 
-                    ElementTransformUtils.RotateElement(doc, myFamilyInstance.Id, myLineBasisY, Math.PI / 4);
+                        ElementTransformUtils.RotateElement(doc, myFamilyInstance.Id, myLineBasisY, Math.PI / 4);
 
-                    tx.Commit();
+                        tx.Commit();
+                    }
                 }
 
 
@@ -196,35 +333,14 @@ namespace _929_Bilt2020_PlaypenChild
                 {
                     tx.Start("Rotate Wall");
 
-                    Wall myWall = doc.GetElement(new ElementId(528428)) as Wall;
-                    FamilyInstance myFamilyInstance = doc.GetElement(new ElementId(536235)) as FamilyInstance;
 
                     Curve myCurve = ((LocationCurve)myWall.Location).Curve;
 
-                    //.WhereElementIsNotElementType().Where(x => x.get_Parameter(BuiltInParameter.FAMILY_LEVEL_PARAM).AsValueString() == "03 - Floor").Where(x => ((LocationPoint)x.Location).Point.X > ((LocationCurve)myWall.Location).Curve.GetEndPoint(0).X).Where(x => ((LocationPoint)x.Location).Point.Y < ((LocationCurve)myWall.Location).Curve.GetEndPoint(0).Y).ToList();
                     XYZ myXYZ = (myCurve.GetEndPoint(1) + myCurve.GetEndPoint(0)) / 2;
-                    XYZ myXYZInstance =  ((LocationPoint)myFamilyInstance.Location).Point;
 
                     Line myLineBasisZ = Line.CreateUnbound(myXYZ, XYZ.BasisZ);
-                    Line myLineBasisY = Line.CreateUnbound(myXYZInstance, myFamilyInstance.GetTransform().BasisZ); //  tf_01072_4 = Transform.CreateRotation(myTransform_FakeBasis2.BasisZ, d1 / 10 * myInt_DivideInteger);
 
                     ElementTransformUtils.RotateElement(doc, myWall.Id, myLineBasisZ, Math.PI / 20);
-                    //ElementTransformUtils.RotateElement(doc, myFamilyInstance.Id, myLineBasisY, Math.PI / 4);
-
-                    if(false)
-                    {
-                        WallType myWallType = doc.GetElement(myWall.GetTypeId()) as WallType;
-
-                        CompoundStructure myCompoundStructure = myWallType.GetCompoundStructure();
-
-                        CompoundStructureLayer compoundStructureLayer = myCompoundStructure.GetLayers()[0];
-
-                        compoundStructureLayer.Width = compoundStructureLayer.Width + 0.05;
-
-                        myCompoundStructure.SetLayerWidth(0, compoundStructureLayer.Width);
-                        //myCompoundStructure.SetLayer(compoundStructureLayer.LayerId, compoundStructureLayer);
-                        myWallType.SetCompoundStructure(myCompoundStructure);
-                    }
 
                     tx.Commit();
                 }

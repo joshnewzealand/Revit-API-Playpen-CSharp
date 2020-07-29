@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{B60AB0CD-D183-4B30-9C16-E1F2E5BC76B8}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>_929_Bilt2020_PlaypenChild</RootNamespace>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>False</Optimize>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>..\..\Addin\</OutputPath>
+    <AssemblyName>_929_Bilt2020_PlaypenChild</AssemblyName>
+    <BaseInterMediateOutputPath>obj\</BaseInterMediateOutputPath>
+    <InterMediateOutputPath>obj\Debug</InterMediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>AddIn\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EE04_Part1.cs" />
+    <Compile Include="EE03_Part1.cs" />
+    <Compile Include="EE02_Part1.cs" />
+    <Compile Include="EE01_Part1.cs" />
+    <Compile Include="EE05_Part1.cs" />
+    <Compile Include="EE07_Part1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ThisApplication.cs" />
+    <Compile Include="ThisApplication.Designer.cs">
+      <DependentUpon>ThisApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EE00_SchemaBuilders.cs" />
+    <Compile Include="EE06_Part1.cs" />
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window3.xaml.cs">
+      <DependentUpon>Window3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_952_LinkedCode\20181201 Loaded Stripped.cs" />
+    <Compile Include="_952_LinkedCode\DatabaseMethods Stripped.cs" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="Families\Generic Adaptive Nerf Gun.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Furniture Chair Viper.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Furniture Desk.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Furniture Table Dining Round w Chairs.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Furniture Table Night Stand.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Generic Model Tipping Hat Man.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\Furniture Couch Viper.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Code Snippets\01 of 19 Select element with code.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\02 of 19 One of each wall.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\03 of 19 Set default type.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\04 of 19 Manual Colour Override.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\05 of 19 insert text here - Copy %283%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\06 of 19 insert text here - Copy %284%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\07 of 19 insert text here - Copy %285%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\08 of 19 insert text here - Copy %286%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\09 of 19 insert text here - Copy %287%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\10 of 19 insert text here - Copy %288%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\11 of 19 insert text here - Copy %289%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\12 of 19 insert text here - Copy %2810%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\13 of 19 insert text here - Copy %2811%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\14 of 19 insert text here - Copy %2812%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\15 of 19 insert text here - Copy %2813%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\16 of 19 insert text here - Copy %2814%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\17 of 19 insert text here - Copy %2815%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\18 of 19 insert text here - Copy %2816%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\19 of 19 insert text here - Copy %2817%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PlayPenSharedParametersInstance.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PlayPenSharedParametersType.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <Import Project="..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\..\..\_929_Bilt2020_PlaypenParent\Source\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Ookii.Dialogs.Wpf.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll" />
+    <ReferencePath Include="R:\RevitAPI.dll" />
+    <ReferencePath Include="R:\RevitAPIUI.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\System.Data.SQLite.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Xceed.Wpf.AvalonDock.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+    <ReferencePath Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Xceed.Wpf.Toolkit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window1.g.cs" />
+    <Compile Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window2.g.cs" />
+    <Compile Include="R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window3.g.cs" />
+  </ItemGroup>
+</Project>

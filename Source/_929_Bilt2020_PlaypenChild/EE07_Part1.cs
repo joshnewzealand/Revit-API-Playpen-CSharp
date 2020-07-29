@@ -171,7 +171,6 @@ namespace _929_Bilt2020_PlaypenChild
         }
     }
 
-
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE07_Part1 : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {

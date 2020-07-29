@@ -50,6 +50,93 @@ namespace _929_Bilt2020_PlaypenChild
         }
     }
 
+
+    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
+    public class EE05_Part1_LoadAllFamilies : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
+    {
+        public Window1 myWindow1 { get; set; }
+
+        public void Execute(UIApplication uiapp)
+        {
+            try
+            {
+                UIDocument uidoc = uiapp.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                // string myString_FamilyName = "Generic Adaptive Nerf Gun";
+                //string myString_FamilyFileName = @"\Generic Adaptive Nerf Gun.rfa";  //Families
+
+                string myStringMessageBox = "";
+
+                int myInt = 0;
+
+                foreach (Window3.ListView_Class myListView_Class in myWindow1.myWindow3.myListClass)
+                {
+                    List<Element> myListFamily = new FilteredElementCollector(doc).WherePasses(new ElementClassFilter(typeof(Family))).Where(x => x.Name == myListView_Class.String_Name).ToList();
+
+                    if (myListFamily.Count == 0)
+                    {
+                        string myString_TempPath = "";
+
+                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")
+                        {
+                            myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + myListView_Class.String_FileName;
+                        }
+                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
+                        {
+                            myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild" + myListView_Class.String_FileName;
+                        }
+                        using (Transaction tx = new Transaction(doc))
+                        {
+                            tx.Start("Load a " + myListView_Class.String_Name);
+                            doc.LoadFamily(myString_TempPath, new FamilyOptionOverWrite(), out Family myFamily);
+                            tx.Commit();
+                        }
+
+                        myStringMessageBox = myStringMessageBox + Environment.NewLine + myListView_Class.String_Name;
+                        myInt++;
+                    }
+
+                }
+
+                string myStringStart = myInt.ToString() + " families have been loaded: " +  Environment.NewLine + Environment.NewLine;
+
+                MessageBox.Show(myStringStart + myStringMessageBox + Environment.NewLine + Environment.NewLine + "This only happens once per project.");
+
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE05_Part1_PlaceNerfGun" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+        public string GetName()
+        {
+            return "External Event Example";
+        }
+
+        public class FamilyOptionOverWrite : IFamilyLoadOptions
+        {
+            public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
+            {
+                overwriteParameterValues = true;
+                return true;
+            }
+            public bool OnSharedFamilyFound(Family sharedFamily, bool familyInUse, out FamilySource source, out bool overwriteParameterValues)
+            {
+                source = FamilySource.Family;
+                overwriteParameterValues = true;
+                return true;
+            }
+        }
+    }
+
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE05_Part1 : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
@@ -71,27 +158,16 @@ namespace _929_Bilt2020_PlaypenChild
 
                 if (fmas.Count == 0) return FailureProcessingResult.Continue;
 
-                // We already know the transaction name.
-
                 foreach (FailureMessageAccessor fma in fmas)
                 {
                     FailureSeverity fseverity = fma.GetSeverity();
 
-                    // ResolveFailure mimics clicking 
-                    // 'Remove Link' button             .
                     if (fseverity == FailureSeverity.Warning) failuresAccessor.DeleteWarning(fma);
-
-                    //failuresAccessor.ResolveFailure(fma);
-                    // DeleteWarning mimics clicking 'Ok' button.
-                    //failuresAccessor.DeleteWarning( fma );         
                 }
 
-                //return FailureProcessingResult
-                //  .ProceedWithCommit;
                 return FailureProcessingResult.Continue;
             }
         }
-
 
         public void Execute(UIApplication uiapp)
         {
@@ -106,24 +182,46 @@ namespace _929_Bilt2020_PlaypenChild
                     return;
                 }
 
-                //using (Transaction tx = new Transaction(doc))
-                //{
-                //    tx.Start("Splatter Gun");
+                FamilyInstance myFamilyInstance_NerfGun = null;
+                if (uidoc.Selection.GetElementIds().Count == 0)
+                {
+                    string myString_RememberLast = doc.ProjectInformation.get_Parameter(BuiltInParameter.PROJECT_NUMBER).AsString();
+                    int n;
+                    if (int.TryParse(myString_RememberLast, out n)) myFamilyInstance_NerfGun = doc.GetElement(new ElementId(n)) as FamilyInstance;
+                }
+                else
+                {
+                    myFamilyInstance_NerfGun = doc.GetElement(uidoc.Selection.GetElementIds().First()) as FamilyInstance;
+                }
+              
 
-                    //here we are frendo
-                    FamilyInstance myFamilyInstance = doc.GetElement(new ElementId(536937)) as FamilyInstance;
+                if (myFamilyInstance_NerfGun == null)
+                {
+                    MessageBox.Show("Please perform step 5 of 19 first." + Environment.NewLine + Environment.NewLine + "(Placing Nerf Gun)");
+                    return;
+                }
 
-                    //myFamilyInstance.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Hello world");
+                uidoc.Selection.SetElementIds(new List<ElementId>());
 
-                    ReferencePoint myReferencePoint = doc.GetElement(AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(myFamilyInstance).First()) as ReferencePoint;
+                ReferencePoint myReferencePoint = doc.GetElement(AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(myFamilyInstance_NerfGun).First()) as ReferencePoint;
 
-                    Transform myTransform_DirectlyPerform = myReferencePoint.GetCoordinateSystem();
-
-                    ReferenceIntersector refIntersector = new ReferenceIntersector(doc.ActiveView as View3D);
+                Transform myTransform_FromNurfGun = myReferencePoint.GetCoordinateSystem();
 
                 using (TransactionGroup transGroup = new TransactionGroup(doc))
                 {
                     transGroup.Start("Transaction Group");
+
+
+                    using (Transaction tx = new Transaction(doc))
+                    {
+                        tx.Start("Unhost");
+
+                        myReferencePoint.get_Parameter(BuiltInParameter.POINT_ELEMENT_DRIVEN).Set(0);
+
+                        tx.Commit();
+                        uidoc.RefreshActiveView();
+                    }
+
 
                     MyPreProcessor preproccessor = new MyPreProcessor();
 
@@ -144,66 +242,80 @@ namespace _929_Bilt2020_PlaypenChild
 
                             tx.Start("Splatter Gun");
 
-                            Line myLine_BasisX = Line.CreateUnbound(myTransform_DirectlyPerform.Origin, myTransform_DirectlyPerform.BasisX);
+                            Line myLine_BasisX = Line.CreateUnbound(myTransform_FromNurfGun.Origin, myTransform_FromNurfGun.BasisX);
                             myReferencePoint.Location.Rotate(myLine_BasisX, GetRandomNumber());
-                            myTransform_DirectlyPerform = myReferencePoint.GetCoordinateSystem();
 
-                            Line myLine_BasisY = Line.CreateUnbound(myTransform_DirectlyPerform.Origin, myTransform_DirectlyPerform.BasisY);
-                            myReferencePoint.Location.Rotate(myLine_BasisY, GetRandomNumber());
-                            myTransform_DirectlyPerform = myReferencePoint.GetCoordinateSystem();
+                            Line myLine_BasisZ = Line.CreateUnbound(myTransform_FromNurfGun.Origin, myTransform_FromNurfGun.BasisZ);
+                            myReferencePoint.Location.Rotate(myLine_BasisZ, GetRandomNumber());
 
-                            //Line myLine_BasisZ = Line.CreateUnbound(myTransform_DirectlyPerform.Origin, myTransform_DirectlyPerform.BasisZ);
-                            //myReferencePoint.Location.Rotate(myLine_BasisZ, GetRandomNumber());
-                            //myTransform_DirectlyPerform = myReferencePoint.GetCoordinateSystem();
+                            myTransform_FromNurfGun = myReferencePoint.GetCoordinateSystem();
 
-                            XYZ myXYZ_DirectlyOffset = myTransform_DirectlyPerform.OfVector(new XYZ(0, 0, 3));
-                            XYZ myXYZ_HeightScan_100Below_Transform = myTransform_DirectlyPerform.Origin + myXYZ_DirectlyOffset;
+                            List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
+                            builtInCats.Add(BuiltInCategory.OST_Roofs);
+                            builtInCats.Add(BuiltInCategory.OST_Ceilings);
+                            builtInCats.Add(BuiltInCategory.OST_Floors);
+                            builtInCats.Add(BuiltInCategory.OST_Walls);
+                            builtInCats.Add(BuiltInCategory.OST_Doors);
+                            builtInCats.Add(BuiltInCategory.OST_Windows);
+                            builtInCats.Add(BuiltInCategory.OST_CurtainWallPanels);
+                            builtInCats.Add(BuiltInCategory.OST_CurtainWallMullions);
 
-                            Reference myReferenceHosting_Normal = refIntersector.FindNearest(myXYZ_HeightScan_100Below_Transform, myTransform_DirectlyPerform.BasisZ).GetReference();
+                            ElementMulticategoryFilter intersectFilter = new ElementMulticategoryFilter(builtInCats);
+                            ReferenceIntersector refIntersector = new ReferenceIntersector(intersectFilter, FindReferenceTarget.Face, doc.ActiveView as View3D);
 
-                            //if (myReferenceHosting_Normal.ElementId != null)
-                            //{
-                                Element myElement = doc.GetElement(myReferenceHosting_Normal.ElementId);
+                            ReferenceWithContext myReferenceWithContext = refIntersector.FindNearest(myTransform_FromNurfGun.Origin, myTransform_FromNurfGun.BasisZ);
 
-                            if (myElement.GetGeometryObjectFromReference(myReferenceHosting_Normal).GetType() != typeof(PlanarFace)) continue;
+                            if (myReferenceWithContext != null)
+                            {
+                                Reference myReferenceHosting_Normal = myReferenceWithContext.GetReference();
 
-                            Face myFace = myElement.GetGeometryObjectFromReference(myReferenceHosting_Normal) as Face;
+                                Element myElement_ContainingFace = doc.GetElement(myReferenceHosting_Normal.ElementId);
+                                Face myFace = myElement_ContainingFace.GetGeometryObjectFromReference(myReferenceHosting_Normal) as Face;
+                                if (myFace.GetType() != typeof(PlanarFace)) return;// continue;
 
-                            // Create a geometry plane in Revit application
-                            XYZ origin = new XYZ(0, 0, 0);
-                            XYZ normal = new XYZ(1, 1, 0);
-                            Plane geomPlane = Plane.CreateByNormalAndOrigin(myFace.ComputeNormal(myReferenceHosting_Normal.UVPoint), myReferenceHosting_Normal.GlobalPoint);
+                                Plane plane = Plane.CreateByNormalAndOrigin(myTransform_FromNurfGun.BasisX, myTransform_FromNurfGun.Origin); 
+                                SketchPlane sketchPlane = SketchPlane.Create(doc, plane); 
 
-                            // Create a geometry circle in Revit application
-                            double startAngle = 0;
-                            double endAngle = 2 * Math.PI;
-                            double radius = 1.23;
-                            Arc geomPlane2 = Arc.Create(geomPlane, radius, startAngle, endAngle);
+                                Line line = Line.CreateBound(myTransform_FromNurfGun.Origin, myReferenceHosting_Normal.GlobalPoint);
+                             
 
-                            SketchPlane sketch = SketchPlane.Create(doc, geomPlane); ;
+                                ModelLine myModelLine = doc.Create.NewModelCurve(line, sketchPlane) as ModelLine;
+                              
 
-                            ModelArc arc = doc.Create.NewModelCurve(geomPlane2, sketch) as ModelArc;
+                                Transform myXYZ_FamilyTransform = Transform.Identity;
 
-                            //XYZ norm = v.CrossProduct(w).Normalize();
-                            Plane plane = Plane.CreateByNormalAndOrigin(myTransform_DirectlyPerform.BasisX, myTransform_DirectlyPerform.Origin); // 2017
-                            SketchPlane sketchPlane = SketchPlane.Create(doc, plane); // 2014
-                            Line line = Line.CreateBound(myTransform_DirectlyPerform.Origin, myReferenceHosting_Normal.GlobalPoint); // 2014
+                                if (myReferenceHosting_Normal.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                                {
+                                    myXYZ_FamilyTransform = (myElement_ContainingFace as FamilyInstance).GetTotalTransform();
+                                }
 
-                            //doc.Create.NewModelCurve(line, sketchPlane);
+                           
 
-                            ModelLine myModelLine = doc.Create.NewModelCurve(line, sketchPlane) as ModelLine;
+                                PlanarFace myPlanarFace = myFace as PlanarFace;
 
-                            //ModelLine myModelLine = CreateModelLine(doc, myTransform_DirectlyPerform.Origin, myReferenceHosting_Normal.GlobalPoint);
 
-                            //doc.Regenerate();
-                            //}
+                                Transform myTransform = Transform.Identity;
+                                myTransform.Origin = myReferenceHosting_Normal.GlobalPoint;
+                                myTransform.BasisX = myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
+                                myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
+                                myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
 
+                                SketchPlane sketch2 = SketchPlane.Create(doc, myReferenceHosting_Normal);
+
+                                // Create a geometry circle in Revit application
+                                XYZ xVec = myTransform.OfVector(XYZ.BasisX);
+                                XYZ yVec = myTransform.OfVector(XYZ.BasisY);
+                                double startAngle2 = 0;
+                                double endAngle2 = 2 * Math.PI;
+                                double radius2 = 1.23;
+                                Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(0, 0, 0)), radius2, startAngle2, endAngle2, xVec, yVec);
+
+                                ModelArc arc = doc.Create.NewModelCurve(geomPlane3, sketch2) as ModelArc;
+                                //doc.Delete(sketch2.Id);
+
+                            }
                             tx.Commit();
-
                             uidoc.RefreshActiveView();
-
-                            //MessageBox.Show("hello world");
-                            //fight joshua, it is creating the circle offset, 
                         }
                     }
 
@@ -221,7 +333,6 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
         }
-
 
         public string GetName()
         {

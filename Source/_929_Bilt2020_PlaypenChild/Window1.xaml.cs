@@ -28,6 +28,7 @@ using Transform = Autodesk.Revit.DB.Transform;
 using Binding = Autodesk.Revit.DB.Binding;
 using Autodesk.Revit.DB.Events;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace _929_Bilt2020_PlaypenChild
 {
@@ -36,6 +37,11 @@ namespace _929_Bilt2020_PlaypenChild
     /// </summary>
     public partial class Window1 : Window
     {
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
         public ExternalCommandData commandData { get; set; }
 
         public EE01_Part1 myEE01_Part1 { get; set; }
@@ -68,12 +74,20 @@ namespace _929_Bilt2020_PlaypenChild
         public EE04_Part1 myEE04_Part1 { get; set; }
         public ExternalEvent myExternalEvent_EE04 { get; set; }
 
+        public EE04_UnderStandingTransforms myEE04_UnderStandingTransforms { get; set; }
+        public ExternalEvent myExternalEvent_EE04_UnderStandingTransforms { get; set; }
+
+        
+
         public EE04_Part2_2DShapes myEE04_Part2_2DShapes { get; set; }
         public ExternalEvent myExternalEvent_EE04_Part2_2DShapes { get; set; }
-        
+
 
         public EE05_Part1 myEE05_Part1 { get; set; }
         public ExternalEvent myExternalEvent_EE05 { get; set; }
+
+        public EE05_Part1_LoadAllFamilies myEE05_Part1_LoadAllFamilies { get; set; }
+        public ExternalEvent myExternalEvent_EE05_Part1_LoadAllFamilies { get; set; }
 
         public EE01_Part1_PlaceAFamily myEE01_Part1_PlaceAFamily { get; set; }
         public ExternalEvent myExternalEvent_EE01_Part1_PlaceAFamily { get; set; }
@@ -93,10 +107,16 @@ namespace _929_Bilt2020_PlaypenChild
         public EE07_Part1_Binding myEE07_Part1_Binding { get; set; }
         public ExternalEvent myExternalEvent_EE07_Binding { get; set; }
 
+
+
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
 
         public ThisApplication myThisApplication { get; set; }
+        public Window3 myWindow3 { get; set; } 
+
+
+        //MessageBox.Show(myString_FamilyName + " Family has not been loaded into project.");
 
         public Window1(ExternalCommandData cD, ThisApplication tA)
         {
@@ -149,6 +169,12 @@ namespace _929_Bilt2020_PlaypenChild
             myEE04_Part1.myWindow1 = this;
             myExternalEvent_EE04 = ExternalEvent.Create(myEE04_Part1);
 
+
+            myEE04_UnderStandingTransforms = new EE04_UnderStandingTransforms();
+            myEE04_UnderStandingTransforms.myWindow1 = this;
+            myExternalEvent_EE04_UnderStandingTransforms = ExternalEvent.Create(myEE04_UnderStandingTransforms);
+
+
             myEE04_Part2_2DShapes = new EE04_Part2_2DShapes();
             myEE04_Part2_2DShapes.myWindow1 = this;
             myExternalEvent_EE04_Part2_2DShapes = ExternalEvent.Create(myEE04_Part2_2DShapes);
@@ -157,6 +183,10 @@ namespace _929_Bilt2020_PlaypenChild
             myEE05_Part1 = new EE05_Part1();
             myEE05_Part1.myWindow1 = this;
             myExternalEvent_EE05 = ExternalEvent.Create(myEE05_Part1);
+
+            myEE05_Part1_LoadAllFamilies = new EE05_Part1_LoadAllFamilies();
+            myEE05_Part1_LoadAllFamilies.myWindow1 = this;
+            myExternalEvent_EE05_Part1_LoadAllFamilies = ExternalEvent.Create(myEE05_Part1_LoadAllFamilies);
 
             myEE01_Part1_PlaceAFamily = new EE01_Part1_PlaceAFamily();
             myEE01_Part1_PlaceAFamily.myWindow1 = this;
@@ -185,9 +215,7 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             Document doc = uidoc.Document;
             
-      
             myMakeTheSchemas(doc);
-
         }
 
         public Entity public_HaveWeMovedOrNot()
@@ -760,10 +788,18 @@ namespace _929_Bilt2020_PlaypenChild
             Properties.Settings.Default.Width = this.Width;
             Properties.Settings.Default.Save();
         }
-        private void MyButtonWeCan_Click(object sender, RoutedEventArgs e)
+        private void myButton_Draw3DLines_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                //clearing existing command
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
                 ///////placeholder for///////////openParentView
                 ///////placeholder for///////////get geometries, use conditional for largest face on geometries
                 ///////placeholder for///////////draw hi there on largest surfaces, the debug is for smallest surfaces?
@@ -833,7 +869,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                 ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-
             }
 
             #region catch and finally
@@ -850,6 +885,19 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                List<Element> myListElement = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).Where(x => x.Name == "Generic Adaptive Nerf Gun").ToList();
+
+                if(myListElement.Count() == 0)
+                {
+                    MessageBox.Show("Please place a nerf gun in the model (from step 5 of 19)");
+                    return;
+                }
+
+                uidoc.Selection.SetElementIds(new List<ElementId>() { myListElement.Last().Id });
+
                 myExternalEvent_EE05.Raise();
             }
 
@@ -865,15 +913,21 @@ namespace _929_Bilt2020_PlaypenChild
         }
         private void myButtonPickPlace_Click(object sender, RoutedEventArgs e)
         {
+            int eL = -1;
+            myWindow3 = new Window3(commandData);
+
             try
             {
-                myExternalEvent_EE01_Part1_PlaceAFamily.Raise();
+                myWindow3.myWindow1 = this;
+                myWindow3.Topmost = true;
+                myWindow3.Owner = this;
+                myWindow3.Show();
             }
 
             #region catch and finally
             catch (Exception ex)
             {
-                    _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonPickPlace_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonPickPlace_Click, error line:" + eL + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {
@@ -929,6 +983,14 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                //clearing existing command
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
                 myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
             }
             #region catch and finally
@@ -979,10 +1041,11 @@ namespace _929_Bilt2020_PlaypenChild
         }
         private void myButtonLookAtThisTool_Click(object sender, RoutedEventArgs e)
         {
+            Window2 myWindow2 = new Window2(commandData);
             try
             {
-                Window2 myWindow2 = new Window2(commandData);
-                myWindow2.myWindow1 = this;
+                //Window2 myWindow2 = new Window2(commandData);
+                 myWindow2.myWindow1 = this;
 
                 myWindow2.Show();
             }
@@ -1119,12 +1182,20 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                //clearing existing command
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
                 myExternalEvent_EE04_Part2_2DShapes.Raise();
             }
             #region catch and finally
             catch (Exception ex)
             {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE04_Part2_2DShapes" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonPlonk2DLines_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {
@@ -1393,6 +1464,60 @@ namespace _929_Bilt2020_PlaypenChild
         private void myButtonShowCode_SelectElementWithCode_Click(object sender, RoutedEventArgs e)
         {
             myMethod_ShowCodeButtons("01 of 19 Select element with code.txt");
+        }
+
+        private void myButton_LoadPlaceNerfGun_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //deduction come back to this to place the escape event
+                /*
+
+
+                FamilySymbol myFamilySymbol = doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
+
+                using (Transaction tx = new Transaction(doc))
+                {
+                    tx.Start("Place a " + myListView_Class.String_Name);
+                    myFamilySymbol.Activate();
+                    FamilyInstance myFamilyInstance = doc.Create.NewFamilyInstance(new XYZ(70, -30, 12), myFamilySymbol, Autodesk.Revit.DB.Structure.StructuralType.NonStructural);
+                    doc.ProjectInformation.get_Parameter(BuiltInParameter.PROJECT_NUMBER).Set(myFamilyInstance.Id.IntegerValue.ToString());
+                    tx.Commit();
+                }
+
+    */
+
+
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButton_LoadPlaceNerfGun_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+
+        private void myButton_UnderStandingTransforms_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                myExternalEvent_EE04_UnderStandingTransforms.Raise();
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButton_UnderStandingTransforms_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
         }
     }
 }
