@@ -94,5 +94,29 @@ namespace _929_Bilt2020_PlaypenChild.Properties {
                 this["Win3Left"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public double Win4Top {
+            get {
+                return ((double)(this["Win4Top"]));
+            }
+            set {
+                this["Win4Top"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("700")]
+        public double Win4Left {
+            get {
+                return ((double)(this["Win4Left"]));
+            }
+            set {
+                this["Win4Left"] = value;
+            }
+        }
     }
 }

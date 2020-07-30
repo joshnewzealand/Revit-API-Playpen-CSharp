@@ -11,14 +11,14 @@ namespace _929_Bilt2020_PlaypenChild
     class Schema_FurnLocations
     {
 
-        public const string myConstantStringSchema_FurnLocations_Index = "d4afae09-95b2-47d1-a966-468995d06cf8";
-        public const string myConstantStringSchema_FurnLocations = "d001de57-02c8-465b-8cff-6c6af5d86eaf";
+        public const string myConstantStringSchema_FurnLocations_Index = "d4afae09-95b2-47d1-a966-468995d06cf9";
+        public const string myConstantStringSchema_FurnLocations = "d001de57-02c8-465b-8cff-6c6af5d86ebf";
 
         public static Schema createSchema_FurnLocations_Index()
         {
             SchemaBuilder mySchemaBuilder = new SchemaBuilder(new Guid(myConstantStringSchema_FurnLocations_Index));
             mySchemaBuilder.SetSchemaName("FurnLocations_Index");
-            FieldBuilder mapField_Parent = mySchemaBuilder.AddMapField("FurnLocations_Index", typeof(int), typeof(Entity));
+            FieldBuilder mapField_Parent = mySchemaBuilder.AddMapField("FurnLocations_Index", typeof(string), typeof(Entity));
             mapField_Parent.SetSubSchemaGUID(new Guid(myConstantStringSchema_FurnLocations));
 
             return mySchemaBuilder.Finish();

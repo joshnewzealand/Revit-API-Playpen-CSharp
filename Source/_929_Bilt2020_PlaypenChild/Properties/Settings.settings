@@ -20,5 +20,11 @@
     <Setting Name="Win3Left" Type="System.Double" Scope="User">
       <Value Profile="(Default)">700</Value>
     </Setting>
+    <Setting Name="Win4Top" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="Win4Left" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

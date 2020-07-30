@@ -63,13 +63,16 @@ namespace _929_Bilt2020_PlaypenChild
 
         public EE02_Part1_SetDefault myEE02_Part1_SetDefault { get; set; } 
         public ExternalEvent myExternalEvent_EE02_Part1_SetDefault { get; set; }
-
-        public EE03_Part1 myEE03_Part1 { get; set; }
-        public ExternalEvent myExternalEvent_EE03 { get; set; }
-        public EE03_Part2 myEE03_Part2 { get; set; }
-        public ExternalEvent myExternalEvent_EE03_Part2 { get; set; }
-        public EE03_Part3 myEE03_Part3 { get; set; }
-        public ExternalEvent myExternalEvent_EE03_Part3 { get; set; }
+        public EE03_Part1_NewOrSave myEE03_Part1_NewOrSave { get; set; }
+        public ExternalEvent myExternalEvent_EE03_Part1_NewOrSave { get; set; }
+        public EE03_Part2_ShowArrangement myEE03_Part2_ShowArrangement { get; set; }
+        public ExternalEvent myExternalEvent_EE03_Part2_ShowArrangement { get; set; }
+        
+        public EE03_Part2_DeleteOne myEE03_Part2_DeleteOne { get; set; }
+        public ExternalEvent myExternalEvent_EE03_Part2_DeleteOne { get; set; }
+        
+        public EE03_Part3_ClearValues myEE03_Part3_ClearValues { get; set; }
+        public ExternalEvent myExternalEvent_EE03_Part3_ClearValues { get; set; }
 
         public EE04_Part1 myEE04_Part1 { get; set; }
         public ExternalEvent myExternalEvent_EE04 { get; set; }
@@ -107,13 +110,16 @@ namespace _929_Bilt2020_PlaypenChild
         public EE07_Part1_Binding myEE07_Part1_Binding { get; set; }
         public ExternalEvent myExternalEvent_EE07_Binding { get; set; }
 
+        public EE07_SetupRoom myEE07_SetupRoom { get; set; }
+        public ExternalEvent myExternalEvent_EE07_SetupRoom { get; set; }
 
 
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
 
         public ThisApplication myThisApplication { get; set; }
-        public Window3 myWindow3 { get; set; } 
+        public Window3 myWindow3 { get; set; }
+        public Window4 myWindow4 { get; set; }
 
 
         //MessageBox.Show(myString_FamilyName + " Family has not been loaded into project.");
@@ -126,7 +132,7 @@ namespace _929_Bilt2020_PlaypenChild
             InitializeComponent();
             // add 'UIDocument uid' as a parameter above, because this is the way it is called form the external event, please see youve 5 Secrets of Revit API Coding for an explaination on this
 
-            if(false)
+            if(true)
             {
                 this.Top = Properties.Settings.Default.Top;
                 this.Left = Properties.Settings.Default.Left;
@@ -155,15 +161,22 @@ namespace _929_Bilt2020_PlaypenChild
             myExternalEvent_EE02_Part1_SetDefault = ExternalEvent.Create(myEE02_Part1_SetDefault);
 
 
-            myEE03_Part1 = new EE03_Part1();
-            myEE03_Part1.myWindow1 = this;
-            myExternalEvent_EE03 = ExternalEvent.Create(myEE03_Part1);
-            myEE03_Part2 = new EE03_Part2();
-            myEE03_Part2.myWindow1 = this;
-            myExternalEvent_EE03_Part2 = ExternalEvent.Create(myEE03_Part2);
-            myEE03_Part3 = new EE03_Part3();
-            myEE03_Part3.myWindow1 = this;
-            myExternalEvent_EE03_Part3 = ExternalEvent.Create(myEE03_Part3);
+            myEE03_Part1_NewOrSave = new EE03_Part1_NewOrSave();
+            myEE03_Part1_NewOrSave.myWindow1 = this;
+            myExternalEvent_EE03_Part1_NewOrSave = ExternalEvent.Create(myEE03_Part1_NewOrSave);
+
+            myEE03_Part2_ShowArrangement = new EE03_Part2_ShowArrangement();
+            myEE03_Part2_ShowArrangement.myWindow1 = this;
+            myExternalEvent_EE03_Part2_ShowArrangement = ExternalEvent.Create(myEE03_Part2_ShowArrangement);
+
+
+            myEE03_Part2_DeleteOne = new EE03_Part2_DeleteOne();
+            myEE03_Part2_DeleteOne.myWindow1 = this;
+            myExternalEvent_EE03_Part2_DeleteOne = ExternalEvent.Create(myEE03_Part2_DeleteOne);
+
+            myEE03_Part3_ClearValues = new EE03_Part3_ClearValues();
+            myEE03_Part3_ClearValues.myWindow1 = this;
+            myExternalEvent_EE03_Part3_ClearValues = ExternalEvent.Create(myEE03_Part3_ClearValues);
 
             myEE04_Part1 = new EE04_Part1();
             myEE04_Part1.myWindow1 = this;
@@ -212,79 +225,67 @@ namespace _929_Bilt2020_PlaypenChild
             myEE07_Part1_Binding.myWindow1 = this;
             myExternalEvent_EE07_Binding = ExternalEvent.Create(myEE07_Part1_Binding);
 
+            myEE07_SetupRoom = new EE07_SetupRoom();
+            myEE07_SetupRoom.myWindow1 = this;
+            myExternalEvent_EE07_SetupRoom = ExternalEvent.Create(myEE07_SetupRoom);
+
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             Document doc = uidoc.Document;
             
-            myMakeTheSchemas(doc);
+            //myMakeTheSchemas(doc);
         }
 
-        public Entity public_HaveWeMovedOrNot()
-        {
-            Entity ent_Child = new Entity(schema_FurnLocations);
-            IDictionary<ElementId, XYZ> dict_Child = new Dictionary<ElementId, XYZ>();
-            dict_Child.Add(new ElementId(9999999), new XYZ(10, 10, 10));
-            ent_Child.Set<IDictionary<ElementId, XYZ>>("FurnLocations", dict_Child, DisplayUnitType.DUT_MILLIMETERS);
+        //public Entity public_HaveWeMovedOrNot()
+        //{
+        //    Entity ent_Child = new Entity(schema_FurnLocations);
+        //    IDictionary<ElementId, XYZ> dict_Child = new Dictionary<ElementId, XYZ>();
+        //    dict_Child.Add(new ElementId(9999999), new XYZ(10, 10, 10));
+        //    ent_Child.Set<IDictionary<ElementId, XYZ>>("FurnLocations", dict_Child, DisplayUnitType.DUT_MILLIMETERS);
 
-            IDictionary<ElementId, double> dict_Child_Angle = new Dictionary<ElementId, double>();
-            dict_Child_Angle.Add(new ElementId(9999999), 0.0);
-            ent_Child.Set<IDictionary<ElementId, double>>("FurnLocations_Angle", dict_Child_Angle, DisplayUnitType.DUT_MILLIMETERS);
+        //    IDictionary<ElementId, double> dict_Child_Angle = new Dictionary<ElementId, double>();
+        //    dict_Child_Angle.Add(new ElementId(9999999), 0.0);
+        //    ent_Child.Set<IDictionary<ElementId, double>>("FurnLocations_Angle", dict_Child_Angle, DisplayUnitType.DUT_MILLIMETERS);
 
 
-            Entity ent_Parent = new Entity(schema_FurnLocations_Index);
-            IDictionary<int, Entity> dict_Parent = new Dictionary<int, Entity>();
-            dict_Parent.Add(0, ent_Child);
-            ent_Parent.Set<IDictionary<int, Entity>>("FurnLocations_Index", dict_Parent, DisplayUnitType.DUT_MILLIMETERS);
+        //    Entity ent_Parent = new Entity(schema_FurnLocations_Index);
+        //    IDictionary<int, Entity> dict_Parent = new Dictionary<int, Entity>();
+        //    dict_Parent.Add(0, ent_Child);
+        //    ent_Parent.Set<IDictionary<int, Entity>>("FurnLocations_Index", dict_Parent, DisplayUnitType.DUT_MILLIMETERS);
 
-            return ent_Parent;
-        }
-        public void myMakeTheSchemas(Document doc)
-        {
-            using (Transaction y = new Transaction(doc, "Assigning Schemas (first time open)"))
-            {
-                y.Start();
+        //    return ent_Parent;
+        //}
+        //public void myMakeTheSchemas(Document doc)
+        //{
+        //    using (Transaction y = new Transaction(doc, "Assigning Schemas (first time open)"))
+        //    {
+        //        y.Start();
 
-                schema_FurnLocations = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations));
-                if (schema_FurnLocations == null) schema_FurnLocations = Schema_FurnLocations.createSchema_FurnLocations();
+        //        schema_FurnLocations = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations));
+        //        if (schema_FurnLocations == null) schema_FurnLocations = Schema_FurnLocations.createSchema_FurnLocations();
 
-                schema_FurnLocations_Index = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations_Index));
-                if (schema_FurnLocations_Index == null) schema_FurnLocations_Index = Schema_FurnLocations.createSchema_FurnLocations_Index();
+        //        schema_FurnLocations_Index = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations_Index));
+        //        if (schema_FurnLocations_Index == null) schema_FurnLocations_Index = Schema_FurnLocations.createSchema_FurnLocations_Index();
 
-                Entity ent_Parent = doc.ProjectInformation.GetEntity(schema_FurnLocations_Index);
+        //        Entity ent_Parent = doc.ProjectInformation.GetEntity(schema_FurnLocations_Index);
 
-                if (!ent_Parent.IsValid())
-                {
-                    //MessageBox.Show("Should only happen once per view.");
-                    doc.ProjectInformation.SetEntity(public_HaveWeMovedOrNot());
-                    ent_Parent = doc.ProjectInformation.GetEntity(schema_FurnLocations_Index);
-                }
+        //        if (!ent_Parent.IsValid())
+        //        {
+        //            //MessageBox.Show("Should only happen once per view.");
+        //            doc.ProjectInformation.SetEntity(public_HaveWeMovedOrNot());
+        //            ent_Parent = doc.ProjectInformation.GetEntity(schema_FurnLocations_Index);
+        //        }
 
-                //IDictionary<int, Entity> dict_Parent = ent_Parent.Get<IDictionary<int, Entity>>("FurnLocations_Index", DisplayUnitType.DUT_MILLIMETERS);
-                //IDictionary<ElementId, XYZ> dict_Child = dict_Parent[0].Get<IDictionary<ElementId, XYZ>>("FurnLocations", DisplayUnitType.DUT_MILLIMETERS);
+        //        //IDictionary<int, Entity> dict_Parent = ent_Parent.Get<IDictionary<int, Entity>>("FurnLocations_Index", DisplayUnitType.DUT_MILLIMETERS);
+        //        //IDictionary<ElementId, XYZ> dict_Child = dict_Parent[0].Get<IDictionary<ElementId, XYZ>>("FurnLocations", DisplayUnitType.DUT_MILLIMETERS);
 
-                //MessageBox.Show(dict_Child[new ElementId(9999999)].ToString());
+        //        //MessageBox.Show(dict_Child[new ElementId(9999999)].ToString());
 
-                y.Commit();
-            }
-        }
+        //        y.Commit();
+        //    }
+        //}
         public int myPublicInt { get; set; } = 0;
 
-        private void MyButtonSequence_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                myExternalEvent_EE03_Part2.Raise();
-            }
 
-            #region catch and finally
-            catch (Exception ex)
-            {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("MyButtonSequence_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-            }
-            finally
-            {
-            }
-            #endregion
-        }
         private void MyButtonRotateWall_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -302,23 +303,7 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
         }
-        private void MyButtonClear_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                myExternalEvent_EE03_Part3.Raise();
-            }
 
-            #region catch and finally
-            catch (Exception ex)
-            {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("MyButtonClear_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-            }
-            finally
-            {
-            }
-            #endregion
-        }
         public FamilyInstance myCarrierCarrier { get; set; } = null;
         private void MyButton_HomeX_Click(object sender, RoutedEventArgs e)
         {
@@ -834,20 +819,28 @@ namespace _929_Bilt2020_PlaypenChild
         }
         private void myButtonExtensible_Click(object sender, RoutedEventArgs e)
         {
+            int eL = -1;
+            myWindow4 = new Window4(commandData);
+
             try
             {
-                myExternalEvent_EE03.Raise();
+                myWindow4.myWindow1 = this;
+                myWindow4.Topmost = true;
+                myWindow4.Owner = this;
+                myWindow4.Show();
+          
             }
 
             #region catch and finally
             catch (Exception ex)
             {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonExtensible_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonExtensible_Click, error line:" + eL + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {
             }
             #endregion
+
         }
         private void MyButtonElementID_Click(object sender, RoutedEventArgs e)
         {
@@ -1479,6 +1472,8 @@ namespace _929_Bilt2020_PlaypenChild
                 using (Transaction tx = new Transaction(doc))
                 {
                     tx.Start("Place a " + myListView_Class.String_Name);
+
+                                FamilySymbol myFamilySymbol = doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
                     myFamilySymbol.Activate();
                     FamilyInstance myFamilyInstance = doc.Create.NewFamilyInstance(new XYZ(70, -30, 12), myFamilySymbol, Autodesk.Revit.DB.Structure.StructuralType.NonStructural);
                     doc.ProjectInformation.get_Parameter(BuiltInParameter.PROJECT_NUMBER).Set(myFamilyInstance.Id.IntegerValue.ToString());

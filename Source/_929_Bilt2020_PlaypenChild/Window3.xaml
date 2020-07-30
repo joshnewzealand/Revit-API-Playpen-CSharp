@@ -12,16 +12,6 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn DisplayMemberBinding="{Binding String_Name}" Header="File Name" Width="280" />
-                        <!--
-                                                <GridViewColumn  Width="280"  Header="File Path">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding String_FileName}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        -->
-
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
@@ -38,7 +28,6 @@
                     <Setter Property="VerticalContentAlignment" Value="Top"/>
                 </Style>
             </ListView.ItemContainerStyle>
-
 
         </ListView>
         <Button x:Name="myButton_PlaceThemAll" Content="Place Them All" Margin="10,504,159,-52" Click="myButton_PlaceThemAll_Click" Height="22" VerticalAlignment="Top"/>

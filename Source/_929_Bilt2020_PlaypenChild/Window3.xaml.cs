@@ -22,19 +22,47 @@ namespace _929_Bilt2020_PlaypenChild
     /// <summary>
     /// Interaction logic for Window3.xaml
     /// </summary>
-    public partial class Window3 : Window
+    /// 
+
+    public static class Families_ThatMustBeLoaded
+    {
+        public static string myString00 = "Furniture Chair Executive";
+        public static string myString01 = "Furniture Couch Viper";
+        public static string myString02 = "Furniture Desk";
+        public static string myString03 = "Furniture Table Dining Round w Chairs";
+        public static string myString04 = "Furniture Table Night Stand";
+        public static string myString05 = "Generic Adaptive Nerf Gun";
+        public static string myString06 = "Generic Model Tipping Hat Man";
+
+
+        public static List<string> ListStringMustHaveFamilies = new List<string>() { myString00, myString01, myString02, myString03, myString04, myString05, myString06};
+    }
+
+
+
+
+    //        public static List<ListView_Class> myListFitting_AA = new List<ListView_Class>() {
+
+
+    //              foreach (string myStrrr in myListString) myListClass.Add(new ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa"});
+
+    //    public static FittingPattern myFitting_PATTERN_AA = new ListView_Class() { myPatternName = myFPattern_AA_Name, myListFitting = myListFitting_AA };
+
+
+public partial class Window3 : Window
     {
         public ExternalCommandData commandData { get; set; }
+        public Window1 myWindow1 { get; set; }
 
         public class ListView_Class
-        { 
+        {
             public string String_Name { get; set; }
             public string String_FileName { get; set; }
         }
 
+
         public List<ListView_Class> myListClass { get; set; } = new List<ListView_Class>();
 
-        public Window1 myWindow1 { get; set; }
 
         public Window3(ExternalCommandData cD)
         {
@@ -45,8 +73,8 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 InitializeComponent();
-                this.Top = Properties.Settings.Default.Top;
-                this.Left = Properties.Settings.Default.Left;
+                this.Top = Properties.Settings.Default.Win3Top;
+                this.Left = Properties.Settings.Default.Win3Top;
             }
 
             #region catch and finally
@@ -100,8 +128,6 @@ namespace _929_Bilt2020_PlaypenChild
 
             try
             {
-                //myWindow1.myExternalEvent_EE01_Part1_PlaceAFamily.Raise();
-
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
@@ -117,11 +143,9 @@ namespace _929_Bilt2020_PlaypenChild
                 }
                 FamilySymbol myFamilySymbol_Carrier = doc.GetElement(((Family)myIEnumerableElement.First()).GetFamilySymbolIds().First()) as FamilySymbol;
 
-
                 myWindow1.myEE01_Part1_PlaceAFamily.myFamilySymbol = myFamilySymbol_Carrier;
                 myWindow1.myExternalEvent_EE01_Part1_PlaceAFamily.Raise();
 
-             //   uidoc.PromptForFamilyInstancePlacement(myFamilySymbol_Carrier);
             }
 
             #region catch and finally
@@ -136,45 +160,6 @@ namespace _929_Bilt2020_PlaypenChild
 
         }
 
-        ////[DllImport("user32.dll")]
-        ////public static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        ////[DllImport("user32.dll", SetLastError = true)]
-        ////static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-
-
-
-        ////void OnDocumentChanged(object sender, DocumentChangedEventArgs e)
-        ////{
-        ////    try
-        ////    {
-        ////        _added_element_ids.AddRange(e.GetAddedElementIds());
-
-        ////        if (e.GetAddedElementIds().Count == 0) return;
-
-        ////        UIDocument uidoc = commandData.Application.ActiveUIDocument;
-        ////        uidoc.Application.Application.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
-
-        ////        //MessageBox.Show(_added_element_ids[0].IntegerValue.ToString());
-
-        ////        SetForegroundWindow(uidoc.Application.MainWindowHandle);
-        ////        keybd_event(0x1B, 0, 0, 0);
-        ////        keybd_event(0x1B, 0, 2, 0);
-        ////        keybd_event(0x1B, 0, 0, 0);
-        ////        keybd_event(0x1B, 0, 2, 0);
-        ////    }
-
-        ////    #region catch and finally
-        ////    catch (Exception ex)
-        ////    {
-        ////        _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("OnDocumentChanged" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-        ////    }
-        ////    finally
-        ////    {
-        ////    }
-        ////    #endregion
-        ////}
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             int eL = -1;
@@ -183,21 +168,19 @@ namespace _929_Bilt2020_PlaypenChild
             {
                 // @"\Generic Adaptive Nerf Gun.rfa";  //Families
 
-                List<string> myListString = new List<string>();
-                myListString.Add("Furniture Chair Executive");
-                myListString.Add("Furniture Chair Viper");
-                myListString.Add("Furniture Couch Viper");
-                myListString.Add("Furniture Desk");
-                myListString.Add("Furniture Table Dining Round w Chairs");
-                myListString.Add("Furniture Table Night Stand");
-                myListString.Add("Generic Adaptive Nerf Gun");
-                myListString.Add("Generic Model Tipping Hat Man");
+                ////List<string> myListString = new List<string>();
+                ////myListString.Add("Furniture Chair Executive");
+                ////myListString.Add("Furniture Chair Viper");
+                ////myListString.Add("Furniture Couch Viper");
+                ////myListString.Add("Furniture Desk");
+                ////myListString.Add("Furniture Table Dining Round w Chairs");
+                ////myListString.Add("Furniture Table Night Stand");
+                ////myListString.Add("Generic Adaptive Nerf Gun");
+                ////myListString.Add("Generic Model Tipping Hat Man");
 
-
-                foreach (string myStrrr in myListString) myListClass.Add(new ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa"});
+                foreach (string myStrrr in Families_ThatMustBeLoaded.ListStringMustHaveFamilies) myListClass.Add(new ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa"});
 
                 myListView.ItemsSource = myListClass;
-
             }
 
             #region catch and finally
@@ -209,7 +192,6 @@ namespace _929_Bilt2020_PlaypenChild
             {
             }
             #endregion
-
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
