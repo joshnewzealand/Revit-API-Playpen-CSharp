@@ -828,7 +828,6 @@ namespace _929_Bilt2020_PlaypenChild
                 myWindow4.Topmost = true;
                 myWindow4.Owner = this;
                 myWindow4.Show();
-          
             }
 
             #region catch and finally
@@ -851,8 +850,40 @@ namespace _929_Bilt2020_PlaypenChild
 
                 Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
                 int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
 
+                if(uidoc.Selection.GetElementIds().Count != 0) //toggling
+                {
+                    uidoc.Selection.SetElementIds(new List<ElementId>());
+                    return;
+                }
+
+                if (myTextbox_ManualID.Text != "")
+                {
+                    int myInt_FromTextBox = -1;
+                    if (int.TryParse(myTextbox_ManualID.Text.ToString(), out myInt_FromTextBox))
+                    {
+
+                        Element myElement_TestingElementIsThere = doc.GetElement(new ElementId(myInt_FromTextBox));
+
+                        if (myElement_TestingElementIsThere == null)
+                        {
+                            MessageBox.Show("Entity of id '" + myInt_FromTextBox + "' not found in model.");
+                            //myTextbox_ManualID.Text = "";
+                            return;
+                        }
+                        else
+                        {
+                            myInt = myInt_FromTextBox;
+                        }
+                    } else
+                    {
+                        myTextbox_ManualID.Text = "";
+                    }
+                }
+
+
+                ///the above lines are important for this example, but is not the 'technique'.
+                ///
 
                 ///                  TECHNIQUE 1 OF 19
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -972,30 +1003,7 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
         }
-        private void MyButtonGridCircles_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
 
-                //clearing existing command
-                SetForegroundWindow(uidoc.Application.MainWindowHandle);
-                keybd_event(0x1B, 0, 0, 0);
-                keybd_event(0x1B, 0, 2, 0);
-
-                myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
-            }
-            #region catch and finally
-            catch (Exception ex)
-            {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("MyButtonGridCircles_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-            }
-            finally
-            {
-            }
-            #endregion
-        }
         private void MyButtonSetDefaultWall_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -1513,6 +1521,156 @@ namespace _929_Bilt2020_PlaypenChild
             {
             }
             #endregion
+        }
+
+        private void MyButtonGridCircles_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                //clearing existing command
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
+                myEE01_Part1_GridOutCirclesOnFace.myBool_DoLoop = true;
+                myEE01_Part1_GridOutCirclesOnFace.myBool_JustClear = false;
+                myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
+            }
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("MyButtonGridCircles_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+        private void myIntegerUpDown_Rows_Spinned(object sender, Xceed.Wpf.Toolkit.SpinEventArgs e)
+        {
+            try
+            {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
+                myEE01_Part1_GridOutCirclesOnFace.myBool_DoLoop = false;
+                myEE01_Part1_GridOutCirclesOnFace.myBool_JustClear = false;
+                myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
+
+                //there are differences here and there, here and there, here and there
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myIntegerUpDown_Rows_Spinned" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+     //  public bool myCancelledFromSpinner { get; set; } = false;
+
+        private void myIntegerUpDown_Columns_Spinned(object sender, Xceed.Wpf.Toolkit.SpinEventArgs e)
+        {
+            try
+            {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+               // myCancelledFromSpinner = true;
+
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
+                myEE01_Part1_GridOutCirclesOnFace.myBool_DoLoop = false;
+                myEE01_Part1_GridOutCirclesOnFace.myBool_JustClear = false;
+                myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
+
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myIntegerUpDown_Columns_Spinned" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+
+        private void myClearCircles_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                Document doc = uidoc.Document;
+
+                //clearing existing command
+                SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                keybd_event(0x1B, 0, 0, 0);
+                keybd_event(0x1B, 0, 2, 0);
+
+                myEE01_Part1_GridOutCirclesOnFace.myBool_DoLoop = false;
+                myEE01_Part1_GridOutCirclesOnFace.myBool_JustClear = true;
+                myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
+            }
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myClearCircles_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+        bool myBool_Checked = false;
+        private void myCheckBox_OneTwoOne_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (myBool_Checked != myCheckBox_OneTwoOne.IsChecked.Value)
+                {
+                    UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                    Document doc = uidoc.Document;
+
+                    // myCancelledFromSpinner = true;
+
+                    SetForegroundWindow(uidoc.Application.MainWindowHandle);
+                    keybd_event(0x1B, 0, 0, 0);
+                    keybd_event(0x1B, 0, 2, 0);
+
+                    myEE01_Part1_GridOutCirclesOnFace.myBool_DoLoop = false;
+                    myEE01_Part1_GridOutCirclesOnFace.myBool_JustClear = false;
+                    myExternalEvent_EE01_GridOutCirclesOnFace.Raise();
+                }
+
+                myBool_Checked = myCheckBox_OneTwoOne.IsChecked.Value;
+            }
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myCheckBox_OneTwoOne_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+
         }
     }
 }

@@ -125,7 +125,6 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
 
-          
         }
 
 
@@ -149,8 +148,6 @@ namespace _929_Bilt2020_PlaypenChild
             {
             }
             #endregion
-
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -169,6 +166,8 @@ namespace _929_Bilt2020_PlaypenChild
                 DataStorage myDatastorage = doc.GetElement(myFEC_DataStorage.First()) as DataStorage;
 
                 Schema schema_FurnLocations_Index = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations_Index));
+                if (schema_FurnLocations_Index == null) schema_FurnLocations_Index = Schema_FurnLocations.createSchema_FurnLocations_Index();
+
                 Entity ent_Parent = myDatastorage.GetEntity(schema_FurnLocations_Index);
 
                 if (!ent_Parent.IsValid()) return;

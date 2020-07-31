@@ -282,34 +282,25 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
 
-                //if(myWall == null)
-               // {
-                    if (uidoc.Selection.GetElementIds().Count != 1)
-                    {
-                        if (myWall == null) MessageBox.Show("Please select ONE Wall.");
-                        return;
-                    }
+                if (uidoc.Selection.GetElementIds().Count != 1)
+                {
+                    if (myWall == null) MessageBox.Show("Please select ONE Wall.");
+                    return;
+                }
 
-                    Element myElementWall = doc.GetElement(uidoc.Selection.GetElementIds().First());
+                Element myElementWall = doc.GetElement(uidoc.Selection.GetElementIds().First());
 
-                    if (myElementWall.Category.Name != "Walls")
-                    {
-                        if (myWall == null) MessageBox.Show("Selected entity must be a Wall.");
-                        return;
-                    }
+                if (myElementWall.Category.Name != "Walls")
+                {
+                    if (myWall == null) MessageBox.Show("Selected entity must be a Wall.");
+                    return;
+                }
 
-                    myWall = myElementWall as Wall;
-              //  }
+                myWall = myElementWall as Wall;
 
 
-               List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (x.GetType() == typeof(FamilyInstance)) ? ((FamilyInstance)x).Host.Id == myWall.Id : false).ToList();
+               List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myWall.Id).ToList();
 
-                //Element myElement = doc.GetElement(new ElementId(138390));
-
-                //MessageBox.Show(myManTippingHat.Count().ToString());
-
-                //myManTippingHat 
-                //  List<ElementId> myFEC_ManTippingHat = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().Where(x => x.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).AsString() == "Example 2 Walls").Select(x => x.Id).ToList();
                 if(myListOfStuffOnWall.Count() > 0)
                 {
                     using (Transaction tx = new Transaction(doc))
@@ -332,7 +323,6 @@ namespace _929_Bilt2020_PlaypenChild
                 using (Transaction tx = new Transaction(doc))
                 {
                     tx.Start("Rotate Wall");
-
 
                     Curve myCurve = ((LocationCurve)myWall.Location).Curve;
 

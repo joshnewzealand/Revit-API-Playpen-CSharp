@@ -110,7 +110,6 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\03 of 19 Set default type.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\04 of 19 Manual Colour Override.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Families\Generic Adaptive Nerf Gun.rfa
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window3.g.cs
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window3.baml
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Families\Furniture Chair Viper.rfa
@@ -122,3 +121,4 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Families\Furniture Chair Executive.rfa
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window4.g.cs
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\Window4.baml
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache

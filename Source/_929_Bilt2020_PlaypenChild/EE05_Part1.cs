@@ -211,15 +211,17 @@ namespace _929_Bilt2020_PlaypenChild
                 {
                     transGroup.Start("Transaction Group");
 
-
-                    using (Transaction tx = new Transaction(doc))
+                    if (!myReferencePoint.get_Parameter(BuiltInParameter.POINT_ELEMENT_DRIVEN).IsReadOnly)
                     {
-                        tx.Start("Unhost");
+                        using (Transaction tx = new Transaction(doc))
+                        {
+                            tx.Start("Unhost");
 
-                        myReferencePoint.get_Parameter(BuiltInParameter.POINT_ELEMENT_DRIVEN).Set(0);
+                            myReferencePoint.get_Parameter(BuiltInParameter.POINT_ELEMENT_DRIVEN).Set(0);
 
-                        tx.Commit();
-                        uidoc.RefreshActiveView();
+                            tx.Commit();
+                            uidoc.RefreshActiveView();
+                        }
                     }
 
 
@@ -274,44 +276,43 @@ namespace _929_Bilt2020_PlaypenChild
                                 if (myFace.GetType() != typeof(PlanarFace)) return;// continue;
 
                                 Plane plane = Plane.CreateByNormalAndOrigin(myTransform_FromNurfGun.BasisX, myTransform_FromNurfGun.Origin); 
-                                SketchPlane sketchPlane = SketchPlane.Create(doc, plane); 
+                                SketchPlane sketchPlane = SketchPlane.Create(doc, plane);
 
-                                Line line = Line.CreateBound(myTransform_FromNurfGun.Origin, myReferenceHosting_Normal.GlobalPoint);
-                             
-
-                                ModelLine myModelLine = doc.Create.NewModelCurve(line, sketchPlane) as ModelLine;
-                              
-
-                                Transform myXYZ_FamilyTransform = Transform.Identity;
-
-                                if (myReferenceHosting_Normal.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                                if (myTransform_FromNurfGun.Origin.DistanceTo(myReferenceHosting_Normal.GlobalPoint) > 0.0026)//minimum lenth check
                                 {
-                                    myXYZ_FamilyTransform = (myElement_ContainingFace as FamilyInstance).GetTotalTransform();
+
+                                    Line line = Line.CreateBound(myTransform_FromNurfGun.Origin, myReferenceHosting_Normal.GlobalPoint);
+
+                                    ModelLine myModelLine = doc.Create.NewModelCurve(line, sketchPlane) as ModelLine;
+
+                                    Transform myXYZ_FamilyTransform = Transform.Identity;
+
+                                    if (myReferenceHosting_Normal.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                                    {
+                                        myXYZ_FamilyTransform = (myElement_ContainingFace as FamilyInstance).GetTotalTransform();
+                                    }
+
+                                    PlanarFace myPlanarFace = myFace as PlanarFace;
+
+                                    Transform myTransform = Transform.Identity;
+                                    myTransform.Origin = myReferenceHosting_Normal.GlobalPoint;
+                                    myTransform.BasisX = myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
+                                    myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
+                                    myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
+
+                                    SketchPlane mySketchPlane = SketchPlane.Create(doc, myReferenceHosting_Normal);
+
+                                    // Create a geometry circle in Revit application
+                                    XYZ xVec = myTransform.OfVector(XYZ.BasisX);
+                                    XYZ yVec = myTransform.OfVector(XYZ.BasisY);
+                                    double startAngle2 = 0;
+                                    double endAngle2 = 2 * Math.PI;
+                                    double radius2 = 1.23;
+                                    Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(0, 0, 0)), radius2, startAngle2, endAngle2, xVec, yVec);
+
+                                    ModelArc arc = doc.Create.NewModelCurve(geomPlane3, mySketchPlane) as ModelArc;
+                                    //doc.Delete(sketch2.Id);
                                 }
-
-                           
-
-                                PlanarFace myPlanarFace = myFace as PlanarFace;
-
-
-                                Transform myTransform = Transform.Identity;
-                                myTransform.Origin = myReferenceHosting_Normal.GlobalPoint;
-                                myTransform.BasisX = myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
-                                myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
-                                myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
-
-                                SketchPlane sketch2 = SketchPlane.Create(doc, myReferenceHosting_Normal);
-
-                                // Create a geometry circle in Revit application
-                                XYZ xVec = myTransform.OfVector(XYZ.BasisX);
-                                XYZ yVec = myTransform.OfVector(XYZ.BasisY);
-                                double startAngle2 = 0;
-                                double endAngle2 = 2 * Math.PI;
-                                double radius2 = 1.23;
-                                Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(0, 0, 0)), radius2, startAngle2, endAngle2, xVec, yVec);
-
-                                ModelArc arc = doc.Create.NewModelCurve(geomPlane3, sketch2) as ModelArc;
-                                //doc.Delete(sketch2.Id);
 
                             }
                             tx.Commit();
