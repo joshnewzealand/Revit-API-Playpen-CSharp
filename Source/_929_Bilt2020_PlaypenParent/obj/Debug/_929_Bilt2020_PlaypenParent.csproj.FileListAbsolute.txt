@@ -44,3 +44,13 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.pdb
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csprojAssemblyReference.cache
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Addin\012 Button Image Properties Grid.png
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Addin\013 Button Image Uninstall.png
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.dll.config
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.dll
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.pdb
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csprojAssemblyReference.cache
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csproj.CoreCompileInputs.cache
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csproj.CopyComplete
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.dll
+R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.pdb

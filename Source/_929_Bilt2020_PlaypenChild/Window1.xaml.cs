@@ -137,8 +137,8 @@ namespace _929_Bilt2020_PlaypenChild
             {
                 this.Top = Properties.Settings.Default.Top;
                 this.Left = Properties.Settings.Default.Left;
-                this.Height = Properties.Settings.Default.Height;
-                this.Width = Properties.Settings.Default.Width;
+                //this.Height = Properties.Settings.Default.Height;
+                //this.Width = Properties.Settings.Default.Width;
             }
 
             myEE01_Part1 = new EE01_Part1();
