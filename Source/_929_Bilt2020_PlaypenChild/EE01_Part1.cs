@@ -68,7 +68,11 @@ namespace _929_Bilt2020_PlaypenChild
                 {
                     string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();
                     int n;
-                    if (!int.TryParse(myString_RememberLast, out n)) return;
+                    if (!int.TryParse(myString_RememberLast, out n))
+                    {
+                        MessageBox.Show("Please select just one geometric element (e.g. a Wall).");
+                        return;
+                    }
                     myElement = doc.GetElement(new ElementId(n));
                 } else
                 {
@@ -217,6 +221,7 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
+
             uidoc.Application.Application.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
 
             PromptForFamilyInstancePlacementOptions myPromptForFamilyInstancePlacementOptions = new PromptForFamilyInstancePlacementOptions();
@@ -234,6 +239,7 @@ namespace _929_Bilt2020_PlaypenChild
             }
 
             myPromptForFamilyInstancePlacementOptions.FaceBasedPlacementType = FaceBasedPlacementType.PlaceOnWorkPlane;
+            SetForegroundWindow(uidoc.Application.MainWindowHandle); //this is an excape event
 
             try
             {
@@ -257,7 +263,7 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
 
-            SetForegroundWindow(uidoc.Application.MainWindowHandle); //this is an excape event
+
         }
 
         public string GetName()
@@ -299,8 +305,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                     if (pickedRef == null) break;
 
-
-                    //Reference pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Face, "Please select a Face");
                     Element myElement = doc.GetElement(pickedRef.ElementId);
                     Face myFace = myElement.GetGeometryObjectFromReference(pickedRef) as Face;
 
@@ -324,7 +328,6 @@ namespace _929_Bilt2020_PlaypenChild
                     myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
                     myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
 
-
                     // Create a geometry line
                     XYZ startPoint = new XYZ(0, 0, 0);
                     XYZ endPoint = new XYZ(10, 10, 0);
@@ -346,7 +349,7 @@ namespace _929_Bilt2020_PlaypenChild
                     Arc geomPlane2 = Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
                     Arc geomPlane3 = Arc.Create(myTransform.OfPoint(new XYZ(.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
 
-                    ////////////////////// stright lines
+                    ////////////////////// straight lines
                     Line L2 = Line.CreateBound(myTransform.OfPoint(new XYZ(-.2, -.5, 0)), myTransform.OfPoint(new XYZ(.2, -.5, 0)));
                     Line L3 = Line.CreateBound(myTransform.OfPoint(new XYZ(.2, -.5, 0)), myTransform.OfPoint(new XYZ(0, .1, 0)));
 
@@ -357,32 +360,26 @@ namespace _929_Bilt2020_PlaypenChild
                     double radiusEllipse2 = 1.4 * 1.2;
                     Curve myCurve_Ellipse = Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
                  
-                    
                     MyPreProcessor preproccessor = new MyPreProcessor();
 
                     using (Transaction y = new Transaction(doc, "Simily Face"))
                     {
-
-
                         y.Start();
-
 
                         FailureHandlingOptions options = y.GetFailureHandlingOptions();
                         options.SetFailuresPreprocessor(preproccessor);
                         y.SetFailureHandlingOptions(options);
 
-
-                        //  SketchPlane sketch = SketchPlane.Create(doc, geomPlane);
-                        SketchPlane sketch2 = SketchPlane.Create(doc, pickedRef);
+                        SketchPlane sketch = SketchPlane.Create(doc, pickedRef);
 
                         try
                         {
-                            doc.Create.NewModelCurve(geomArc2, sketch2);
-                            doc.Create.NewModelCurve(myCurve_Ellipse, sketch2);
-                            doc.Create.NewModelCurve(geomPlane2, sketch2);
-                            doc.Create.NewModelCurve(geomPlane3, sketch2);
-                            doc.Create.NewModelCurve(L2, sketch2);
-                            doc.Create.NewModelCurve(L3, sketch2);
+                            doc.Create.NewModelCurve(geomArc2, sketch);
+                            doc.Create.NewModelCurve(myCurve_Ellipse, sketch);
+                            doc.Create.NewModelCurve(geomPlane2, sketch);
+                            doc.Create.NewModelCurve(geomPlane3, sketch);
+                            doc.Create.NewModelCurve(L2, sketch);
+                            doc.Create.NewModelCurve(L3, sketch);
                         }
 
                         #region catch and finally
@@ -390,28 +387,13 @@ namespace _929_Bilt2020_PlaypenChild
                         {
                             if (ex.Message != "Curve must be in the plane\r\nParameter name: pCurveCopy")
                             {
-                                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE01_Part1_PlaceAFamily" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-                            } else
-                            {
-                                //MessageBox.Show("hello");
+                                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE01_Part1" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
                             }
                         }
                         finally
                         {
                         }
                         #endregion
-
-
-
-                        // myModelCurve.SketchPlane =  (SketchPlane)myFace;
-
-                        // sketch.
-                        //myModelCurve.host
-
-
-
-
-
 
                         y.Commit();
                     }
@@ -541,9 +523,6 @@ namespace _929_Bilt2020_PlaypenChild
 
 
                             CreatingCircles_ReturnsBreak(myReference);
-
-
-                            // if (!) break;
 
                         } while (true);
                     }

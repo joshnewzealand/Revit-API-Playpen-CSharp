@@ -46,7 +46,11 @@ namespace _929_Bilt2020_PlaypenChild
 
             if (uidoc.Selection.GetElementIds().Count != 0)
             {
-                myLabelElementID.Content = uidoc.Selection.GetElementIds().First().IntegerValue.ToString();
+                myIntegerUpDown.Value = uidoc.Selection.GetElementIds().First().IntegerValue;
+
+                Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
+                myLabel_Type.Content = myElement.Name;
+                myLabel_Family.Content = myElement.get_Parameter(BuiltInParameter.ELEM_FAMILY_PARAM).AsValueString();
             }
 
             if (true)
@@ -137,9 +141,17 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                if (uidoc.Selection.GetElementIds().Count != 1) return;
+                if (uidoc.Selection.GetElementIds().Count != 1)
+                {
+                    MessageBox.Show("Please select an element first.");
+                    return;
+                }
 
-                myLabelElementID.Content = uidoc.Selection.GetElementIds().First().IntegerValue.ToString();
+                Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
+
+                myIntegerUpDown.Value = uidoc.Selection.GetElementIds().First().IntegerValue;
+                myLabel_Type.Content = myElement.Name;
+                myLabel_Family.Content = myElement.get_Parameter(BuiltInParameter.ELEM_FAMILY_PARAM).AsValueString();
 
                 myTextBoxPrevious.Text = "";
                 myTextBoxNew.Text = "";
@@ -177,7 +189,7 @@ namespace _929_Bilt2020_PlaypenChild
 
                 if (myListBoxInstanceParameters.SelectedItems.Count != 1) return;
 
-                if (myLabelElementID.Content.ToString() == "null")
+                if (myIntegerUpDown.Value.Value != -1)
                 {
                     myTextBoxPrevious.Text = "";
                     myTextBoxNew.Text = "";
@@ -191,11 +203,11 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                Element myElement = doc.GetElement(new ElementId(int.Parse(myLabelElementID.Content.ToString())));
+                Element myElement = doc.GetElement(new ElementId(myIntegerUpDown.Value.Value));
 
                 if (myElement == null)
                 {
-                    myLabelElementID.Content = "null";
+                    myIntegerUpDown.Value = -1;
                     return;
                 }
 
@@ -249,7 +261,7 @@ namespace _929_Bilt2020_PlaypenChild
 
                 if (myListBoxTypeParameters.SelectedItems.Count != 1) return;
 
-                if (myLabelElementID.Content.ToString() == "null")
+                if (myIntegerUpDown.Value.Value == -1)
                 {
                     myTextBoxPrevious.Text = "";
                     myTextBoxNew.Text = "";
@@ -263,11 +275,11 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                Element myElement = doc.GetElement(new ElementId(int.Parse(myLabelElementID.Content.ToString())));
+                Element myElement = doc.GetElement(new ElementId(myIntegerUpDown.Value.Value));
 
                 if (myElement == null)
                 {
-                    myLabelElementID.Content = "null";
+                    myIntegerUpDown.Value = -1;
 
                     return;
                 }
@@ -343,18 +355,39 @@ namespace _929_Bilt2020_PlaypenChild
             #endregion
         }
 
-        private void myButtonAddParameters_Click(object sender, RoutedEventArgs e)
+        private void myButtonAddParametersToProject_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 myWindow1.myEE07_Part1_Binding.myWindow2 = this;
+                myWindow1.myEE07_Part1_Binding.myBool_AddToProject = true;
                 myWindow1.myExternalEvent_EE07_Binding.Raise();
             }
 
             #region catch and finally
             catch (Exception ex)
             {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonAddParameters_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonAddParametersToProject_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+        private void myButtonAddParametersToFamily_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                myWindow1.myEE07_Part1_Binding.myWindow2 = this;
+                myWindow1.myEE07_Part1_Binding.myBool_AddToProject = false;
+                myWindow1.myExternalEvent_EE07_Binding.Raise();
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonAddParametersToFamily_Click" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {

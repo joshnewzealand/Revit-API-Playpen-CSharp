@@ -1,11 +1,12 @@
-﻿<Window x:Class="_929_Bilt2020_PlaypenChild.Window2"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.Window2"
         mc:Ignorable="d"
-        Title="Window2" Height="395.951" Width="671.412" Background="#FFD6EDFF" Topmost="True" ResizeMode="CanResizeWithGrip">
+        Title="Add and edit parameters" Height="547.451" Width="671.412" Background="#FFD6EDFF"  ResizeMode="NoResize">
     <Grid>
         <Grid >
             <Grid.ColumnDefinitions>
@@ -22,17 +23,18 @@
                 <Label Content="String based Instance Parameters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontSize="10"/>
                 <Label Content="String based Type Parameters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" FontSize="10" Grid.Row="1"/>
             </Grid>
-            <TextBox x:Name="myTextBoxPrevious" Grid.Column="1" Margin="70,0,44,125" TextWrapping="Wrap" BorderThickness="1" FontSize="14" IsEnabled="False" Height="70" VerticalAlignment="Bottom"/>
-            <Button x:Name="myButtonSave" Content="Save" HorizontalAlignment="Right" Margin="0,0,223,18" VerticalAlignment="Bottom" Width="76" Grid.Column="1" Height="20" Click="myButtonSave_Click"/>
-            <Button x:Name="myButtonCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,138,18" VerticalAlignment="Bottom" Width="76" Grid.Column="1" Height="20" Click="myButtonCancel_Click"/>
-            <TextBox x:Name="myTextBoxNew" Margin="70,0,44,50" TextWrapping="Wrap" BorderThickness="1" FontSize="14" Grid.Column="1" Height="70" VerticalAlignment="Bottom" AcceptsReturn="True" IsUndoEnabled="False" IsEnabled="False"/>
-            <Label Content="Element ID" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,43,0" VerticalAlignment="Top" Width="67"/>
-            <Label x:Name="myLabelElementID" Content="null" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,110,0" VerticalAlignment="Top" Width="118" FlowDirection="RightToLeft"/>
-            <Button x:Name="myButtonAddParameters" Content="Add Parameters codally add/edit directly, alternative &#xA;manufacturer directly with code*&#xA;do UNID properly" Grid.Column="1" HorizontalAlignment="Left" Margin="63,116,0,0" VerticalAlignment="Top" Width="356" Height="35" Click="myButtonAddParameters_Click"/>
-            <Label Content="• first demonstrate with [enter]&#xA;• then the 1's&#xD;&#xA;• first add Description, Lookup&#xA;• then list up 2, 3&#xA;• then the 2's, 3's" Grid.Column="1" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="184" Height="94"/>
-            <Label Content="will need to gray when nothing selected" Grid.Column="1" HorizontalAlignment="Left" Margin="70,-4,0,0" VerticalAlignment="Top" Width="246" Height="24" Foreground="Red" FontSize="8"/>
+            <TextBox x:Name="myTextBoxPrevious" Grid.Column="1" Margin="56,138,0,0" TextWrapping="Wrap" BorderThickness="1" FontSize="14" IsEnabled="False" Height="142" VerticalAlignment="Top" HorizontalAlignment="Left" Width="373"/>
+            <Button x:Name="myButtonSave" Content="Save" HorizontalAlignment="Right" Margin="0,478,223,0" VerticalAlignment="Top" Width="76" Grid.Column="1" Height="20" Click="myButtonSave_Click"/>
+            <Button x:Name="myButtonCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,478,138,0" VerticalAlignment="Top" Width="76" Grid.Column="1" Height="20" Click="myButtonCancel_Click"/>
+            <TextBox x:Name="myTextBoxNew" Margin="56,285,0,0" TextWrapping="Wrap" BorderThickness="1" FontSize="14" Grid.Column="1" Height="181" VerticalAlignment="Top" AcceptsReturn="True" IsUndoEnabled="False" IsEnabled="False" HorizontalAlignment="Left" Width="373"/>
+            <Label Content="Element ID" Grid.Column="1" HorizontalAlignment="Left" Margin="369,4,0,0" VerticalAlignment="Top" Width="67"/>
+            <Button x:Name="myButtonAddParametersToProject" Content="Add Shared Parameters with code &#xA;to Project" Grid.Column="1" HorizontalAlignment="Left" Margin="56,89,0,0" VerticalAlignment="Top" Width="184" Height="35" Click="myButtonAddParametersToProject_Click"/>
+            <Label x:Name="myLabel_Family" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="110,31,0,0" VerticalAlignment="Top" Width="312" Height="27"/>
+            <Label x:Name="myLabel_Type" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="110,52,0,0" VerticalAlignment="Top" Width="312" Height="27"/>
+            <Button x:Name="myButtonAddParametersToFamily" Content="Add Shared Parameters with code &#xA;to Family OR Category" Grid.Column="1" HorizontalAlignment="Left" Margin="245,89,0,0" VerticalAlignment="Top" Width="184" Height="35" Click="myButtonAddParametersToFamily_Click" />
+            <xctk:IntegerUpDown x:Name="myIntegerUpDown" Grid.Column="1" HorizontalAlignment="Left" Margin="297,7,0,0" VerticalAlignment="Top" Width="72" IsEnabled="False" Value="-1"/>
         </Grid>
-        <Button x:Name="myButtonAcquireSelected" Content="🔄 Acquire Selected" HorizontalAlignment="Right" Margin="0,27,43,0" VerticalAlignment="Top" Width="174" Height="41" FontSize="16" Click="MyButtonAcquireSelected_Click" />
+        <Button x:Name="myButtonAcquireSelected" Content="🔄 Acquire Element --&gt;" HorizontalAlignment="Left" Margin="322,3,0,0" VerticalAlignment="Top" Width="179" Height="29" FontSize="16" Click="MyButtonAcquireSelected_Click" />
 
     </Grid>
 </Window>

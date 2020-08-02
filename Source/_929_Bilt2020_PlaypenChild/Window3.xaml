@@ -30,7 +30,6 @@
             </ListView.ItemContainerStyle>
 
         </ListView>
-        <Button x:Name="myButton_PlaceThemAll" Content="Place Them All" Margin="10,504,159,-52" Click="myButton_PlaceThemAll_Click" Height="22" VerticalAlignment="Top"/>
         <Button x:Name="myButton_LoadAllFamilies" Content="Load all families&#xD;&#xA; into the model" Margin="28,402,30,0"  Height="41" VerticalAlignment="Top" Click="myButton_LoadAllFamilies_Click"/>
         <Label Content="DOUBLE CLICK to place a family" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="238"/>
 

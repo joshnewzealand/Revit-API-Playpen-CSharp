@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using _952_PRLoogleClassLibrary;
 
 namespace _929_Bilt2020_PlaypenChild
 {
@@ -176,15 +177,23 @@ namespace _929_Bilt2020_PlaypenChild
 
                     IDictionary<ElementId, XYZ> dict_Child = myKeyValuePair.Value.Get<IDictionary<ElementId, XYZ>>("FurnLocations", DisplayUnitType.DUT_MILLIMETERS);
 
+                    string myStringAggregate_Location = "";
+
                     foreach (KeyValuePair<ElementId, XYZ> myKP in dict_Child)
                     {
                         Element Searchelem = doc.GetElement(myKP.Key);
                         if (Searchelem == null) continue;
 
                         ElementTransformUtils.MoveElement(doc, myKP.Key, myKP.Value - ((LocationPoint)Searchelem.Location).Point);
+
+                        myStringAggregate_Location = myStringAggregate_Location + Environment.NewLine + ((FamilyInstance)doc.GetElement(myKP.Key)).get_Parameter(BuiltInParameter.ELEM_FAMILY_AND_TYPE_PARAM).AsValueString() + "," + Math.Round(myKP.Value.X, 2) + "," + Math.Round(myKP.Value.Y, 2) + "," + Math.Round(myKP.Value.Z, 2);
                     }
 
+                    //DatabaseMethods.writeDebug(myStringAggregate_Location, true);
+
                     IDictionary<ElementId, double> dict_Child_Angle = myKeyValuePair.Value.Get<IDictionary<ElementId, double>>("FurnLocations_Angle", DisplayUnitType.DUT_MILLIMETERS);
+
+                    string myStringAggregate_Angle = "";
 
                     foreach (KeyValuePair<ElementId, double> myKP in dict_Child_Angle)
                     {
@@ -194,10 +203,13 @@ namespace _929_Bilt2020_PlaypenChild
                         Line line = Line.CreateBound(((LocationPoint)Searchelem.Location).Point, ((LocationPoint)Searchelem.Location).Point + XYZ.BasisZ);
 
                         double myDouble = Searchelem.GetTransform().BasisX.AngleOnPlaneTo(XYZ.BasisY, XYZ.BasisZ) - myKP.Value;
-                        //MessageBox.Show(myDouble.ToString());
 
                         ElementTransformUtils.RotateElement(doc, myKP.Key, line, myDouble);
+
+                        myStringAggregate_Angle =  myStringAggregate_Angle + Environment.NewLine + (IsZero(myKP.Value, _eps) ?  0 : Math.Round(myKP.Value, 2));
                     }
+
+                    //DatabaseMethods.writeDebug(myStringAggregate_Location + Environment.NewLine + myStringAggregate_Angle, true);
 
                     tx.Commit();
                 }
@@ -218,6 +230,12 @@ namespace _929_Bilt2020_PlaypenChild
         {
             return "External Event Example";
         }
+
+        public static bool IsZero(double a, double tolerance)
+      {
+        return tolerance > Math.Abs(a );
+      }
+        const double _eps = 1.0e-9;
     }
 
 

@@ -15,12 +15,15 @@ using Numerics = System.Numerics;
 using std = System.Math;
 using _952_PRLoogleClassLibrary;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 namespace RevitTransformSliders
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE06_Template : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
+
+
         public Window1 myWindow1 { get; set; }
 
         public void Execute(UIApplication uiapp)
@@ -57,6 +60,9 @@ namespace RevitTransformSliders
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE06_PlaceFamily : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
         public Window1 myWindow1 { get; set; }
         public Xceed.Wpf.Toolkit.IntegerUpDown myIntUPDown { get; set; }
 
@@ -123,11 +129,23 @@ namespace RevitTransformSliders
                         myFamilySymbol_Chair = myMethod_CheckExistanceOfFamily(doc, myString_Family_Chair, myString_Type_Chair);
                         if (myFamilySymbol_Chair == null) return;
                     }
-
+                    Level myLevel = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().First() as Level;
                     Reference pickedRef = null;
+                    XYZ myXYZ = null;
                     try
                     {
-                        pickedRef = uiapp.ActiveUIDocument.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.PointOnElement, "Please select a Face");
+
+                        SketchPlane sp = SketchPlane.Create(doc, myLevel.GetPlaneReference());
+                        doc.ActiveView.SketchPlane = sp;
+
+                        // doc.ActiveView.ShowActiveWorkPlane();
+
+                        //clearing existing command
+                        SetForegroundWindow(uidoc.Application.MainWindowHandle);
+
+                        myXYZ = uiapp.ActiveUIDocument.Selection.PickPoint();
+                        pickedRef = sp.GetPlaneReference();
+                        //pickedRef = uiapp.ActiveUIDocument.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.PointOnElement, "Please select a Face");
                     }
 
                     #region catch and finally
@@ -148,10 +166,11 @@ namespace RevitTransformSliders
                     IList<ElementId> placePointIds_1338 = AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(myFamilyInstance_New);
                     ReferencePoint myReferencePoint_Centre = doc.GetElement(placePointIds_1338.First()) as ReferencePoint;
 
-                    UV point_in_3d_UV = pickedRef.UVPoint;
-                    PointOnFace myPointOnFace = uidoc.Application.Application.Create.NewPointOnFace(pickedRef, point_in_3d_UV);
+                    //UV point_in_3d_UV = pickedRef.UVPoint;
+                    UV point_in_3d_UV = new UV(myXYZ.X, myXYZ.Y);
+                    PointOnPlane myPointOnPlane = uidoc.Application.Application.Create.NewPointOnPlane(doc.ActiveView.SketchPlane.GetPlaneReference(), point_in_3d_UV, UV.BasisU, 0.0);
 
-                    myReferencePoint_Centre.SetPointElementReference(myPointOnFace);
+                    myReferencePoint_Centre.SetPointElementReference(myPointOnPlane);
 
                     doc.Regenerate();
                     myReferencePoint_Centre.get_Parameter(BuiltInParameter.POINT_ELEMENT_DRIVEN).Set(0);

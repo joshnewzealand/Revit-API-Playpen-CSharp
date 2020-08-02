@@ -138,6 +138,51 @@ namespace _929_Bilt2020_PlaypenChild
     }
 
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
+    public class EE05_Part1_DeleteSketchPlanes : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
+    {
+        public Window1 myWindow1 { get; set; }
+
+        public void Execute(UIApplication uiapp)
+        {
+            try
+            {
+                UIDocument uidoc = uiapp.ActiveUIDocument;
+                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+
+                using (Transaction tx = new Transaction(doc))
+                {
+                    tx.Start("Remove Intersector Ray Lines");
+
+                    doc.Delete(myWindow1.myListElementID_SketchPlanesToDelete);
+
+                    myWindow1.myListElementID_SketchPlanesToDelete.Clear();
+
+                    tx.Commit();
+                }
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE05_Part1_DeleteSketchPlanes" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
+
+        public string GetName()
+        {
+            return "External Event Example";
+        }
+    }
+
+
+
+
+
+    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE05_Part1 : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
         public Window1 myWindow1 { get; set; }
@@ -224,7 +269,6 @@ namespace _929_Bilt2020_PlaypenChild
                         }
                     }
 
-
                     MyPreProcessor preproccessor = new MyPreProcessor();
 
                     for (int i = 1; i <= 100; i++)
@@ -235,6 +279,11 @@ namespace _929_Bilt2020_PlaypenChild
                             MessageBox.Show("Stopped at 'i > 100' because more will cause Revit to 'freeze up'.");
                             break;
                         }
+
+
+                        Random rnd = new Random();
+                        OverrideGraphicSettings ogs = new OverrideGraphicSettings();
+                        ogs.SetProjectionLineColor(new Autodesk.Revit.DB.Color((byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256)));
 
                         using (Transaction tx = new Transaction(doc))
                         {
@@ -285,6 +334,11 @@ namespace _929_Bilt2020_PlaypenChild
 
                                     ModelLine myModelLine = doc.Create.NewModelCurve(line, sketchPlane) as ModelLine;
 
+                                    doc.ActiveView.SetElementOverrides(myModelLine.Id, ogs);
+
+                                    //sketchPlane.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_NAME).Set("Delete Me");
+                                    myWindow1.myListElementID_SketchPlanesToDelete.Add(sketchPlane.Id);
+
                                     Transform myXYZ_FamilyTransform = Transform.Identity;
 
                                     if (myReferenceHosting_Normal.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
@@ -312,6 +366,8 @@ namespace _929_Bilt2020_PlaypenChild
 
                                     ModelArc arc = doc.Create.NewModelCurve(geomPlane3, mySketchPlane) as ModelArc;
                                     //doc.Delete(sketch2.Id);
+
+                                    doc.ActiveView.SetElementOverrides(arc.Id, ogs);
                                 }
 
                             }
@@ -319,6 +375,9 @@ namespace _929_Bilt2020_PlaypenChild
                             uidoc.RefreshActiveView();
                         }
                     }
+
+
+
 
                     transGroup.Assimilate();
                 }
