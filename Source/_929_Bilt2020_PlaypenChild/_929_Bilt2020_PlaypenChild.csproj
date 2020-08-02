@@ -74,12 +74,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EE04_Part1.cs" />
-    <Compile Include="EE03_Part1.cs" />
-    <Compile Include="EE02_Part1.cs" />
-    <Compile Include="EE01_Part1.cs" />
-    <Compile Include="EE05_Part1.cs" />
-    <Compile Include="EE07_Part1.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE05_LoadAllFamilies.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE02_OneOfEachWall.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE03_SetDefaultType.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE04_ManualColorOverride.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE06_PlaceAFamily_OnDoubleClick.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE07_RotatingEntities.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE08_MoveElementAroundHostingSurface.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE09_Draw3D_ModelLines.cs" />
+    <Compile Include="ExternalEvents TopRow 01 to 10\EE10_Draw2D_DetailLines.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE16_AddSharedParameters_InVariousWays.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE14_Draw3D_IntersectorLines.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_DeleteAll.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_DeleteItem.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_NewOrSave.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE12_SetupRoom.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE11_GridOutCirclesOnFace.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_Rearrange.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE15_BackupSystem.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE17_Edit_StringBasedParameters.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE18_UnderStandingTransforms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,35 +104,36 @@
     <Compile Include="ThisApplication.Designer.cs">
       <DependentUpon>ThisApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EE00_SchemaBuilders.cs" />
-    <Compile Include="EE06_Part1.cs" />
-    <Compile Include="Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
+    <Compile Include="EE00_SchemaBuilders and EE Template.cs" />
+    <Compile Include="Window1617_AddEditParameters.xaml.cs">
+      <DependentUpon>Window1617_AddEditParameters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window3.xaml.cs">
-      <DependentUpon>Window3.xaml</DependentUpon>
+    <Compile Include="Window0506_LoadAndPlaceFamilies.xaml.cs">
+      <DependentUpon>Window0506_LoadAndPlaceFamilies.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window4.xaml.cs">
-      <DependentUpon>Window4.xaml</DependentUpon>
+    <Compile Include="Window1213_ExtensibleStorage.xaml.cs">
+      <DependentUpon>Window1213_ExtensibleStorage.xaml</DependentUpon>
     </Compile>
     <Compile Include="_952_LinkedCode\20181201 Loaded Stripped.cs" />
     <Compile Include="_952_LinkedCode\DatabaseMethods Stripped.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Window1.xaml" />
-    <Page Include="Window2.xaml">
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window1617_AddEditParameters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window3.xaml">
+    <Page Include="Window0506_LoadAndPlaceFamilies.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window4.xaml">
+    <Page Include="Window1213_ExtensibleStorage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +171,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <Content Include="PRL-GM Adaptive Carrier Youtube.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PRL-GM Chair with always vertical OFF.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

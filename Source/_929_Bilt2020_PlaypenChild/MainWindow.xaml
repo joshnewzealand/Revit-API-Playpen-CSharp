@@ -1,0 +1,56 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.MainWindow"
+	Title="C# Playpen: https://twitter.com/joshnewzealand" Height="394.666" Width="1151"  MinHeight="310" MinWidth="920" Topmost="True" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="NoResize">
+
+    <Grid Margin="0,-3,0,3" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="36,38,0,0" VerticalAlignment="Top" Width="25"/>
+        <TextBox x:Name="myTextbox_ManualID" HorizontalAlignment="Left" Height="23" Margin="17,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+        <Button x:Name="my01ButtonElementID" Content="1 of 19&#xA;&#xA;• Select element&#xA;with code*&#xA;&#xA;"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="88,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my01ButtonElementID_Click" />
+        <Button x:Name="my02OneOfEachWall"  Content="2 of 19&#xA;&#xA;• Model one of&#xA;each wall&#xA;&#xA;" HorizontalAlignment="Left" Margin="187,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my02OneOfEachWall_Click" />
+        <Button x:Name="my03SetDefaultType" Content="3 of 19&#xA;&#xA;• Set default&#xA;type...please&#xA;select entity&#xA;first&#xD;&#xA;" HorizontalAlignment="Left" Margin="286,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my03SetDefaultType_Click" />
+        <Button x:Name="my04ManualColorOverride" Content="4 of 19&#xA;&#xA; • Override&#xD;&#xA;color...please&#xD;&#xA;select entity&#xD;&#xA;first&#xD;&#xA;" HorizontalAlignment="Left" Margin="385,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my04ManualColorOverride_Click"  />
+        <Button x:Name="my0506LoadingFamilies" Content="5 of 19                  6 of 19&#xA;&#xA; • Loading families&#xA; • Place specific family&#xD;&#xA;&#xA;&#xA;" HorizontalAlignment="Left" Margin="484,30,0,0" VerticalAlignment="Top" Width="193" Height="111" Click="my0506LoadingFamilies_Click" />
+        <CheckBox x:Name="myCheckBoxWithWall" Content="With Wall" HorizontalAlignment="Left" Margin="693,9,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <Button x:Name="my07RotateWall" Content="7 of 19&#xD;&#xA;&#xA;• Rotate wall&#xA;  &amp; family&#xA;...please select&#xA;wall first&#xA;" HorizontalAlignment="Left" Margin="682,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my07RotateWall_Click"/>
+        <xctk:IntegerUpDown x:Name="myIntegerUpDown_OneToTwentyCount" IsEnabled="False" HorizontalAlignment="Left" Margin="800,7,0,0" VerticalAlignment="Top" Width="52" Value="1" Minimum="1" Maximum="40"  />
+        <Button x:Name="my08MoveFamilyInstances" Content="8 of 19                  8 of 19   &#xA;&#xD;&#xA;• Move element&#xA;hosted to wall&#xA;...please select&#xA;   wall first&#xA;" HorizontalAlignment="Left" Margin="781,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my08MoveFamilyInstances_Click" />
+        <Button x:Name="my09Draw3DLines" Content="9 of 19&#xA;• 3D model&#xA;lines, circles,&#xA;arcs &amp; ellipse&#xA;...please pick&#xA;face" HorizontalAlignment="Left" Margin="880,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my09Draw3DLines_Click"/>
+        <Button x:Name="my10Draw2DLines" Content="10 of 19&#xD;&#xA;&#xA;• As per&#xA;9 of 19&#xA;except as 2D&#xA;detail lines&#xA;" HorizontalAlignment="Left" Margin="979,30,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my10Draw2DLines_Click"   />
+        <CheckBox x:Name="my11CheckBox_OneTwoOne" Content="1:2:1&#xD;&#xA;Spacing " HorizontalAlignment="Left" Margin="18,183,0,0" VerticalAlignment="Top" IsEnabled="False" Click="my11CheckBox_OneTwoOne_Click"/>
+        <xctk:IntegerUpDown x:Name="my11IntegerUpDown_Rows" IsEnabled="False" HorizontalAlignment="Left" Margin="17,219,0,0" VerticalAlignment="Top" Width="64" Value="3" Minimum="1" Maximum="10" Spinned="my11IntegerUpDown_Rows_Spinned" />
+        <xctk:IntegerUpDown x:Name="my11IntegerUpDown_Columns"  IsEnabled="False" HorizontalAlignment="Left" Margin="17,244,0,0" VerticalAlignment="Top" Width="64" Value="3" Minimum="1" Maximum="10" Spinned="my11IntegerUpDown_Columns_Spinned" />
+        <Button x:Name="my11ClearCirclesButton" Content="Clear" HorizontalAlignment="Left" Margin="17,269,0,0" VerticalAlignment="Top" Width="64" Click="my11ClearCirclesButton_Click"/>
+        <Button x:Name="my11GridCircles" Content="11 of 19&#xA;• 3D model&#xA;circles in matrix&#xA;...please pick&#xA;face and use &#xA;&lt;-- spinners" HorizontalAlignment="Left" Margin="88,189,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my11GridCircles_Click" />
+        <Button x:Name="my1213ExtensibleStorage" Content="12 of 19               13 of 19&#xA;&#xA;• NewFamilyInstance&#xD;&#xA;• Extensible Storage&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="187,189,0,0" VerticalAlignment="Top" Width="193" Height="111" Click="my1213ExtensibleStorage_Click"/>
+        <Button x:Name="my14ReferenceIntersector" Content="14 of 19&#xA;• Reference&#xA;intersector&#xA;...please place&#xA;NERF GUN*" HorizontalAlignment="Left" Margin="385,189,0,0" VerticalAlignment="Top" Width="94" Height="91" Click="my14ReferenceIntersector_Click" />
+        <Button x:Name="my14ClearIntersectorLines" Content="Clear Lines" HorizontalAlignment="Left" Margin="385,280,0,0" VerticalAlignment="Top" Width="94" Click="my14ClearIntersectorLinesButton_Click" />
+        <Button x:Name="my15BackupSystem" Content="15 of 19&#xA;One click family backup system&#xA;&#xA;Click this BEFORE editing family for peace of mind.&#xA;(and after an old version is restored)&#xA;" HorizontalAlignment="Left" Margin="484,189,0,0" VerticalAlignment="Top" Width="292" Height="91" Click="my15BackupSystem_Click" />
+        <Button x:Name="my15OpenFolderButton" Content="Open BACKUP Folder" HorizontalAlignment="Left" Margin="484,280,0,0" VerticalAlignment="Top" Width="292" Height="20" Click="my15OpenFolderButton_Click"/>
+        <Button x:Name="my1617AddingEditingParameters" Content="16 of 19                  17 of 19&#xA;&#xA;• Add shared parameters&#xA;• Editing parameters&#xA;&#xA;" HorizontalAlignment="Left" Margin="781,189,0,0" VerticalAlignment="Top" Width="193" Height="111" Click="my1617AddingEditingParameters_Click"/>
+        <Button x:Name="my1819UnderstandingTransforms" Content="18 of 19&#xA;19 of 19&#xA;&#xA;Understanding&#xA;Transforms&#xA;" HorizontalAlignment="Left" Margin="979,189,0,0" VerticalAlignment="Top" Width="94" Height="111" Click="my1819UnderstandingTransforms_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode1" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="88,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy622n2" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="187,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy7n3" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="286,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy1n4" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="385,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copyn5" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="484,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy11n7" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="583,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy10n8" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="682,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy18n8" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="781,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy3n9" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="880,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy2n10" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="979,146,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy4n11" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="88,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy16n12" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="187,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy17n13" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="285,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy8n14" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="385,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy12n15" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="484,305,0,0" VerticalAlignment="Top" Width="292" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy5n16" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="781,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy13n17" Content="↑ Show Code ↑" HorizontalAlignment="Left" Margin="880,305,0,0" VerticalAlignment="Top" Width="94" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy15n18" Content="↑ SC ↑" HorizontalAlignment="Left" Margin="1028,305,0,0" VerticalAlignment="Top" Width="45" Click="myButtonShowCode_SelectElementWithCode_Click" />
+        <Button x:Name="myButtonShowCode_SelectElementWithCode_Copy15n18_Copy" Content="↑ SC ↑" HorizontalAlignment="Left" Margin="979,305,0,0" VerticalAlignment="Top" Width="44" Click="myButtonShowCode_SelectElementWithCode_Click" />
+    </Grid>
+</Window>

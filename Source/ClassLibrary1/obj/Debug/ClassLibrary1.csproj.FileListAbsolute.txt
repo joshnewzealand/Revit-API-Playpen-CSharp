@@ -118,7 +118,6 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\Class
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\ClassLibrary1\obj\Debug\ClassLibrary1.csprojAssemblyReference.cache
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ClassLibrary1.dll
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\ClassLibrary1\bin\Debug\Ookii.Dialogs.Wpf.dll

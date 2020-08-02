@@ -29,12 +29,18 @@ namespace RevitTransformSliders
 
 		}
 
+
+        public string messageConst { get; set; }
         //this is is the method that invoked from outside
-        public Result OpenWindowForm(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            try
+
+            //this is is the method that invoked from outside
+            public Result OpenWindowForm(ExternalCommandData commandData, ref string message, ElementSet elements)
             {
-                Window1 myWindow1 = new Window1(commandData)  ;
+                messageConst = message;
+
+                try
+            {
+                Window1 myWindow1 = new Window1(commandData, this)  ;
                 myWindow1.Show();
             }
 

@@ -1,4 +1,3 @@
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\RevitTransformSliders\obj\Debug\RevitTransformSliders.csprojAssemblyReference.cache
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\RevitTransformSliders\obj\Debug\Window1.baml
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\RevitTransformSliders\obj\Debug\Window1.g.cs
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\RevitTransformSliders\obj\Debug\RevitTransformSliders_MarkupCompile.cache

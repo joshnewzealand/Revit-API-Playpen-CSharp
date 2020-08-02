@@ -233,13 +233,26 @@ namespace RevitTransformSliders
                 {
                     tx.Start("EE06_LoadFamily");
 
-                    string stringAppDataPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    string stringAppDataCompanyProductYearPath = stringAppDataPath + "\\Default Company Name\\CSharp PLAYPEN II Google 'Josh API Revit'\\2019";
+
+                    string myString_TempPath = "";
+
+                    if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")
+                    {
+                        myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1];
+                    }
+                    if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
+                    {
+                        myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild";
+                    }
+          
+                    
+                    //////string stringAppDataPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    //////string stringAppDataCompanyProductYearPath = stringAppDataPath + "\\Pedersen Read Limited\\CSharp PLAYPEN II Google 'Josh API Revit'\\2019";
                     string stringAGM_FileName = "\\PRL-GM Adaptive Carrier Youtube.rfa";
                     string stringChair_FileName = "\\PRL-GM Chair with always vertical OFF.rfa";
 
-                    doc.LoadFamily(stringAppDataCompanyProductYearPath + stringAGM_FileName);
-                    doc.LoadFamily(stringAppDataCompanyProductYearPath + stringChair_FileName);
+                    doc.LoadFamily(myString_TempPath + stringAGM_FileName);
+                    doc.LoadFamily(myString_TempPath + stringChair_FileName);
                     tx.Commit();
                 }
             }

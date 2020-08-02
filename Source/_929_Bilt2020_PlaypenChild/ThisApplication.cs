@@ -37,7 +37,7 @@ namespace _929_Bilt2020_PlaypenChild
 
             try
             {
-                Window1 myWindow1 = new Window1(commandData, this);
+                MainWindow myWindow1 = new MainWindow(commandData, this);
 
                 myWindow1.Show();
             }

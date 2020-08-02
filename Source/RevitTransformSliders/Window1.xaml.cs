@@ -74,10 +74,12 @@ namespace RevitTransformSliders
         public EE06_PlaceFamily myEE06_PlaceFamily { get; set; }
         public ExternalEvent myExternalEvent_EE06_PlaceFamily { get; set; }
 
+        public ThisApplication myThisApplication { get; set; }
         public ExternalCommandData commandData { get; set; }
 
-        public Window1(ExternalCommandData cD)
+        public Window1(ExternalCommandData cD, ThisApplication tA)
         {
+            myThisApplication = tA;
             commandData = cD;
 
             InitializeComponent();
@@ -843,16 +845,19 @@ namespace RevitTransformSliders
 
                 bool myBool_RunFamilyLoadEvent = false;
 
+                string myString_TempPath = "";
+
+
                 if (true)
                 {
-                    string stringAGM_FileName = "\\PRL-GM Adaptive Carrier Youtube.rfa";
+                    string stringAGM_FileName = "PRL-GM Adaptive Carrier Youtube";
                     List<Element> myListFamilySymbol_1738 = new FilteredElementCollector(doc).WherePasses(new ElementClassFilter(typeof(Family))).Where(x => x.Name == stringAGM_FileName).ToList();
                     if (myListFamilySymbol_1738.Count != 1) myBool_RunFamilyLoadEvent = true;
                 }
 
                 if (true)
                 {
-                    string stringChair_FileName = "\\PRL-GM Chair with always vertical OFF.rfa";
+                    string stringChair_FileName = "PRL-GM Chair with always vertical OFF";
                     List<Element> myListFamilySymbol_1738 = new FilteredElementCollector(doc).WherePasses(new ElementClassFilter(typeof(Family))).Where(x => x.Name == stringChair_FileName).ToList();
                     if (myListFamilySymbol_1738.Count != 1) myBool_RunFamilyLoadEvent = true;
                 }
