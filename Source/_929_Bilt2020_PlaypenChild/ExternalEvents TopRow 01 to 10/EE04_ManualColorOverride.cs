@@ -24,10 +24,31 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
+                ///                  TECHNIQUE 4 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ COLOUR OVERRIDE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInParameter.VIEW_DESCRIPTION
+                /// 
+                /// Demonstrates classes:
+                ///     UIDocument
+                ///     OverrideGraphicSettings
+                ///     FillPatternElement
+                /// 
+                /// Key methods:
+                ///     GetElementOverrides
+                ///     ogs.SetSurfaceBackgroundPatternId(
+                ///     ogs.SetSurfaceBackgroundPatternColor(
+                ///     SetElementOverrides
+                ///
+                /// 
+                /// * class is actually part of the .NET framework (not Revit API)
+
+
                 Element myElement = null;
                 if (uidoc.Selection.GetElementIds().Count == 0)
                 {
-                    string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();
+                    string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();  //stores the last ID in the VIEW_DESCRIPTION, it would be more appropriate to store it in a DataStorage entity.
                     int n;
                     if (!int.TryParse(myString_RememberLast, out n))
                     {
@@ -43,8 +64,6 @@ namespace _929_Bilt2020_PlaypenChild
                 if (myElement == null) return;
 
 
-                ///                  TECHNIQUE 4 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ COLOUR OVERWRITE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 using (Transaction tx = new Transaction(doc))
                 {
                     tx.Start("Manual Color Override");
@@ -56,9 +75,9 @@ namespace _929_Bilt2020_PlaypenChild
                     ogs.SetSurfaceBackgroundPatternId(myFillPattern.Id);
                     ogs.SetSurfaceBackgroundPatternColor(new Autodesk.Revit.DB.Color(255, 255, 0));
 
-                    if (ogsCheeck.SurfaceBackgroundPatternId.IntegerValue != -1)
+                    if (ogsCheeck.SurfaceBackgroundPatternId.IntegerValue != -1) 
                     {
-                        doc.ActiveView.SetElementOverrides(myElement.Id, new OverrideGraphicSettings());
+                        doc.ActiveView.SetElementOverrides(myElement.Id, new OverrideGraphicSettings()); //if it already has overwrites, this removes it.
                     }
                     else
                     {
@@ -68,8 +87,6 @@ namespace _929_Bilt2020_PlaypenChild
                     uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).Set(myElement.Id.IntegerValue.ToString());
                     tx.Commit();
                 }
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
 
                 uidoc.Selection.SetElementIds(new List<ElementId>());
             }

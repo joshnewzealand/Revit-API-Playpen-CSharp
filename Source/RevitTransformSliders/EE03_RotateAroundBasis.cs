@@ -60,7 +60,6 @@ namespace RevitTransformSliders
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class EE03_RotateAroundBasis : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
-
         public static bool IsZero(double a, double tolerance)
         {
             return tolerance > Math.Abs(a);
@@ -161,8 +160,6 @@ namespace RevitTransformSliders
 
                     bool myBool_Perform_Unhost_And_Rehost = true;
                     if (myReferencePoint_Centre.GetPointElementReference() == null) myBool_Perform_Unhost_And_Rehost = false;
-
-                    PointOnFace myPointOnFace = (PointOnFace)myReferencePoint_Centre.GetPointElementReference();
 
                     if (myBool_Perform_Unhost_And_Rehost)
                     {

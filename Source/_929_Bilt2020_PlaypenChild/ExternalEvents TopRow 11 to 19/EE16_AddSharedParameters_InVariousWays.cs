@@ -73,14 +73,13 @@ namespace _929_Bilt2020_PlaypenChild
                             MessageBox.Show("Note: The 'Selected' element did not match the 'Acquired' element.");
                         }
                     }
-                   
                 }
             }
 
             #region catch and finally
             catch (Exception ex)
             {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE07_Part1_Binding" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE16_AddSharedParameters_InVariousWays" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {
@@ -105,11 +104,36 @@ namespace _929_Bilt2020_PlaypenChild
                 myStringSharedParameterFileName = uidoc.Application.Application.SharedParametersFilename; //Q:\Revit Revit Revit\Template 2018\PRL_Parameters.txt
             }
 
-
             int eL = -1;
 
             try
             {
+                ///                            TECHNIQUE 16 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ADDING SHARED PARAMETERS IN VARIOUS WAYS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes::
+                ///     DefinitionFile
+                ///     CategorySet
+                ///     DefinitionGroup
+                ///     Definition
+                ///     Binding
+                /// 
+                /// 
+                /// Key methods:
+                ///     uidoc.Application.Application.OpenSharedParameterFile();
+                ///     catSet.Insert(
+                ///     myDefinitionFile.Groups.get_Item(
+                ///     uidoc.Application.Application.Create.NewTypeBinding(
+                ///     uidoc.Application.Application.Create.NewInstanceBinding(
+                ///     doc.ParameterBindings.Insert(
+                ///     new ElementId(
+                ///     famDoc.FamilyManager.AddParameter(
+                /// 
+                /// 
+
 
                 uidoc.Application.Application.SharedParametersFilename = path;
 
@@ -150,21 +174,17 @@ namespace _929_Bilt2020_PlaypenChild
                     myStringCollectup = (IsTypeParameter ? "Type" : "Instance") + " parameters added to Project (all categories):" + Environment.NewLine + myStringCollectup;
                 }
 
-
-
                 if (IsTypeParameter)
                 {
                     if (doc.GetElement(new ElementId(myWindow2.myIntegerUpDown.Value.Value)) != null)  //i would rather this come from the spinner so we can select other entities
                     {
                         Element myElement = doc.GetElement(new ElementId(myWindow2.myIntegerUpDown.Value.Value)) as Element;
-                       // ElementType myElementType = doc.GetElement(new ElementId(myWindow2.myIntegerUpDown.Value.Value)) as ElementType;
 
                         if (myElement.GetType() == typeof(FamilyInstance))
                         {
                             FamilyInstance myFamilyInstance = myElement as FamilyInstance;
                             
                             Family myFamily = ((FamilySymbol)doc.GetElement(myFamilyInstance.GetTypeId())).Family;
-
 
                             if (myFamily.IsEditable)
                             {
@@ -192,7 +212,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                                         foreach (ExternalDefinition eD in group.Definitions)
                                         {
-
                                             if (famDoc.FamilyManager.Parameters.Cast<FamilyParameter>().Where(x => x.Definition.Name == eD.Name).Count() == 0)
                                             {
                                                 famDoc.FamilyManager.AddParameter(eD, BuiltInParameterGroup.PG_IDENTITY_DATA, false);
@@ -233,7 +252,6 @@ namespace _929_Bilt2020_PlaypenChild
                     {
                         myStringCollectup = "Please use 'Acquire Selected' button.";
                     }
-
                 }
 
                 if (myStringSharedParameterFileName != "")

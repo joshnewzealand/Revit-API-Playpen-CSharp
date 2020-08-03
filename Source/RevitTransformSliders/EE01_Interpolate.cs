@@ -100,6 +100,15 @@ namespace RevitTransformSliders
                 int myInt_ChangeCount = 0;
                 double myDouble_ChangePosition = -1;
 
+
+                ///                  TECHNIQUE 6 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///Demonstrates: 
+                ///SketchPlane
+                ///PromptForFamilyInstancePlacement with the PromptForFamilyInstancePlacementOptions class
+                ///DocumentChanged event that cancels the command and focuses the window
+
+
                 using (TransactionGroup transGroup = new TransactionGroup(doc))
                 {
                     transGroup.Start("Transform animation");

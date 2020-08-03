@@ -1,0 +1,40 @@
+﻿                ///                  TECHNIQUE 1 OF 19 (MainWindow.xaml.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInCategory.OST_ProjectInformation
+                /// 
+                /// 
+                /// Demonstrates classes:
+				///     UIDocument
+                ///     Element
+                /// 
+                /// 
+                /// Key methods:
+				///	    doc.GetElement(new ElementId(
+                ///     uidoc.Selection.SetElementIds(
+                ///     int.TryParse(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
+
+
+
+TECHNIQUE 1 OF 19 (MainWindow.xaml.cs in event my01ButtonElementID_Click)
+↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+Interfaces and ENUM's:
+   BuiltInCategory.OST_ProjectInformation
+ 
+ 
+Demonstrates classes:
+   UIDocument
+   Element
+ 
+ 
+Key methods:
+   int.TryParse(
+   doc.GetElement(new ElementId(
+   uidoc.Selection.SetElementIds(
+

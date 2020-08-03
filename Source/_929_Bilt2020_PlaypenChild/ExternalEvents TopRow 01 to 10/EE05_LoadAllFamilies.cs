@@ -25,12 +25,26 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                // string myString_FamilyName = "Generic Adaptive Nerf Gun";
-                //string myString_FamilyFileName = @"\Generic Adaptive Nerf Gun.rfa";  //Families
-
                 string myStringMessageBox = "";
 
                 int myInt = 0;
+
+                ///                             TECHNIQUE 5 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ LOADING ALL THE FAMILIES FROM A LISTVIEW ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// Demonstrates classes:
+                ///     Window0506_LoadAndPlaceFamilies.ListView_Class*
+                ///     
+                /// 
+                /// Key methods:
+                ///     doc.LoadFamily(
+                ///
+                /// 
+                /// * class is actually part of this application (not Revit API)
+
 
                 foreach (Window0506_LoadAndPlaceFamilies.ListView_Class myListView_Class in myWindow1.myListClass)
                 {
@@ -38,13 +52,13 @@ namespace _929_Bilt2020_PlaypenChild
 
                     if (myListFamily.Count == 0)
                     {
-                        string myString_TempPath = "";
+                        string myString_TempPath = ""; 
 
-                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")
+                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01")  //constructs a path for release directory (in program files)
                         {
                             myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + myListView_Class.String_FileName;
                         }
-                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
+                        if (myWindow1.myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development") //constructs a path for development directory
                         {
                             myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild" + myListView_Class.String_FileName;
                         }
@@ -58,7 +72,6 @@ namespace _929_Bilt2020_PlaypenChild
                         myStringMessageBox = myStringMessageBox + Environment.NewLine + myListView_Class.String_Name;
                         myInt++;
                     }
-
                 }
 
                 string myStringStart = myInt.ToString() + " families have been loaded: " + Environment.NewLine + Environment.NewLine;

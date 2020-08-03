@@ -48,6 +48,29 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
+                ///                    TECHNIQUE 07 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ROTATING ENTITIES ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///
+                /// 
+                /// Demonstrates classes:
+                ///     FamilyInstance
+                ///     Line
+                ///     Wall
+                ///     Curve
+                /// 
+                /// 
+                /// Key methods:
+                ///     ((LocationPoint)myFamilyInstance.Location).Point;
+                ///     Line.CreateUnbound(
+                ///     ElementTransformUtils.RotateElement(
+                ///     ((LocationCurve)myWall.Location).Curve
+                ///     myCurve.GetEndPoint(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
                 List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();
                 List<Element> myListOfFurniture = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_Furniture).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();
                 myListOfStuffOnWall.AddRange(myListOfFurniture);

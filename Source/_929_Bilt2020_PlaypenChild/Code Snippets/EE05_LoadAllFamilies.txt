@@ -1,0 +1,15 @@
+﻿                ///                             TECHNIQUE 5 OF 19 (EE05_LoadAllFamilies.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ LOADING ALL THE FAMILIES FROM A LISTVIEW ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// Demonstrates classes:
+                ///     Window0506_LoadAndPlaceFamilies.ListView_Class*
+                ///     
+                /// 
+                /// Key methods:
+                ///     doc.LoadFamily(
+                ///
+                /// 
+                /// * class is actually part of this application (not Revit API)

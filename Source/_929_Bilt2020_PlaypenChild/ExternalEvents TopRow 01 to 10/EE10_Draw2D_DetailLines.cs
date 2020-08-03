@@ -51,6 +51,24 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
+                ///                                TECHNIQUE 10 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 2D DETAIL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     UIDocument
+                /// 
+                /// 
+                /// Key methods:
+                ///     uiview.GetZoomCorners(
+                ///     doc.Create.NewDetailCurve(
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
 
 
                 using (Transaction tx = new Transaction(doc))

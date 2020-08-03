@@ -42,7 +42,6 @@ namespace _929_Bilt2020_PlaypenChild
             {
                 if (!myBool_JustClear)
                 {
-
                     if (myBool_DoLoop)
                     {
                         myListElementID.Clear();
@@ -116,6 +115,24 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
+            ///                        TECHNIQUE 11 OF 19
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ GRID OUT CIRCLES ON FACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///
+            /// Interfaces and ENUM's:
+            ///     
+            /// 
+            /// Demonstrates classes:
+            ///     Xceed.Wpf.Toolkit.IntegerUpDown*
+            /// 
+            /// 
+            /// Key methods:
+            ///     doc.Delete(
+            ///
+            /// 
+            ///
+            ///
+            /// * class is actually part of the .NET framework (not Revit API)
+
 
             using (Transaction tx = new Transaction(doc))
             {
@@ -183,6 +200,7 @@ namespace _929_Bilt2020_PlaypenChild
             double endAngle = 2 * Math.PI;
             double radius = myDouble_SmallestWins / (myBool_OneTwoOneLayout ? 1 : 2);
 
+
             using (Transaction tx = new Transaction(doc))
             {
                 tx.Start("Draw Grid of Circles On Face");
@@ -204,7 +222,7 @@ namespace _929_Bilt2020_PlaypenChild
                         }
                     }
                 }
-
+                
                 tx.Commit();
             }
             return;

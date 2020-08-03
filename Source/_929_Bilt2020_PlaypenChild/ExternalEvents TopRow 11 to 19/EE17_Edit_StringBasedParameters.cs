@@ -29,6 +29,25 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
+
+                ///                         TECHNIQUE 18 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ EDIT STRING BASED PARAMETERS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Parameter
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElement.LookupParameter(
+                ///     myParameter.Set(
+                ///     
+                ///     
+                /// 
+
+
                 if (myWindow2.myIntegerUpDown.Value.Value == -1)
                 {
                     myWindow2.myTextBoxPrevious.Text = "";
@@ -80,10 +99,6 @@ namespace _929_Bilt2020_PlaypenChild
                             myParameter = myElement.GetParameters(((Window1617_AddEditParameters.aBuiltInParameter_and_Name)myWindow2.myListBoxInstanceParameters.SelectedItem).theParameterName)[0];
                         }
                     }
-
-                    ///i don't know what the last thing we werwe doing when this was finished up last night was it
-                    ///one thing we can do is methodise the common  lines as per above and below
-                    ///the problem is the adding of the parameters doesn't always work because it is not within a transaction
 
                     if (myWindow2.myListBoxTypeParameters.SelectedIndex != -1)
                     {

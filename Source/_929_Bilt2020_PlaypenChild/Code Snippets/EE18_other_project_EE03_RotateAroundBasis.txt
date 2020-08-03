@@ -1,0 +1,16 @@
+﻿                ///             TECHNIQUE 18 OF 19 (EE03_RotateAroundBasis.cs) (scroll down to project 'RevitTransformSliders')
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ USING SLIDERS TO ROTATE A TRANSFORM ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Parameter
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElement.LookupParameter(
+                ///     myParameter.Set(
+                ///     
+                ///     
+                /// 

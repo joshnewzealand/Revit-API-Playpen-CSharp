@@ -36,7 +36,7 @@ namespace _929_Bilt2020_PlaypenParent
                 VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
                 dlg.SelectedPath = (Directory.Exists(Properties.Settings.Default.DevelopmentPathRoot) ? Properties.Settings.Default.DevelopmentPathRoot : "");
                 dlg.ShowNewFolderButton = true;
-                dlg.Description = "Choose your development directory, this is the SOLUTIONS PARENT DIRECTORY (one level UP from Addin & Source directories.)";
+                dlg.Description = "Navigate to local respository folder 'Revit-API-Playpen-CSharp', choose directory called 'Source', click 'Select Folder' button.";
 
                 if (dlg.ShowDialog() == true)
                 {

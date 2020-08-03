@@ -56,6 +56,28 @@ namespace _929_Bilt2020_PlaypenChild
                         }
                         else
                         {
+                            ///                              TECHNIQUE 12 OF 19
+                            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ARRANGE FURNITURE IN A ROOM WITH GLASS WALLS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                            ///
+                            /// Interfaces and ENUM's:
+                            ///     IFamilyLoadOptions
+                            /// 
+                            /// Demonstrates classes:
+                            ///     DataStorage
+                            ///     FamilySymbol
+                            /// 
+                            /// 
+                            /// Key methods:
+                            ///     DataStorage.Create(
+                            ///     doc.LoadFamily(
+                            ///     doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
+                            ///     
+                            /// 
+                            ///
+                            ///
+                            /// * class is actually part of the .NET framework (not Revit API)
+
+
                             // Build a wall profile for the wall creation
                             XYZ first = new XYZ(80, 0, 0);
                             XYZ second = new XYZ(100, 0, 0);
@@ -80,8 +102,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                                 uidoc.RefreshActiveView();
                             }
-
-                            //Element myElement_DataStorage = doc.GetElement(new ElementId(138191)) as Element;
 
                             DataStorage myDatastorage = DataStorage.Create(doc);
                             myDatastorage.Name = "Room Setup Entities";
@@ -176,14 +196,13 @@ namespace _929_Bilt2020_PlaypenChild
 
         private void PlaceAndRotateFamily(UIDocument uidoc, FamilySymbol myFamilySymbol, XYZ myXYZ_Location, double myDouble_Rotation, Element myLevel)
         {
-            Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+            Document doc = uidoc.Document; 
 
             myFamilySymbol.Activate();
             FamilyInstance myFamilyInstance = doc.Create.NewFamilyInstance(myXYZ_Location, myFamilySymbol, myLevel, Autodesk.Revit.DB.Structure.StructuralType.NonStructural);
             Line myLine = Line.CreateUnbound(myXYZ_Location, XYZ.BasisZ);
 
             ElementTransformUtils.RotateElement(doc, myFamilyInstance.Id, myLine, myDouble_Rotation);
-            //FamilyInstance myFamilyInstance = doc.Create.NewFamilyInstance(myLevel)
             myFamilyInstance.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Room Setup Entities");
             uidoc.RefreshActiveView();
         }
@@ -223,12 +242,10 @@ namespace _929_Bilt2020_PlaypenChild
                 myString_TempPath = myWindow1.myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild" + myListViewClass.String_FileName;
             }
 
-            // doc.LoadFamilySymbol
-
             doc.LoadFamily(myString_TempPath, new FamilyOptionOverWrite(), out Family myFamily);
-            //   doc.Regenerate();
+
             FamilySymbol myFamilySymbol = doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
-            //  List<Element> myListElement = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol)).Where(x => x.Name == myListViewClass.String_Name).ToList();
+
 
             return myFamilySymbol;
         }

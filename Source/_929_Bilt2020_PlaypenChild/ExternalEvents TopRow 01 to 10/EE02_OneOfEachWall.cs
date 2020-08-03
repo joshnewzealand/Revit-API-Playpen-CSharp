@@ -23,7 +23,29 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+                Document doc = uidoc.Document;
+
+                ///                  TECHNIQUE 2 OF 19 (EE02_OneOfEachWall.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE OF EACH WALL ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInCategory.OST_Walls
+                ///     BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS
+                /// 
+                /// Demonstrates classes:
+                ///     FilteredElementCollector
+                ///     Line
+                ///     Wall
+                /// 
+                /// Key methods:
+                ///     doc.Delete(
+                ///     new XYZ(
+                ///     Line.CreateBound(
+                ///     Wall.Create(
+                ///     myWall.get_Parameter(
+                ///
+                ///
+
 
                 using (Transaction y = new Transaction(doc, "Foreach on each wall type."))
                 {
@@ -35,9 +57,6 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                     else
                     {
-                        ///                  TECHNIQUE 2 OF 19
-                        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE OF EACH WAL L↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
                         FilteredElementCollector myFEC_WallTypes = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType();
 
                         double myX = 0;
@@ -55,7 +74,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                             myX = myX + 3;
                         }
-                        ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
                     }
 
                     y.Commit();

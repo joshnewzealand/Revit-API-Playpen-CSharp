@@ -1,0 +1,25 @@
+﻿                ///               TECHNIQUE 16 OF 19 (EE16_AddSharedParameters_InVariousWays.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ADDING SHARED PARAMETERS IN VARIOUS WAYS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes::
+                ///     DefinitionFile
+                ///     CategorySet
+                ///     DefinitionGroup
+                ///     Definition
+                ///     Binding
+                /// 
+                /// 
+                /// Key methods:
+                ///     uidoc.Application.Application.OpenSharedParameterFile();
+                ///     catSet.Insert(
+                ///     myDefinitionFile.Groups.get_Item(
+                ///     uidoc.Application.Application.Create.NewTypeBinding(
+                ///     uidoc.Application.Application.Create.NewInstanceBinding(
+                ///     doc.ParameterBindings.Insert(
+                ///     
+                ///     famDoc.FamilyManager.AddParameter(
+                /// 
+                /// 

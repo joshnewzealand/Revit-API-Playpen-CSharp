@@ -1,0 +1,16 @@
+﻿                ///             TECHNIQUE 18 OF 19 (EE17_Edit_StringBasedParameters.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ EDIT STRING BASED PARAMETERS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Parameter
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElement.LookupParameter(
+                ///     myParameter.Set(
+                ///     
+                ///     
+                /// 

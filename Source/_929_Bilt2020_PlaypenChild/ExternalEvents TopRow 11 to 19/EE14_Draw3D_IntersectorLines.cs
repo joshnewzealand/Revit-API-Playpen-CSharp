@@ -123,11 +123,41 @@ namespace _929_Bilt2020_PlaypenChild
                     return;
                 }
 
+                ///                            TECHNIQUE 14 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAW INTERSECTOR LINES FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInParameter.POINT_ELEMENT_DRIVEN
+                ///     IFailuresPreprocessor
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     ReferencePoint
+                ///     AdaptiveComponentInstanceUtils
+                ///     Transform
+                ///     TransactionGroup
+                ///     Random*
+                ///     ElementMulticategoryFilter
+                ///     ReferenceIntersector
+                /// 
+                /// 
+                /// Key methods:
+                ///     AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(
+                ///     myReferencePoint.GetCoordinateSystem(
+                ///     refIntersector.FindNearest(
+                ///     myReferenceWithContext.GetReference(
+                ///     uidoc.RefreshActiveView();
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
                 uidoc.Selection.SetElementIds(new List<ElementId>());
 
                 ReferencePoint myReferencePoint = doc.GetElement(AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(myFamilyInstance_NerfGun).First()) as ReferencePoint;
 
                 Transform myTransform_FromNurfGun = myReferencePoint.GetCoordinateSystem();
+
 
                 using (TransactionGroup transGroup = new TransactionGroup(doc))
                 {
@@ -156,7 +186,6 @@ namespace _929_Bilt2020_PlaypenChild
                             MessageBox.Show("Stopped at 'i > 100' because more will cause Revit to 'freeze up'.");
                             break;
                         }
-
 
                         Random rnd = new Random();
                         OverrideGraphicSettings ogs = new OverrideGraphicSettings();
@@ -213,7 +242,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                                     doc.ActiveView.SetElementOverrides(myModelLine.Id, ogs);
 
-                                    //sketchPlane.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_NAME).Set("Delete Me");
                                     myWindow1.myListElementID_SketchPlanesToDelete.Add(sketchPlane.Id);
 
                                     Transform myXYZ_FamilyTransform = Transform.Identity;
@@ -246,7 +274,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                                     doc.ActiveView.SetElementOverrides(arc.Id, ogs);
                                 }
-
                             }
                             tx.Commit();
                             uidoc.RefreshActiveView();

@@ -1,0 +1,28 @@
+﻿                ///                            TECHNIQUE 14 OF 19 (EE14_Draw3D_IntersectorLines.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAW INTERSECTOR LINES FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInParameter.POINT_ELEMENT_DRIVEN
+                ///     IFailuresPreprocessor
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     ReferencePoint
+                ///     AdaptiveComponentInstanceUtils
+                ///     Transform
+                ///     TransactionGroup
+                ///     Random*
+                ///     ElementMulticategoryFilter
+                ///     ReferenceIntersector
+                /// 
+                /// 
+                /// Key methods:
+                ///     AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(
+                ///     myReferencePoint.GetCoordinateSystem(
+                ///     refIntersector.FindNearest(
+                ///     myReferenceWithContext.GetReference(
+                ///     uidoc.RefreshActiveView();
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)

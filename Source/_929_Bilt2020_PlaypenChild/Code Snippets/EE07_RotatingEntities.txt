@@ -1,0 +1,25 @@
+﻿                ///              TECHNIQUE 07 OF 19 (EE07_RotatingEntities.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ROTATING ENTITIES ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///
+                /// 
+                /// Demonstrates classes:
+                ///     FamilyInstance
+                ///     Line
+                ///     Wall
+                ///     Curve
+                /// 
+                /// 
+                /// Key methods:
+                ///     ((LocationPoint)myFamilyInstance.Location).Point;
+                ///     Line.CreateUnbound(
+                ///     myFamilyInstance.GetTransform().BasisZ
+                ///
+                ///     ((LocationCurve)myWall.Location).Curve
+                ///     XYZ myXYZ = (myCurve.GetEndPoint(1) + myCurve.GetEndPoint(0)) / 2;
+                ///
+                ///     ElementTransformUtils.RotateElement(
+                ///
+                ///
+                /// 

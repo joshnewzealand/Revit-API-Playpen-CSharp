@@ -1,0 +1,29 @@
+﻿                ///                          TECHNIQUE 15 OF 19 (EE15_BackupSystem.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE CLICK FAMILY BACKUP SYSTEM ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Directory*
+                ///     StreamWriter*
+                ///     StreamReader*
+                /// 
+                /// 
+                /// Key methods:
+                ///     Directory.Exists(
+                ///     Directory.CreateDirectory(
+                ///     Path.GetInvalidFileNameChars(
+                ///     myStreamWriter_FirstZero.Write(
+                ///     myStreamWriter_FirstZero.Close(
+                ///     File.SetAttributes(
+                ///     myStreamReader.ReadLine(
+                ///     doc.EditFamily(
+                ///     famDoc.FamilyManager.AddParameter
+                ///     famDoc.LoadFamily(
+                ///     famDoc.SaveAs(
+                ///     famDoc.Close(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)

@@ -24,32 +24,47 @@ namespace _929_Bilt2020_PlaypenChild
         public MainWindow myWindow1 { get; set; }
         public FamilyInstance myFamilyInstance;
 
-        class FamilyOption : IFamilyLoadOptions
-        {
-            public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
-            {
-                overwriteParameterValues = true;
-                return true;
-            }
-
-            public bool OnSharedFamilyFound(Family sharedFamily, bool familyInUse, out FamilySource source, out bool overwriteParameterValues)
-            {
-                source = FamilySource.Family;
-                overwriteParameterValues = true;
-                return true;
-            }
-        }
-
         public void Execute(UIApplication uiapp)
         {
             try
             {
                 UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
+                Document doc = uidoc.Document; 
 
                 string myString_FamilyBackups_FamilyName = "";
                 Family myFamily = null;
                 string myString_FamilyName = "";
+
+
+                ///                          TECHNIQUE 15 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE CLICK FAMILY BACKUP SYSTEM ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Directory*
+                ///     StreamWriter*
+                ///     StreamReader*
+                /// 
+                /// 
+                /// Key methods:
+                ///     Directory.Exists(
+                ///     Directory.CreateDirectory(
+                ///     Path.GetInvalidFileNameChars(
+                ///     myStreamWriter_FirstZero.Write(
+                ///     myStreamWriter_FirstZero.Close(
+                ///     File.SetAttributes(
+                ///     myStreamReader.ReadLine(
+                ///     doc.EditFamily(
+                ///     famDoc.FamilyManager.AddParameter
+                ///     famDoc.LoadFamily(
+                ///     famDoc.SaveAs(
+                ///     famDoc.Close(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
 
                 if (true) //candidate for methodisation 202004251537
                 {
@@ -147,6 +162,7 @@ namespace _929_Bilt2020_PlaypenChild
                 objWriter.WriteLine("To Restore: " + Environment.NewLine + "1. Open this *.rfa file in Revit." + Environment.NewLine + "2. Check it is the revision you wish to restore." + Environment.NewLine + "3. Load into Project and Close." + Environment.NewLine + Environment.NewLine + "Note: This system only increments the revision - it never 'rolls back' and it never deletes." + Environment.NewLine + Environment.NewLine + "4. THEREFORE -> Click SAVE 'FOREVER' BACKUP again, after step 3, to make sure it becomes the new revision.");
                 objWriter.Close();
 
+
                 Document famDoc = null;
                 famDoc = doc.EditFamily(myFamily);
 
@@ -196,6 +212,23 @@ namespace _929_Bilt2020_PlaypenChild
         public string GetName()
         {
             return "External Event Example";
+        }
+
+
+        class FamilyOption : IFamilyLoadOptions
+        {
+            public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
+            {
+                overwriteParameterValues = true;
+                return true;
+            }
+
+            public bool OnSharedFamilyFound(Family sharedFamily, bool familyInUse, out FamilySource source, out bool overwriteParameterValues)
+            {
+                source = FamilySource.Family;
+                overwriteParameterValues = true;
+                return true;
+            }
         }
     }
 }

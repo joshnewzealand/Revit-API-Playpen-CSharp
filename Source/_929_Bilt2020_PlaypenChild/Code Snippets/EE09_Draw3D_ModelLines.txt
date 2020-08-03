@@ -1,0 +1,23 @@
+﻿                    ///                TECHNIQUE 09 OF 19 (EE09_Draw3D_ModelLines.cs)
+                    ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 3D MODEL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                    ///
+                    /// Interfaces and ENUM's:
+                    ///     FailureHandlingOptions
+                    ///     
+                    /// 
+                    /// Demonstrates classes:
+                    ///     Arc
+                    ///     Line
+                    ///     Curve
+                    ///     Ellipse
+                    /// 
+                    /// 
+                    /// Key methods:
+                    ///     Arc.Create(end02, end12, pointOnCurve2);
+                    ///     Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
+                    ///     Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
+                    ///     doc.Create.NewModelCurve(
+                    /// 
+                    ///
+                    ///
+                    /// * class is actually part of the .NET framework (not Revit API)

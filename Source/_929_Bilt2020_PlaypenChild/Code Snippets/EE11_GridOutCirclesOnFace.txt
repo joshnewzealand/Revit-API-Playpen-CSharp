@@ -1,0 +1,17 @@
+﻿            ///                        TECHNIQUE 11 OF 19 (EE11_GridOutCirclesOnFace.cs)
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ GRID OUT CIRCLES ON FACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///
+            /// Interfaces and ENUM's:
+            ///     
+            /// 
+            /// Demonstrates classes:
+            ///     Xceed.Wpf.Toolkit.IntegerUpDown*
+            /// 
+            /// 
+            /// Key methods:
+            ///     doc.Delete(
+            ///
+            /// 
+            ///
+            ///
+            /// * class is actually part of the .NET framework (not Revit API)

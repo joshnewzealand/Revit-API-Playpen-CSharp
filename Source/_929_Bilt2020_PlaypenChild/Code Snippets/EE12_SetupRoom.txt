@@ -1,0 +1,20 @@
+﻿                            ///                              TECHNIQUE 12 OF 19 (EE12_SetupRoom.cs)
+                            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ARRANGE FURNITURE IN A ROOM WITH GLASS WALLS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                            ///
+                            /// Interfaces and ENUM's:
+                            ///     IFamilyLoadOptions
+                            /// 
+                            /// Demonstrates classes:
+                            ///     DataStorage
+                            ///     FamilySymbol
+                            /// 
+                            /// 
+                            /// Key methods:
+                            ///     DataStorage.Create(
+                            ///     doc.LoadFamily(
+                            ///     doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
+                            ///     
+                            /// 
+                            ///
+                            ///
+                            /// * class is actually part of the .NET framework (not Revit API)

@@ -111,12 +111,21 @@ namespace _929_Bilt2020_PlaypenChild
         public EE18_UnderStandingTransforms myEE18_UnderStandingTransforms { get; set; }
         public ExternalEvent myExternalEvent_EE18_UnderStandingTransforms { get; set; }
 
-
-
                      
 
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
+
+        public int myPublicInt { get; set; } = 0;
+        public List<ElementId> myListElementID_SketchPlanesToDelete { get; set; } = new List<ElementId>();
+        public int myPublicIntUpDown = -1;
+        public List<Transform> myListTransform { get; set; } = new List<Transform>();
+        public bool myBoolEventInProgress { get; set; } = false;
+        bool myBool_ProceedToZeroEverything = false;
+        public bool mySlideInProgress = false;
+        bool myBool_Checked = false;
+        const double _eps = 1.0e-9;
+        public List<Window0506_LoadAndPlaceFamilies.ListView_Class> myListClass { get; set; } = new List<Window0506_LoadAndPlaceFamilies.ListView_Class>();
 
 
 
@@ -216,34 +225,11 @@ namespace _929_Bilt2020_PlaypenChild
             myEE17_Edit_StringBasedParameters.myWindow1 = this;
             myExternalEvent_EE17_Edit_StringBasedParameters = ExternalEvent.Create(myEE17_Edit_StringBasedParameters);
 
-
             myEE18_UnderStandingTransforms = new EE18_UnderStandingTransforms();
             myEE18_UnderStandingTransforms.myWindow1 = this;
             myExternalEvent_EE18_UnderStandingTransforms = ExternalEvent.Create(myEE18_UnderStandingTransforms);
                                                                    
-
-
-
-
-
-
-
-
-            UIDocument uidoc = commandData.Application.ActiveUIDocument;
-            Document doc = uidoc.Document;
-            
-            //myMakeTheSchemas(doc);
         }
-
-        public int myPublicInt { get; set; } = 0;
-        public List<ElementId> myListElementID_SketchPlanesToDelete { get; set; } = new List<ElementId>();
-        public int myPublicIntUpDown = -1;
-        public List<Transform> myListTransform { get; set; } = new List<Transform>();
-        public bool myBoolEventInProgress { get; set; } = false;
-        bool myBool_ProceedToZeroEverything = false;
-        public bool mySlideInProgress = false;
-        bool myBool_Checked = false;
-        public List<Window0506_LoadAndPlaceFamilies.ListView_Class> myListClass { get; set; } = new List<Window0506_LoadAndPlaceFamilies.ListView_Class>();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -254,21 +240,14 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-
                 foreach (string myStrrr in Families_ThatMustBeLoaded.ListStringMustHaveFamilies) myListClass.Add(new Window0506_LoadAndPlaceFamilies.ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa" });
-                //uidoc.Selection.SetElementIds(new List<ElementId>() { new ElementId(262427) });
-                //528229
 
-                /////////////////////if (!myHostId_To_Selection()) { acquring(true); } else { return; };
-
-                //myFormerWindow3();
             }
 
             #region catch and finally
             catch (Exception ex)
             {
                 _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("Window_Loaded, error line:" + eL + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-                ///_952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("Window_Loaded" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {
@@ -295,7 +274,6 @@ namespace _929_Bilt2020_PlaypenChild
         {
             return IsZero(a, _eps);
         }
-        const double _eps = 1.0e-9;
 
 
         public Window0506_LoadAndPlaceFamilies myWindow3 { get; set; }
@@ -311,6 +289,28 @@ namespace _929_Bilt2020_PlaypenChild
             {
                 UIDocument uidoc = commandData.Application.ActiveUIDocument;
                 Document doc = uidoc.Document;
+
+
+                ///                  TECHNIQUE 1 OF 19 (MainWindow.xaml.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInCategory.OST_ProjectInformation
+                /// 
+                /// 
+                /// Demonstrates classes:
+				///		UIDocument
+                ///     Element
+                /// 
+                /// 
+                /// Key methods:
+				///		doc.GetElement(new ElementId(
+                ///     uidoc.Selection.SetElementIds(
+                ///     int.TryParse(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
 
                 Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
                 int myInt = myElement_ProjectInformation.Id.IntegerValue;
@@ -344,16 +344,9 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
-                ///the above lines are important for this example, but is not the 'technique'.
-                ///
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
                 Element myElement = doc.GetElement(new ElementId(myInt));
                 uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
 
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
             }
 
             #region catch and finally
@@ -598,7 +591,6 @@ namespace _929_Bilt2020_PlaypenChild
                 myEE11_GridOutCirclesOnFace.myBool_JustClear = false;
                 myExternalEvent_EE11_GridOutCirclesOnFace.Raise();
 
-                //there are differences here and there, here and there, here and there
             }
 
             #region catch and finally
@@ -627,7 +619,6 @@ namespace _929_Bilt2020_PlaypenChild
                 myEE11_GridOutCirclesOnFace.myBool_DoLoop = false;
                 myEE11_GridOutCirclesOnFace.myBool_JustClear = false;
                 myExternalEvent_EE11_GridOutCirclesOnFace.Raise();
-
             }
 
             #region catch and finally
@@ -877,11 +868,6 @@ namespace _929_Bilt2020_PlaypenChild
 
 
 
-        private void myButtonShowCode_SelectElementWithCode_Click(object sender, RoutedEventArgs e)
-        {
-            myMethod_ShowCodeButtons("01 of 19 Select element with code.txt");
-        }
-
         private void myMethod_ShowCodeButtons(string myString_Filename)
         {
             try
@@ -901,7 +887,7 @@ namespace _929_Bilt2020_PlaypenChild
                 }
                 if (myThisApplication.messageConst.Split('|')[0] == "Button_01_Invoke01Development")
                 {
-                    string myString_TempPath = myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild\Code Snippets\01 of 19 Select element with code.txt";
+                    string myString_TempPath = myThisApplication.messageConst.Split('|')[1] + @"\_929_Bilt2020_PlaypenChild\Code Snippets\" + myString_Filename;
                     System.Diagnostics.Process.Start(myString_TempPath);
                 }
             }
@@ -917,5 +903,99 @@ namespace _929_Bilt2020_PlaypenChild
             #endregion   
         }
 
+        private void myButton_EE01_SelectElementWithCode_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE01_SelectElementWithCode.txt");
+        }
+
+        private void myButton_EE02_OneOfEachWall_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE02_OneOfEachWall.txt");
+        }
+
+        private void myButton_EE03_SetDefaultType_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE03_SetDefaultType.txt");
+        }
+
+        private void myButton_EE04_ManualColorOverride_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE04_ManualColorOverride.txt");
+        }
+
+        private void myButton_EE05_LoadAllFamilies_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE05_LoadAllFamilies.txt");
+        }
+
+        private void myButton_EE06_PlaceAFamily_OnDoubleClick_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE06_PlaceAFamily_OnDoubleClick.txt");
+        }
+
+        private void myButton_EE07_RotatingEntities_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE07_RotatingEntities.txt");
+        }
+
+        private void myButton_EE08_MoveElementAroundHostingSurface_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE08_MoveElementAroundHostingSurface.txt");
+        }
+
+        private void myButton_EE09_Draw3D_ModelLines_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE09_Draw3D_ModelLines.txt");
+        }
+
+        private void myButton_EE10_Draw2D_DetailLines_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE10_Draw2D_DetailLines.txt");
+        }
+
+        private void myButton_EE11_GridOutCirclesOnFace_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE11_GridOutCirclesOnFace.txt");
+        }
+
+        private void myButton_EE12_SetupRoom_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE12_SetupRoom.txt");
+        }
+
+        private void myButton_EE13_ExtensibleStorage_NewOrSave_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE13_ExtensibleStorage_NewOrSave.txt");
+        }
+
+        private void myButton_EE14_Draw3D_IntersectorLines_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE14_Draw3D_IntersectorLines.txt");
+        }
+
+        private void myButton_EE15_BackupSystem_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE15_BackupSystem.txt");
+        }
+
+        private void myButton_EE16_AddSharedParameters_InVariousWays_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE16_AddSharedParameters_InVariousWays.txt");
+        }
+
+        private void myButton_EE17_Edit_StringBasedParameters_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE17_Edit_StringBasedParameters.txt");
+        }
+
+        private void myButton_EE18_UnderStandingTransforms01_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE18_UnderStandingTransforms01.txt");
+        }
+
+        private void myButton_EE19_UnderStandingTransforms02_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE19_UnderStandingTransforms02.txt");
+        }
     }
 }

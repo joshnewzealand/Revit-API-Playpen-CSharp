@@ -28,6 +28,34 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
+                ///                      TECHNIQUE 13 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERSECTOR LINE FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     KeyValuePair*
+                ///     DataStorage
+                ///     Schema
+                ///     Entity
+                ///     IDictionary*
+                ///     DisplayUnitType
+                /// 
+                /// 
+                /// Key methods:
+                ///     ((FamilyInstance)myEle).GetTransform().BasisX.AngleOnPlaneTo(XYZ.BasisY, XYZ.BasisZ);
+                ///     dict_Child_Angle.Add(
+                ///     ent_Child.Set(
+                ///     myDatastorage.GetEntity(
+                ///     ent_Parent.Get<IDictionary<string, Entity>>(
+                ///     dict_Parent.Add(
+                ///     myDatastorage.SetEntity(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
+
                 //if it is new then this value gets stored
                 KeyValuePair<string, Entity> myKeyValuePair = myBool_New ? new KeyValuePair<string, Entity>() : (KeyValuePair<string, Entity>)myWindow1.myWindow4.myListViewEE.SelectedItem;
 
@@ -48,7 +76,6 @@ namespace _929_Bilt2020_PlaypenChild
                 Schema schema_FurnLocations = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations));
                 if (schema_FurnLocations == null) schema_FurnLocations = Schema_FurnLocations.createSchema_FurnLocations();
 
-                //not used
                 Entity ent_Child = myBool_New ? new Entity(schema_FurnLocations) : myKeyValuePair.Value;
                 IDictionary<ElementId, XYZ> dict_Child = new Dictionary<ElementId, XYZ>();
                 IDictionary<ElementId, double> dict_Child_Angle = new Dictionary<ElementId, double>();
@@ -64,8 +91,8 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
-                ent_Child.Set<IDictionary<ElementId, XYZ>>("FurnLocations", dict_Child, DisplayUnitType.DUT_MILLIMETERS);
-                ent_Child.Set<IDictionary<ElementId, double>>("FurnLocations_Angle", dict_Child_Angle, DisplayUnitType.DUT_MILLIMETERS);
+                ent_Child.Set("FurnLocations", dict_Child, DisplayUnitType.DUT_MILLIMETERS);
+                ent_Child.Set("FurnLocations_Angle", dict_Child_Angle, DisplayUnitType.DUT_MILLIMETERS);
 
                 Schema schema_FurnLocations_Index = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations_Index));
                 if (schema_FurnLocations_Index == null) schema_FurnLocations_Index = Schema_FurnLocations.createSchema_FurnLocations_Index();
@@ -92,7 +119,8 @@ namespace _929_Bilt2020_PlaypenChild
                     dict_Parent[myKeyValuePair.Key] = ent_Child;
                 }
 
-                ent_Parent.Set<IDictionary<string, Entity>>("FurnLocations_Index", dict_Parent, DisplayUnitType.DUT_MILLIMETERS);
+
+                ent_Parent.Set("FurnLocations_Index", dict_Parent, DisplayUnitType.DUT_MILLIMETERS);
                 using (Transaction y = new Transaction(doc, "New Furniture Arrangement"))
                 {
                     y.Start();

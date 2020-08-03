@@ -25,6 +25,23 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
+                ///                  TECHNIQUE 3 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     Enum.GetValues(typeof(ElementTypeGroup))
+                /// 
+                /// Demonstrates classes:
+                ///     ElementType
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElement.GetType()
+                ///     doc.SetDefaultFamilyTypeId(
+                ///     doc.SetDefaultElementTypeId(
+                ///
+
+
                 if (uidoc.Selection.GetElementIds().Count != 1)
                 {
                     MessageBox.Show("Please select ONE Element.");
@@ -32,10 +49,6 @@ namespace _929_Bilt2020_PlaypenChild
                 }
 
                 Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
-
-
-                ///                  TECHNIQUE 3 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
                 if (myElement.GetTypeId() == null)
                 {
@@ -50,13 +63,13 @@ namespace _929_Bilt2020_PlaypenChild
 
                     if (myElement.GetType() == typeof(FamilyInstance))
                     {
-                        doc.SetDefaultFamilyTypeId(myElement.Category.Id, ((FamilyInstance)myElement).Symbol.Id);
+                        doc.SetDefaultFamilyTypeId(myElement.Category.Id, ((FamilyInstance)myElement).Symbol.Id);  //finds and sets the default for editable family categoreis
 
                     }
                     else
                     {
                         ElementType myElementType = doc.GetElement(myElement.GetTypeId()) as ElementType;
-                        foreach (ElementTypeGroup myElementTypeGroup in Enum.GetValues(typeof(ElementTypeGroup)))
+                        foreach (ElementTypeGroup myElementTypeGroup in Enum.GetValues(typeof(ElementTypeGroup)))  //finds and sets the default for system families
                         {
                             if (myElementTypeGroup.ToString() == myElementType.GetType().Name)
                             {
@@ -69,14 +82,12 @@ namespace _929_Bilt2020_PlaypenChild
 
                 MessageBox.Show("'" + doc.GetElement(myElement.GetTypeId()).Name + "'" + Environment.NewLine + Environment.NewLine + "Is now the defaulf of category." + Environment.NewLine + Environment.NewLine + "'" + myElement.Category.Name + "'");
 
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
             }
 
             #region catch and finally
             catch (Exception ex)
             {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE02_Part1_SetDefault" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("EE03_SetDefaultType" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
             }
             finally
             {

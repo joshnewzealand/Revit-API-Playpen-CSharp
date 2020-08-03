@@ -1,0 +1,20 @@
+﻿                ///                  TECHNIQUE 3 OF 19 (EE03_SetDefaultType.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     Enum.GetValues(typeof(ElementTypeGroup))
+                /// 
+                /// Demonstrates classes:
+                ///     ElementType
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElement.GetType()
+                ///     doc.SetDefaultElementTypeId(
+                ///     doc.SetDefaultFamilyTypeId(
+                ///
+                ///
+                /// Also works on non-system families (e.g. light fittings)
+		/// Was never able to find a button on the Revit GUI to the set default type per category.
+
+

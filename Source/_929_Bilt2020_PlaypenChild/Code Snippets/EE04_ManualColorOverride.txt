@@ -1,0 +1,18 @@
+﻿                ///                  TECHNIQUE 4 OF 19 (EE04_ManualColorOverride.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ COLOUR OVERRIDE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInParameter.VIEW_DESCRIPTION
+                /// 
+                /// Demonstrates classes:
+                ///     UIDocument
+                ///     OverrideGraphicSettings
+                ///     FillPatternElement
+                /// 
+                /// Key methods:
+                ///     doc.ActiveView.GetElementOverrides(
+                ///     ogs.SetSurfaceBackgroundPatternId(
+                ///     ogs.SetSurfaceBackgroundPatternColor(
+                ///     doc.ActiveView.SetElementOverrides(
+                ///
+                /// 	uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).Set(

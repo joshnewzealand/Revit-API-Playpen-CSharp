@@ -30,6 +30,7 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
 
+
                 using (Transaction tx = new Transaction(doc))
                 {
                     tx.Start("Show Arrangement");
@@ -50,7 +51,6 @@ namespace _929_Bilt2020_PlaypenChild
                         myStringAggregate_Location = myStringAggregate_Location + Environment.NewLine + ((FamilyInstance)doc.GetElement(myKP.Key)).get_Parameter(BuiltInParameter.ELEM_FAMILY_AND_TYPE_PARAM).AsValueString() + "," + Math.Round(myKP.Value.X, 2) + "," + Math.Round(myKP.Value.Y, 2) + "," + Math.Round(myKP.Value.Z, 2);
                     }
 
-                    //DatabaseMethods.writeDebug(myStringAggregate_Location, true);
 
                     IDictionary<ElementId, double> dict_Child_Angle = myKeyValuePair.Value.Get<IDictionary<ElementId, double>>("FurnLocations_Angle", DisplayUnitType.DUT_MILLIMETERS);
 
@@ -69,8 +69,6 @@ namespace _929_Bilt2020_PlaypenChild
 
                         myStringAggregate_Angle = myStringAggregate_Angle + Environment.NewLine + (IsZero(myKP.Value, _eps) ? 0 : Math.Round(myKP.Value, 2));
                     }
-
-                    //DatabaseMethods.writeDebug(myStringAggregate_Location + Environment.NewLine + myStringAggregate_Angle, true);
 
                     tx.Commit();
                 }

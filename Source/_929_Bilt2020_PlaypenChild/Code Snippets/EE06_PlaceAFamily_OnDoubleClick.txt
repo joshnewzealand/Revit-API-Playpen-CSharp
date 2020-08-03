@@ -1,0 +1,21 @@
+﻿            ///                TECHNIQUE 06 OF 19 (EE06_PlaceAFamily_OnDoubleClick.cs)
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ PLACING A FAMILY THEN RELEASING THE COMMMAND ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///
+            /// Interfaces and ENUM's:
+            ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
+            ///     using System.Runtime.InteropServices (namespace
+            /// 
+            /// Demonstrates classes:
+            ///     DocumentChangedEventArgs*
+            ///     PromptForFamilyInstancePlacementOptions
+            ///     SketchPlane
+            /// 
+            /// 
+            /// Key methods:
+            ///     SketchPlane.Create(doc, myLevel.GetPlaneReference());
+            ///     uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
+            ///	    SetForegroundWindow(
+            ///     keybd_event(
+            ///
+            ///
+            /// * class is actually part of the .NET framework (not Revit API)

@@ -82,6 +82,26 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
+            ///                                 TECHNIQUE 06 OF 19
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ PLACEING A FAMILY THEN RELEASING THE COMMMAND ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///
+            /// Interfaces and ENUM's:
+            ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
+            ///     
+            /// 
+            /// Demonstrates classes:
+            ///     DocumentChangedEventArgs*
+            ///     PromptForFamilyInstancePlacementOptions
+            ///     SketchPlane
+            /// 
+            /// 
+            /// Key methods:
+            ///     SketchPlane.Create(doc, myLevel.GetPlaneReference());
+            ///     uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
+            ///
+            /// 
+            ///
+            /// * class is actually part of the .NET framework (not Revit API)
 
             uidoc.Application.Application.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
 
@@ -95,14 +115,11 @@ namespace _929_Bilt2020_PlaypenChild
                     y.Start();
                     uidoc.ActiveView.SketchPlane = SketchPlane.Create(doc, myLevel.GetPlaneReference());
                     y.Commit();
-
                 }
             }
 
-            myPromptForFamilyInstancePlacementOptions.FaceBasedPlacementType = FaceBasedPlacementType.PlaceOnWorkPlane;
+            myPromptForFamilyInstancePlacementOptions.FaceBasedPlacementType = FaceBasedPlacementType.Default;
             SetForegroundWindow(uidoc.Application.MainWindowHandle); //this is an excape event
-
-
 
             try
             {
@@ -111,7 +128,7 @@ namespace _929_Bilt2020_PlaypenChild
                     uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
                 } else
                 {
-                    uidoc.PromptForFamilyInstancePlacement(myFamilySymbol, myPromptForFamilyInstancePlacementOptions);
+                    uidoc.PromptForFamilyInstancePlacement(myFamilySymbol, myPromptForFamilyInstancePlacementOptions);  //<-- decided not to use this late in the project
                 }
             }
 

@@ -190,6 +190,13 @@ namespace RevitTransformSliders
             return IsZero(a, _eps);
         }
 
+
+        ///                  TECHNIQUE 6 OF 19
+        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        ///Demonstrates: 
+        ///SketchPlane
+        ///PromptForFamilyInstancePlacement with the PromptForFamilyInstancePlacementOptions class
+        ///DocumentChanged event that cancels the command and focuses the window
         public void myMethod_whichTook_120Hours_OfCoding()
         {
             myListTransform_Interpolate.Clear();

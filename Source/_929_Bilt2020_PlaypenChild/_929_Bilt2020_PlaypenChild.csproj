@@ -140,6 +140,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Code Snippets\EE13_ExtensibleStorage_NewOrSave.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\EE18_other_project_EE03_RotateAroundBasis.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Code Snippets\EE19_other_project_Window1.xaml.cs_InterpolationMethod.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Families\Generic Adaptive Nerf Gun.rfa">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -183,61 +192,52 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Code Snippets\01 of 19 Select element with code.txt">
+    <Content Include="Code Snippets\EE01_SelectElementWithCode.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\02 of 19 One of each wall.txt">
+    <Content Include="Code Snippets\EE02_OneOfEachWall.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\03 of 19 Set default type.txt">
+    <Content Include="Code Snippets\EE03_SetDefaultType.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\04 of 19 Manual Colour Override.txt">
+    <Content Include="Code Snippets\EE04_ManualColorOverride.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\05 of 19 insert text here - Copy %283%29.txt">
+    <Content Include="Code Snippets\EE05_LoadAllFamilies.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\06 of 19 insert text here - Copy %284%29.txt">
+    <Content Include="Code Snippets\EE06_PlaceAFamily_OnDoubleClick.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\07 of 19 insert text here - Copy %285%29.txt">
+    <Content Include="Code Snippets\EE07_RotatingEntities.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\08 of 19 insert text here - Copy %286%29.txt">
+    <Content Include="Code Snippets\EE08_MoveElementAroundHostingSurface.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\09 of 19 insert text here - Copy %287%29.txt">
+    <Content Include="Code Snippets\EE09_Draw3D_ModelLines.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\10 of 19 insert text here - Copy %288%29.txt">
+    <Content Include="Code Snippets\EE10_Draw2D_DetailLines.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\11 of 19 insert text here - Copy %289%29.txt">
+    <Content Include="Code Snippets\EE11_GridOutCirclesOnFace.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\12 of 19 insert text here - Copy %2810%29.txt">
+    <Content Include="Code Snippets\EE12_SetupRoom.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\13 of 19 insert text here - Copy %2811%29.txt">
+    <Content Include="Code Snippets\EE14_Draw3D_IntersectorLines.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\14 of 19 insert text here - Copy %2812%29.txt">
+    <Content Include="Code Snippets\EE15_BackupSystem.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\15 of 19 insert text here - Copy %2813%29.txt">
+    <Content Include="Code Snippets\EE16_AddSharedParameters_InVariousWays.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Code Snippets\16 of 19 insert text here - Copy %2814%29.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Code Snippets\17 of 19 insert text here - Copy %2815%29.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Code Snippets\18 of 19 insert text here - Copy %2816%29.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Code Snippets\19 of 19 insert text here - Copy %2817%29.txt">
+    <Content Include="Code Snippets\EE17_Edit_StringBasedParameters.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="PlayPenSharedParametersInstance.txt">

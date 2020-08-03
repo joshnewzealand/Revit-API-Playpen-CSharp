@@ -49,6 +49,36 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
+                ///                             TECHNIQUE 08 OF 19
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ MOVING ELEMENTS AROUND A HOSTING SURFACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Reference
+                ///     Face
+                ///     Transform
+                ///     PlanarFace
+                ///     CurveLoop
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElementWall.GetGeometryObjectFromReference(pickedRef) as Face
+                ///     pickedRef.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                ///     (myElementWall as FamilyInstance).GetTotalTransform();
+                ///     myFace.GetBoundingBox().Min
+                ///     myFace.Evaluate(myUV_Min)
+                ///     myXYZ_FamilyTransform.OfPoint(myXYZ_CornerOne)
+                ///     myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
+                ///     myCurveLoop.GetExactLength();
+                ///     L1.GetEndPoint(0)).Normalize().Multiply(myDouble_ThisFarAlong);
+                ///     ElementTransformUtils.MoveElement(doc, myFamilyInstance.Id, myXYZ_MoveThisMuch);
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+
                 List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();
                 List<Element> myListOfFurniture = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_Furniture).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();
                 myListOfStuffOnWall.AddRange(myListOfFurniture);
@@ -71,7 +101,6 @@ namespace _929_Bilt2020_PlaypenChild
                             Face myFace = myElementWall.GetGeometryObjectFromReference(pickedRef) as Face;
                             if (myFace == null) return;
 
-
                             Transform myXYZ_FamilyTransform = Transform.Identity;
 
                             if (pickedRef.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
@@ -89,12 +118,8 @@ namespace _929_Bilt2020_PlaypenChild
                             UV myUV_Max = myFace.GetBoundingBox().Max;
 
                             XYZ myXYZ_CornerOne = myFace.Evaluate(myUV_Min);
-                            XYZ myXYZ_CornerTwo = myFace.Evaluate(myUV_Max);
 
-                            XYZ myXYZ_CornerOne_Transformed = myXYZ_FamilyTransform.OfPoint(myXYZ_CornerOne);
-                            XYZ myXYZ_CornerTwo_Transformed = myXYZ_FamilyTransform.OfPoint(myXYZ_CornerTwo);
-
-                            myTransform.Origin = myXYZ_CornerOne_Transformed;
+                            myTransform.Origin = myXYZ_FamilyTransform.OfPoint(myXYZ_CornerOne);
                             myTransform.BasisX = myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
                             myTransform.BasisY = myXYZ_FamilyTransform.OfVector(myPlanarFace.YVector);
                             myTransform.BasisZ = myXYZ_FamilyTransform.OfVector(myPlanarFace.FaceNormal);
@@ -129,15 +154,10 @@ namespace _929_Bilt2020_PlaypenChild
                             XYZ myXYZ_Result = myTransform.OfPoint((myXYZ_Max - myXYZ_Min) / 2);
 
                             int myIntCurrentSpinnerValue = myWindow1.myIntegerUpDown_OneToTwentyCount.Value.Value;
-
                             int myInt_Positioning = (40 / myListOfStuffOnWall.Count()) * (myListOfStuffOnWall.IndexOf(myFI) + 1);
-
                             myIntCurrentSpinnerValue = (40 - myInt_Positioning) + myIntCurrentSpinnerValue;
-
                             if (myIntCurrentSpinnerValue > 40) myIntCurrentSpinnerValue = myIntCurrentSpinnerValue - 40;
-
                             double myDouble_FutureForeach = myDouble_ExactLength_Twenty * myIntCurrentSpinnerValue;
-
                             double myDouble_ThisFarAlong;
 
                             switch (myDouble_FutureForeach)

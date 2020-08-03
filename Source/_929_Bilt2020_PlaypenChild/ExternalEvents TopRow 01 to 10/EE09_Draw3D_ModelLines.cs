@@ -31,8 +31,32 @@ namespace _929_Bilt2020_PlaypenChild
 
                 do
                 {
-                    Reference pickedRef = null;
+                    ///                             TECHNIQUE 09 OF 19
+                    ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 3D MODEL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                    ///
+                    /// Interfaces and ENUM's:
+                    ///     FailureHandlingOptions
+                    ///     
+                    /// 
+                    /// Demonstrates classes:
+                    ///     Arc
+                    ///     Line
+                    ///     Curve
+                    ///     Ellipse
+                    /// 
+                    /// 
+                    /// Key methods:
+                    ///     Arc.Create(end02, end12, pointOnCurve2);
+                    ///     Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
+                    ///     Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
+                    ///     doc.Create.NewModelCurve(
+                    /// 
+                    ///
+                    ///
+                    /// * class is actually part of the .NET framework (not Revit API)
 
+
+                    Reference pickedRef = null;
                     try
                     {
                         pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Face, "Please select a Face");
@@ -104,14 +128,12 @@ namespace _929_Bilt2020_PlaypenChild
                     double radiusEllipse2 = 1.4 * 1.2;
                     Curve myCurve_Ellipse = Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
 
-                    MyPreProcessor preproccessor = new MyPreProcessor();
-
                     using (Transaction y = new Transaction(doc, "Simily Face"))
                     {
                         y.Start();
 
                         FailureHandlingOptions options = y.GetFailureHandlingOptions();
-                        options.SetFailuresPreprocessor(preproccessor);
+                        options.SetFailuresPreprocessor(new MyPreProcessor());
                         y.SetFailureHandlingOptions(options);
 
                         SketchPlane sketch = SketchPlane.Create(doc, pickedRef);

@@ -1,0 +1,20 @@
+﻿                ///                  TECHNIQUE 2 OF 19 (EE02_OneOfEachWall.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE OF EACH WALL ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInCategory.OST_Walls
+                ///     BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS
+                /// 
+                /// Demonstrates classes:
+                ///     FilteredElementCollector
+                ///     Line
+                ///     Wall
+                /// 
+                /// Key methods:
+                ///     doc.Delete(
+                ///     new XYZ(
+                ///     Line.CreateBound(
+                ///     Wall.Create(
+                ///     myWall.get_Parameter(
+                ///
+                ///
