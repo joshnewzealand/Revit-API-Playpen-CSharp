@@ -1,15 +1,29 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                ///                             TECHNIQUE 08 OF 19 (EE08_MoveElementAroundHostingSurface.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ MOVING ELEMENTS AROUND A HOSTING SURFACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Reference
+                ///     Face
+                ///     Transform
+                ///     PlanarFace
+                ///     CurveLoop
+                /// 
+                /// 
+                /// Key methods:
+                ///     myElementWall.GetGeometryObjectFromReference(pickedRef) as Face
+                ///     pickedRef.ConvertToStableRepresentation(doc).Contains("INSTANCE"))
+                ///     (myElementWall as FamilyInstance).GetTotalTransform();
+                ///     myFace.GetBoundingBox().Min
+                ///     myFace.Evaluate(myUV_Min)
+                ///     myXYZ_FamilyTransform.OfPoint(myXYZ_CornerOne)
+                ///     myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
+                ///     myCurveLoop.GetExactLength();
+                ///     L1.GetEndPoint(0)).Normalize().Multiply(myDouble_ThisFarAlong);
+                ///     ElementTransformUtils.MoveElement(doc, myFamilyInstance.Id, myXYZ_MoveThisMuch);
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)

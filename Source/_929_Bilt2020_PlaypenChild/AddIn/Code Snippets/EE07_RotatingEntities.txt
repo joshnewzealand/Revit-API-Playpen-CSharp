@@ -1,15 +1,25 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                ///              TECHNIQUE 07 OF 19 (EE07_RotatingEntities.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ROTATING ENTITIES ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///
+                /// 
+                /// Demonstrates classes:
+                ///     FamilyInstance
+                ///     Line
+                ///     Wall
+                ///     Curve
+                /// 
+                /// 
+                /// Key methods:
+                ///     ((LocationPoint)myFamilyInstance.Location).Point;
+                ///     Line.CreateUnbound(
+                ///     myFamilyInstance.GetTransform().BasisZ
+                ///
+                ///     ((LocationCurve)myWall.Location).Curve
+                ///     XYZ myXYZ = (myCurve.GetEndPoint(1) + myCurve.GetEndPoint(0)) / 2;
+                ///
+                ///     ElementTransformUtils.RotateElement(
+                ///
+                ///
+                /// 

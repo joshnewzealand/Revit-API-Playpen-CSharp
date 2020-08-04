@@ -14,4 +14,4 @@
             /// 
             ///
             ///
-            /// * class is actually part of the .NET framework (not Revit API)
+            /// * class is part xceed.wpf.toolkit (not Revit API)

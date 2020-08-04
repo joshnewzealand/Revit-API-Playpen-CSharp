@@ -5,7 +5,7 @@
                 ///     BuiltInParameter.VIEW_DESCRIPTION
                 /// 
                 /// Demonstrates classes:
-                ///     UIDocument
+                ///     View
                 ///     OverrideGraphicSettings
                 ///     FillPatternElement
                 /// 

@@ -3,7 +3,7 @@
             ///
             /// Interfaces and ENUM's:
             ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
-            ///     using System.Runtime.InteropServices (namespace
+            ///     using System.Runtime.InteropServices (namespace)
             /// 
             /// Demonstrates classes:
             ///     DocumentChangedEventArgs*

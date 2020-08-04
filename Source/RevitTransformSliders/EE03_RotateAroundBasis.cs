@@ -98,6 +98,24 @@ namespace RevitTransformSliders
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document; // myListView_ALL_Fam_Master.Items.Add(doc.GetElement(uidoc.Selection.GetElementIds().First()).Name);
 
+                ///             TECHNIQUE 18 OF 19 (EE03_RotateAroundBasis.cs) (scroll down to project 'RevitTransformSliders')
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ USING SLIDERS TO ROTATE A TRANSFORM ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Transform
+                /// 
+                /// 
+                /// Key methods:
+                ///     XYZ.BasisZ.AngleTo(
+                ///     myTransform.BasisZ.CrossProduct(
+                ///     Transform.CreateRotationAtPoint(
+                ///     
+                /// 
+
+
                 FamilyInstance myFamilyInstance_Middle2 = doc.GetElement(new ElementId(myWindow1.myIntUpDown_Middle2.Value.Value)) as FamilyInstance;
                 IList<ElementId> placePointIds_1339 = AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(myFamilyInstance_Middle2);
                 ReferencePoint myReferencePoint_Middle = doc.GetElement(placePointIds_1339.First()) as ReferencePoint;

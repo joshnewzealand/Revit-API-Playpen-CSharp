@@ -9,7 +9,7 @@
                 /// 
                 /// 
                 /// Key methods:
-                ///     myElement.GetType()
+                ///     if (myElement.GetType() == typeof(FamilyInstance))
                 ///     doc.SetDefaultElementTypeId(
                 ///     doc.SetDefaultFamilyTypeId(
                 ///

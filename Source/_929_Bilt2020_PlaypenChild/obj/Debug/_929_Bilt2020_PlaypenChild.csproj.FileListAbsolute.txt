@@ -157,11 +157,7 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.pdb
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\obj\Debug\_929_Bilt2020_PlaypenChild.csprojAssemblyReference.cache
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE13_ExtensibleStorage_DeleteItem.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE13_ExtensibleStorage_NewOrSave.txt
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE13_ExtensibleStorage_Rearrange.txt
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE18_UnderStandingTransforms01.txt
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE19_UnderStandingTransforms02.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE01_SelectElementWithCode.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE02_OneOfEachWall.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE03_SetDefaultType.txt
@@ -174,8 +170,10 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE10_Draw2D_DetailLines.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE11_GridOutCirclesOnFace.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE12_SetupRoom.txt
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE13_ExtensibleStorage_DeleteAll.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE14_Draw3D_IntersectorLines.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE15_BackupSystem.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE16_AddSharedParameters_InVariousWays.txt
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE17_Edit_StringBasedParameters.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE18_other_project_EE03_RotateAroundBasis.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE19_other_project_Window1.xaml.cs_InterpolationMethod.txt
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenChild\AddIn\Code Snippets\EE00_AlphabeticalListOfClasses.txt

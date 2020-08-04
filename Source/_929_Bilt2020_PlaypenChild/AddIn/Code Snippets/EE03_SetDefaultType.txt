@@ -1,39 +1,20 @@
-﻿                UIDocument uidoc = uiapp.ActiveUIDocument;
-                Document doc = uidoc.Document; 
+﻿                ///                  TECHNIQUE 3 OF 19 (EE03_SetDefaultType.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     Enum.GetValues(typeof(ElementTypeGroup))
+                /// 
+                /// Demonstrates classes:
+                ///     ElementType
+                /// 
+                /// 
+                /// Key methods:
+                ///     if (myElement.GetType() == typeof(FamilyInstance))
+                ///     doc.SetDefaultElementTypeId(
+                ///     doc.SetDefaultFamilyTypeId(
+                ///
+                ///
+                /// Also works on non-system families (e.g. light fittings)
+		/// Was never able to find a button on the Revit GUI to the set default type per category.
 
-                if (uidoc.Selection.GetElementIds().Count != 1) return;
 
-                Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());
-
-
-                ///                  TECHNIQUE 3 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                if (myElement.GetTypeId() == null)
-                {
-                    MessageBox.Show("Selected entity does not have types.");
-                    return;
-                }
-
-                using (Transaction tx = new Transaction(doc))
-                {
-                    tx.Start("Set Default Type");
-
-                    if (myElement.GetType() == typeof(FamilyInstance))
-                    {
-                        doc.SetDefaultFamilyTypeId(myElement.Category.Id, ((FamilyInstance)myElement).Symbol.Id);
-                        
-                    } else
-                    {
-                        ElementType myElementType = doc.GetElement(myElement.GetTypeId()) as ElementType;
-                        foreach (ElementTypeGroup myElementTypeGroup in Enum.GetValues(typeof(ElementTypeGroup)))
-                        {
-                            if (myElementTypeGroup.ToString() == myElementType.GetType().Name)
-                            {
-                                doc.SetDefaultElementTypeId(myElementTypeGroup, myElement.GetTypeId());
-                            }
-                        }
-                    }
-                    tx.Commit();
-                }
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

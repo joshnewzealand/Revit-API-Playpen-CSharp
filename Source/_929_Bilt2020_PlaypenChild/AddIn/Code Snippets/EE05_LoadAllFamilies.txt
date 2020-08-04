@@ -1,15 +1,15 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                ///                             TECHNIQUE 5 OF 19 (EE05_LoadAllFamilies.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ LOADING ALL THE FAMILIES FROM A LISTVIEW ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// Demonstrates classes:
+                ///     Window0506_LoadAndPlaceFamilies.ListView_Class*
+                ///     
+                /// 
+                /// Key methods:
+                ///     doc.LoadFamily(
+                ///
+                /// 
+                /// * class is part of C# playpen (not Revit API)

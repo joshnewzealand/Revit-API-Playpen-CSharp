@@ -5,12 +5,12 @@
                 /// 
                 /// 
                 /// Demonstrates classes:
-                ///     Parameter
+                ///     
                 /// 
                 /// 
                 /// Key methods:
-                ///     myElement.LookupParameter(
-                ///     myParameter.Set(
-                ///     
+                ///     XYZ.BasisZ.AngleTo(
+                ///     myTransform.BasisZ.CrossProduct(
+                ///     Transform.CreateRotationAtPoint(
                 ///     
                 /// 

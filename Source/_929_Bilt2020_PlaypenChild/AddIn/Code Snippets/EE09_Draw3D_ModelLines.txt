@@ -1,15 +1,23 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                    ///                TECHNIQUE 09 OF 19 (EE09_Draw3D_ModelLines.cs)
+                    ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 3D MODEL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                    ///
+                    /// Interfaces and ENUM's:
+                    ///     FailureHandlingOptions
+                    ///     
+                    /// 
+                    /// Demonstrates classes:
+                    ///     Arc
+                    ///     Line
+                    ///     Curve
+                    ///     Ellipse
+                    /// 
+                    /// 
+                    /// Key methods:
+                    ///     Arc.Create(end02, end12, pointOnCurve2);
+                    ///     Arc.Create(myTransform.OfPoint(new XYZ(-.6, 0.5, 0)), radius, startAngle, endAngle, xVec, yVec);
+                    ///     Ellipse.CreateCurve(pickedRef.GlobalPoint, radiusEllipse, radiusEllipse2, xVec, yVec, param0, param1);
+                    ///     doc.Create.NewModelCurve(
+                    /// 
+                    ///
+                    ///
+                    /// * class is actually part of the .NET framework (not Revit API)

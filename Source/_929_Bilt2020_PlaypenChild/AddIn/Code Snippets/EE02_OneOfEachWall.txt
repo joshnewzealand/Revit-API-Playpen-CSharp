@@ -17,4 +17,4 @@
                 ///     Wall.Create(
                 ///     myWall.get_Parameter(
                 ///
-                ///
+                ///    Loops out (foreach) all the wall types 3 feet apar (myX = myX + 3)

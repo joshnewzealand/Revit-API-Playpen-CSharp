@@ -1,15 +1,21 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿            ///                TECHNIQUE 06 OF 19 (EE06_PlaceAFamily_OnDoubleClick.cs)
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ PLACING A FAMILY THEN RELEASING THE COMMMAND ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///
+            /// Interfaces and ENUM's:
+            ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
+            ///     using System.Runtime.InteropServices (namespace)
+            /// 
+            /// Demonstrates classes:
+            ///     DocumentChangedEventArgs*
+            ///     PromptForFamilyInstancePlacementOptions
+            ///     SketchPlane
+            /// 
+            /// 
+            /// Key methods:
+            ///     SketchPlane.Create(doc, myLevel.GetPlaneReference());
+            ///     uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
+            ///	    SetForegroundWindow(
+            ///     keybd_event(
+            ///
+            ///
+            /// * class is actually part of the .NET framework (not Revit API)

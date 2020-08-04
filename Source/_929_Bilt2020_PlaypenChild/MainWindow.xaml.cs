@@ -111,7 +111,7 @@ namespace _929_Bilt2020_PlaypenChild
         public EE18_UnderStandingTransforms myEE18_UnderStandingTransforms { get; set; }
         public ExternalEvent myExternalEvent_EE18_UnderStandingTransforms { get; set; }
 
-                     
+                    
 
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
@@ -903,6 +903,11 @@ namespace _929_Bilt2020_PlaypenChild
             #endregion   
         }
 
+
+        private void myButton_EE00_AlphabeticalListOfClasses_Click(object sender, RoutedEventArgs e)
+        {
+            myMethod_ShowCodeButtons("EE00_AlphabeticalListOfClasses.txt");
+        }
         private void myButton_EE01_SelectElementWithCode_Click(object sender, RoutedEventArgs e)
         {
             myMethod_ShowCodeButtons("EE01_SelectElementWithCode.txt");
@@ -990,12 +995,13 @@ namespace _929_Bilt2020_PlaypenChild
 
         private void myButton_EE18_UnderStandingTransforms01_Click(object sender, RoutedEventArgs e)
         {
-            myMethod_ShowCodeButtons("EE18_UnderStandingTransforms01.txt");
+            myMethod_ShowCodeButtons("EE18_other_project_EE03_RotateAroundBasis.txt");
         }
 
         private void myButton_EE19_UnderStandingTransforms02_Click(object sender, RoutedEventArgs e)
         {
-            myMethod_ShowCodeButtons("EE19_UnderStandingTransforms02.txt");
+            myMethod_ShowCodeButtons("EE19_other_project_Window1.xaml.cs_InterpolationMethod.txt");
         }
+
     }
 }

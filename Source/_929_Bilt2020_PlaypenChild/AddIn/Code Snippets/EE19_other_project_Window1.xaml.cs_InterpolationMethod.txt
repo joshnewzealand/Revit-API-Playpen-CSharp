@@ -1,0 +1,16 @@
+﻿                ///             TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Numerics.Vector3
+                /// 
+                /// 
+                /// Key methods:
+                ///     Numerics.Vector3.Lerp(
+                ///     
+                ///     
+                ///     
+                /// 

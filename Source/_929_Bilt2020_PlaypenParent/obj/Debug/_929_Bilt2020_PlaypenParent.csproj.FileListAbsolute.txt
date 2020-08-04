@@ -53,3 +53,4 @@ R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_Plaype
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csproj.CopyComplete
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.dll
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.pdb
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csprojAssemblyReference.cache

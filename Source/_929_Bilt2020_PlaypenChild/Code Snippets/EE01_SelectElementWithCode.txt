@@ -6,12 +6,12 @@
                 /// 
                 /// 
                 /// Demonstrates classes:
-				///     UIDocument
+		///     UIDocument
                 ///     Element
                 /// 
                 /// 
                 /// Key methods:
-				///	    doc.GetElement(new ElementId(
+		///	doc.GetElement(new ElementId(
                 ///     uidoc.Selection.SetElementIds(
                 ///     int.TryParse(
                 ///

@@ -5,12 +5,12 @@
                 /// 
                 /// 
                 /// Demonstrates classes:
-                ///     Parameter
+                ///     Numerics.Vector3
                 /// 
                 /// 
                 /// Key methods:
-                ///     myElement.LookupParameter(
-                ///     myParameter.Set(
+                ///     Numerics.Vector3.Lerp(
+                ///     
                 ///     
                 ///     
                 /// 

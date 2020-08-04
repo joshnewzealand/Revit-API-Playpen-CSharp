@@ -1,15 +1,28 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                ///                            TECHNIQUE 14 OF 19 (EE14_Draw3D_IntersectorLines.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAW INTERSECTOR LINES FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     BuiltInParameter.POINT_ELEMENT_DRIVEN
+                ///     IFailuresPreprocessor
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     ReferencePoint
+                ///     AdaptiveComponentInstanceUtils
+                ///     Transform
+                ///     TransactionGroup
+                ///     Random*
+                ///     ElementMulticategoryFilter
+                ///     ReferenceIntersector
+                /// 
+                /// 
+                /// Key methods:
+                ///     AdaptiveComponentInstanceUtils.GetInstancePointElementRefIds(
+                ///     myReferencePoint.GetCoordinateSystem(
+                ///     refIntersector.FindNearest(
+                ///     myReferenceWithContext.GetReference(
+                ///     uidoc.RefreshActiveView();
+                /// 
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)

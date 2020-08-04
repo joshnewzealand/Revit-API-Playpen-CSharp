@@ -1,15 +1,29 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+﻿                ///                          TECHNIQUE 15 OF 19 (EE15_BackupSystem.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE CLICK FAMILY BACKUP SYSTEM ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     IFamilyLoadOptions
+                /// 
+                /// 
+                /// Demonstrates classes:
+                ///     Directory*
+                ///     StreamWriter*
+                ///     StreamReader*
+                /// 
+                /// 
+                /// Key methods:
+                ///     Directory.Exists(
+                ///     Directory.CreateDirectory(
+                ///     Path.GetInvalidFileNameChars(
+                ///     myStreamWriter_FirstZero.Write(
+                ///     myStreamWriter_FirstZero.Close(
+                ///     File.SetAttributes(
+                ///     myStreamReader.ReadLine(
+                ///     doc.EditFamily(
+                ///     famDoc.FamilyManager.AddParameter
+                ///     famDoc.LoadFamily(
+                ///     famDoc.SaveAs(
+                ///     famDoc.Close(
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)

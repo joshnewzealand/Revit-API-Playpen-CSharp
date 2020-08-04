@@ -191,12 +191,24 @@ namespace RevitTransformSliders
         }
 
 
-        ///                  TECHNIQUE 6 OF 19
-        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-        ///Demonstrates: 
-        ///SketchPlane
-        ///PromptForFamilyInstancePlacement with the PromptForFamilyInstancePlacementOptions class
-        ///DocumentChanged event that cancels the command and focuses the window
+        ///             TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
+        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        ///
+        /// Interfaces and ENUM's:
+        /// 
+        /// 
+        /// Demonstrates classes:
+        ///     Numerics.Vector3
+        /// 
+        /// 
+        /// Key methods:
+        ///     Numerics.Vector3.Lerp(
+        ///     
+        ///     
+        ///     
+        /// 
+
+
         public void myMethod_whichTook_120Hours_OfCoding()
         {
             myListTransform_Interpolate.Clear();

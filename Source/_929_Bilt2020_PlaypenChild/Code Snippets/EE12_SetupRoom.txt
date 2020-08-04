@@ -17,4 +17,3 @@
                             /// 
                             ///
                             ///
-                            /// * class is actually part of the .NET framework (not Revit API)

@@ -1,15 +1,31 @@
-﻿                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
+﻿                ///                      TECHNIQUE 13 OF 19 (EE13_ExtensibleStorage_NewOrSave.cs)
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERSECTOR LINE FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///
+                /// Interfaces and ENUM's:
+                ///     
+                /// 
+                /// Demonstrates classes:
+                ///     KeyValuePair*
+                ///     DataStorage
+                ///     Schema
+                ///     Entity
+                ///     IDictionary*
+                ///     DisplayUnitType
+                /// 
+                /// 
+                /// Key methods:
+                ///     ((FamilyInstance)myEle).GetTransform().BasisX.AngleOnPlaneTo(XYZ.BasisY, XYZ.BasisZ);
+                ///
+                ///     ent_Parent = myDatastorage.GetEntity(schema_FurnLocations_Index);
+                ///     dict_Parent = ent_Parent.Get<IDictionary<string, Entity>>(
+                ///     dict_Parent.Add(
+                ///     ent_Parent.Set(dict_Parent
+                ///     myDatastorage.SetEntity(ent_Parent);
+                ///
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+                /// 
+                /// Schema allows data to be structured more like database tables, (lists within lists)
+                /// 
+                /// Entity can exist in standalone DataStorage OR any other element.
 
-                Element myElement_ProjectInformation = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_ProjectInformation).WhereElementIsNotElementType().First();
-                int myInt = myElement_ProjectInformation.Id.IntegerValue;
-                ///the above lines are important for this example, but is not the 'technique'.
-
-
-                ///                  TECHNIQUE 1 OF 19
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓SELECT ELEMENT DIRECTLY BY ID ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-                Element myElement = doc.GetElement(new ElementId(myInt));
-                uidoc.Selection.SetElementIds(new List<ElementId>() { myElement.Id });
-
-                ///↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

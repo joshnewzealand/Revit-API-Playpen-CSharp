@@ -12,4 +12,4 @@
                 ///     doc.LoadFamily(
                 ///
                 /// 
-                /// * class is actually part of this application (not Revit API)
+                /// * class is part of C# playpen (not Revit API)
