@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.Window1213_ExtensibleStorage" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="Extensible storage" Height="225" Width="371.333">
+        Title="Extensible storage example" Height="225" Width="371.333">
     <Grid>
 
         <xctk:IntegerUpDown x:Name="myIntegerUpDown" HorizontalAlignment="Left" Margin="91,157,0,0" VerticalAlignment="Top" Height="22" Width="62" IsEnabled="False"/>

@@ -35,8 +35,6 @@ R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSha
 R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csproj.CopyComplete
 R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.dll
 R:\_001_GitHubRespositories\joshnewzealand\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.pdb
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\012 Button Image Properties Grid.png
-R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\013 Button Image Uninstall.png
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.dll.config
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.dll
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\_929_Bilt2020_PlaypenParent.pdb
@@ -54,3 +52,13 @@ R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_Plaype
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.dll
 R:\_001_GitHubRespositories\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.pdb
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csprojAssemblyReference.cache
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\012 Button Image Properties Grid.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\013 Button Image Uninstall.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button01_Start.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button02_DrawWallTypes.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button03_SetDefault.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button04_ManualOverrideColor.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button07_ExtensibleStorage.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button15_SingleClickFamilyBackup.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button1617_AddEditParameters.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button1819_UnderstandingTransforms.png

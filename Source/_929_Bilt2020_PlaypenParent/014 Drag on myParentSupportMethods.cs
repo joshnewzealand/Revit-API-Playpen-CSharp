@@ -27,17 +27,59 @@ namespace _929_Bilt2020_PlaypenParent
         }
 
 
-        public PushButtonData myPushButton_01(string ChecklistsNumber, string path)
+        public PushButtonData Button02_Uninstall(string Name, string ChecklistsNumber, string path)
         {
-            PushButtonData myPushButtonData = new PushButtonData(ChecklistsNumber, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke01");
-            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\012 Button Image Properties Grid.png"), UriKind.Absolute));
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke02_Uninstall");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\013 Button Image Uninstall.png"), UriKind.Absolute));
             return myPushButtonData;
         }
 
-        public PushButtonData myPushButton_02(string ChecklistsNumber, string path)
+        public PushButtonData Button01_Start(string Name, string ChecklistsNumber, string path)
         {
-            PushButtonData myPushButtonData = new PushButtonData(ChecklistsNumber, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke02");
-            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\013 Button Image Uninstall.png"), UriKind.Absolute));
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke01_Start");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button01_Start.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button02_DrawWallTypes(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke02_DrawWallTypes");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button02_DrawWallTypes.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button03_SetDefault(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke03_SetDefault");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button03_SetDefault.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button04_ManualOverrideColor(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke04_ManualOverrideColor");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button04_ManualOverrideColor.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button07_ExtensibleStorage(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke07_ExtensibleStorage");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button07_ExtensibleStorage.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button15_SingleClickFamilyBackup(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke15_SingleClickFamilyBackup");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button15_SingleClickFamilyBackup.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button1617_AddEditParameters(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke1617_AddEditParameters");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button1617_AddEditParameters.png"), UriKind.Absolute));
+            return myPushButtonData;
+        }
+        public PushButtonData Button1819_UnderstandingTransforms(string Name, string ChecklistsNumber, string path)
+        {
+            PushButtonData myPushButtonData = new PushButtonData(Name, ChecklistsNumber, exeConfigPath(path), myTA.dllName + ".Invoke1819_UnderstandingTransforms");
+            myPushButtonData.LargeImage = new BitmapImage(new Uri(Path.Combine(Path.GetDirectoryName(path) + "\\Images\\Button1819_UnderstandingTransforms.png"), UriKind.Absolute));
             return myPushButtonData;
         }
 

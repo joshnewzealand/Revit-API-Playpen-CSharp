@@ -13,4 +13,7 @@
                 ///     
                 ///     
                 ///     
+                /// Illustrates that it is possible to do animations in revit 3D view
                 /// 
+                /// Usually you need an application like navisworks or 3DS max, but revit is my tools an it means not have go
+		/// an elaborate export process to benefit from the learnings.

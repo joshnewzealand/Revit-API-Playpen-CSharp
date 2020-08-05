@@ -45,12 +45,6 @@ namespace _952_PRLoogleClassLibrary
     {
 
 
-
-           
-
-
-
-
         public static void writeDebug(string x, bool AndShow)
         {
 

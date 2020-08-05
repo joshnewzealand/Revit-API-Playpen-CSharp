@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
-
   <PropertyGroup>
     <ProjectGuid>{42E897D3-E4EA-4114-8B09-8C151592DFBB}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
@@ -64,7 +64,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="014 Drag on myParentSupportMethods.cs" />
-    <Compile Include="015 Drag On Class2 the Invokes.cs" />
+    <Compile Include="Invoke1617_AddEditParameters.cs" />
+    <Compile Include="Invoke15_SingleClickFamilyBackup.cs" />
+    <Compile Include="Invoke04_ManualOverwriteColor.cs" />
+    <Compile Include="Invoke1819_UnderstandingTransforms.cs" />
+    <Compile Include="Invoke07_ExtensibleStorage.cs" />
+    <Compile Include="Invoke03_SetDefault.cs" />
+    <Compile Include="Invoke02_DrawWallTypes.cs" />
+    <Compile Include="Invoke01_Start.cs" />
+    <Compile Include="InvokesToSetDevelopmentPaths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -85,10 +93,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="012 Button Image Properties Grid.png">
+    <Content Include="Images\012 Button Image Properties Grid.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="013 Button Image Uninstall.png">
+    <Content Include="Images\013 Button Image Uninstall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button01_Start.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button02_DrawWallTypes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button03_SetDefault.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button04_ManualOverrideColor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button07_ExtensibleStorage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button15_SingleClickFamilyBackup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button1617_AddEditParameters.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Button1819_UnderstandingTransforms.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -111,7 +111,7 @@ namespace _929_Bilt2020_PlaypenChild
         public EE18_UnderStandingTransforms myEE18_UnderStandingTransforms { get; set; }
         public ExternalEvent myExternalEvent_EE18_UnderStandingTransforms { get; set; }
 
-                    
+      
 
         public Schema schema_FurnLocations { get; set; }
         public Schema schema_FurnLocations_Index { get; set; }
@@ -128,11 +128,11 @@ namespace _929_Bilt2020_PlaypenChild
         public List<Window0506_LoadAndPlaceFamilies.ListView_Class> myListClass { get; set; } = new List<Window0506_LoadAndPlaceFamilies.ListView_Class>();
 
 
-
         public MainWindow(ExternalCommandData cD, ThisApplication tA)
         {
             myThisApplication = tA;
             commandData = cD;
+            foreach (string myStrrr in Families_ThatMustBeLoaded.ListStringMustHaveFamilies) myListClass.Add(new Window0506_LoadAndPlaceFamilies.ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa" });
 
             InitializeComponent();
             // add 'UIDocument uid' as a parameter above, because this is the way it is called form the external event, please see youve 5 Secrets of Revit API Coding for an explaination on this
@@ -225,35 +225,16 @@ namespace _929_Bilt2020_PlaypenChild
             myEE17_Edit_StringBasedParameters.myWindow1 = this;
             myExternalEvent_EE17_Edit_StringBasedParameters = ExternalEvent.Create(myEE17_Edit_StringBasedParameters);
 
-            myEE18_UnderStandingTransforms = new EE18_UnderStandingTransforms();
+
+        //            public EE18_UnderStandingTransforms myEE18_UnderStandingTransforms { get; set; }
+        //public ExternalEvent myExternalEvent_EE18_UnderStandingTransforms { get; set; }
+
+        myEE18_UnderStandingTransforms = new EE18_UnderStandingTransforms();
             myEE18_UnderStandingTransforms.myWindow1 = this;
             myExternalEvent_EE18_UnderStandingTransforms = ExternalEvent.Create(myEE18_UnderStandingTransforms);
                                                                    
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-            int eL = -1;
 
-            try
-            {
-                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                Document doc = uidoc.Document;
-
-                foreach (string myStrrr in Families_ThatMustBeLoaded.ListStringMustHaveFamilies) myListClass.Add(new Window0506_LoadAndPlaceFamilies.ListView_Class() { String_Name = myStrrr, String_FileName = "//Families//" + myStrrr + ".rfa" });
-
-            }
-
-            #region catch and finally
-            catch (Exception ex)
-            {
-                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("Window_Loaded, error line:" + eL + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
-            }
-            finally
-            {
-            }
-            #endregion
-        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Top = this.Top;
@@ -764,6 +745,14 @@ namespace _929_Bilt2020_PlaypenChild
                 string myString_FamilyBackups_FamilyName = "";
                 Family myFamily = null;
                 string myString_FamilyName = "";
+
+                if (doc.PathName == "")
+                {
+                    MessageBox.Show("Please save project file.");
+                    return ;
+                }
+
+
 
                 if (true)//candidate for methodisation 202004251537
                 {

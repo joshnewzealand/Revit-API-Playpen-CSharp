@@ -15,74 +15,10 @@ using TaskDialog = Autodesk.Revit.UI.TaskDialog;
 namespace _929_Bilt2020_PlaypenParent
 {
 
-    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class InvokeSetDevelopmentPath : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            try
-            {
-                string myStringYear = commandData.Application.Application.VersionName.ToString().Substring(commandData.Application.Application.VersionName.ToString().Length - 4);
-
-                if (!Directory.Exists(Properties.Settings.Default.DevelopmentPathRoot)) //This needs to be 'one level up' from your current project (to allow for future projects)."
-                {
-                    string stringProgramDataPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                    string stringAppDataCompanyProductYearPath = stringProgramDataPath + "\\Autodesk\\Revit\\Macros\\" + myStringYear + "\\Revit\\AppHookup";
-
-                    Properties.Settings.Default.DevelopmentPathRoot = stringAppDataCompanyProductYearPath;
-                    Properties.Settings.Default.Save();
-                }
-
-                VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
-                dlg.SelectedPath = (Directory.Exists(Properties.Settings.Default.DevelopmentPathRoot) ? Properties.Settings.Default.DevelopmentPathRoot : "");
-                dlg.ShowNewFolderButton = true;
-                dlg.Description = "Navigate to local respository folder 'Revit-API-Playpen-CSharp', choose directory called 'Source', click 'Select Folder' button.";
-
-                if (dlg.ShowDialog() == true)
-                {
-                    if (System.IO.Directory.Exists(dlg.SelectedPath))
-                    {
-                        Properties.Settings.Default.DevelopmentPathRoot = dlg.SelectedPath;
-                        Properties.Settings.Default.Save();
-
-                      //  Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Pedersen Read Limited\\cSharpPlaypen joshnewzealand", true).SetValue("DEVELOPDIR", dlg.SelectedPath);
-
-                        TaskDialog.Show("Done", "Path has been set to: " + Environment.NewLine + Properties.Settings.Default.DevelopmentPathRoot);
-                    }
-                }
-            }
-
-            #region catch and finally
-            catch (Exception ex)
-            {
-                TaskDialog.Show("Catch", "Failed due to: " + ex.Message);
-            }
-            finally
-            {
-            }
-            #endregion
-
-            return Result.Succeeded;
-        }
-    }
 
 
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class Invoke02 : IExternalCommand
-    {
-        //public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            TaskDialog.Show("Me", "Please use Add Remove Programs List from Control Panel." + Environment.NewLine + Environment.NewLine + "The name of the application is: 'Revit API NuGet Example 2019'." + Environment.NewLine + Environment.NewLine + "Tip: Sort by 'Installed On' date.");
-            ////Manually Remove Programs from the Add Remove Programs List
-
-            return Result.Succeeded;
-        }
-    }
-
-
-    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class Invoke01 : IExternalCommand
+    public class Invoke04_ManualOverrideColor : IExternalCommand
     {
         public string dllModuleName { get; set; } = "_929_Bilt2020_PlaypenChild";
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
@@ -129,7 +65,7 @@ namespace _929_Bilt2020_PlaypenParent
                             object[] arguments = new object[] { commandData, "Button_01_Invoke01|" + path, elements };
                             object result = null;
 
-                            result = objType.InvokeMember("OpenWindowForm", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);
+                            result = objType.InvokeMember("ManualOverrideColor", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);
 
                             break;
                         }
@@ -166,7 +102,7 @@ namespace _929_Bilt2020_PlaypenParent
 
 
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class Invoke01Development : IExternalCommand
+    public class DevInvoke04_ManualOverrideColor : IExternalCommand
     {
         public string dllModuleName { get; set; } = "_929_Bilt2020_PlaypenChild";
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
@@ -210,7 +146,7 @@ namespace _929_Bilt2020_PlaypenParent
                             object[] arguments = new object[] { commandData, "Button_01_Invoke01Development|" + path, elements };
                             object result = null;
 
-                            result = objType.InvokeMember("OpenWindowForm", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);
+                            result = objType.InvokeMember("ManualOverrideColor", BindingFlags.Default | BindingFlags.InvokeMethod, null, ibaseObject, arguments);
 
                             break;
                         }
