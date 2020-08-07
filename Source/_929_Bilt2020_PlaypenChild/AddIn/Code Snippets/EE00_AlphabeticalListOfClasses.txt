@@ -1,8 +1,4 @@
-﻿* class is actually part of the .NET framework (not Revit API)	
-** class is part of C# playpen (not Revit API)	
-*** class is part xceed.wpf.toolkit (not Revit API)	
-	
-Playpen demonstrates 46 classes of which 34 (74%) are the Revit API	
+﻿C# Playpen demonstrates 46 classes of which 34 (74%) are the Revit API	
 	
 AdaptiveComponentInstanceUtils (see part 14)
 Arc (see part 9)
@@ -53,3 +49,7 @@ Wall (see part 2)
 Window0506_LoadAndPlaceFamilies.ListView_Class* (see part 5)
 Xceed.Wpf.Toolkit.IntegerUpDown*** (see part 11)
 
+
+* class is actually part of the .NET framework (not Revit API)	
+** class is part of C# playpen (not Revit API)	
+*** class is part xceed.wpf.toolkit (not Revit API)

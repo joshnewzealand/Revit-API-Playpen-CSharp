@@ -66,19 +66,42 @@ namespace _929_Bilt2020_PlaypenChild
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
 
-                if (true) //candidate for methodisation 202004251537
+                if (true) 
                 {
-                    if (uidoc.Selection.GetElementIds().Count != 1)
+                    do
                     {
-                        MessageBox.Show("Please select just one element instance.");
-                        return;
-                    }
+                        if (uidoc.Selection.GetElementIds().Count != 1)
+                        {
+                            Reference pickedRef = null;
+                            try
+                            {
+                                pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element, "Please select an Element");
+                            }
 
-                    if (doc.GetElement(uidoc.Selection.GetElementIds().First()).GetType() != typeof(FamilyInstance))
-                    {
-                        MessageBox.Show("Please select an element of type - 'FamilyInstance'.");
-                        return;
-                    }
+                            #region catch and finally
+                            catch (Exception ex)
+                            {
+                            }
+                            finally
+                            {
+                            }
+                            #endregion
+
+                            if (pickedRef == null) break;
+
+                            uidoc.Selection.SetElementIds(new List<ElementId>() { pickedRef.ElementId });
+                        }
+
+                        if (doc.GetElement(uidoc.Selection.GetElementIds().First()).GetType() != typeof(FamilyInstance))
+                        {
+                            MessageBox.Show("Please select an element of type - 'FamilyInstance'.");
+                            uidoc.Selection.SetElementIds(new List<ElementId>());
+                        } else
+                        {
+                            break;
+                        }
+                    } while (true);
+
 
                     myFamilyInstance = doc.GetElement(uidoc.Selection.GetElementIds().First()) as FamilyInstance;
 

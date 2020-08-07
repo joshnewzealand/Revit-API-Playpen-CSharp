@@ -44,8 +44,26 @@ namespace _929_Bilt2020_PlaypenChild
 
                 if (uidoc.Selection.GetElementIds().Count != 1)
                 {
-                    MessageBox.Show("Please select ONE Element.");
-                    return;
+                    //MessageBox.Show("Please select ONE Element.");
+
+                    Reference pickedRef = null;
+                    try
+                    {
+                        pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element, "Please select an Element");
+                    }
+
+                    #region catch and finally
+                    catch (Exception ex)
+                    {
+                    }
+                    finally
+                    {
+                    }
+                    #endregion
+
+                    if (pickedRef == null) return;
+
+                    uidoc.Selection.SetElementIds(new List<ElementId>() { pickedRef.ElementId });
                 }
 
                 Element myElement = doc.GetElement(uidoc.Selection.GetElementIds().First());

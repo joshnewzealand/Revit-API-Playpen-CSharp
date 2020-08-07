@@ -383,6 +383,7 @@ namespace _929_Bilt2020_PlaypenChild
 
             try
             {
+                myEE04_ManualColorOverride.myBool_RunFromModeless = true;
                 myExternalEvent_EE04_ManualColorOverride.Raise();
             }
 

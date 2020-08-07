@@ -16,6 +16,7 @@ namespace _929_Bilt2020_PlaypenChild
     public class EE04_ManualColorOverride : IExternalEventHandler  //this is the last when one making a checklist change, EE4 must be just for when an element is new
     {
         public MainWindow myWindow1 { get; set; }
+        public bool myBool_RunFromModeless { get; set; } = true;
 
         public void Execute(UIApplication uiapp)
         {
@@ -48,14 +49,36 @@ namespace _929_Bilt2020_PlaypenChild
                 Element myElement = null;
                 if (uidoc.Selection.GetElementIds().Count == 0)
                 {
-                    string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();  //stores the last ID in the VIEW_DESCRIPTION, it would be more appropriate to store it in a DataStorage entity.
-                    int n;
-                    if (!int.TryParse(myString_RememberLast, out n))
+                    if (myBool_RunFromModeless)
                     {
-                        MessageBox.Show("Please select just one geometric element (e.g. a Wall).");
-                        return;
+                        string myString_RememberLast = uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).AsString();  //stores the last ID in the VIEW_DESCRIPTION, it would be more appropriate to store it in a DataStorage entity.
+                        int n;
+                        if (!int.TryParse(myString_RememberLast, out n))
+                        {
+                            MessageBox.Show("Please select just one geometric element (e.g. a Wall).");
+                            return;
+                        }
+                        myElement = doc.GetElement(new ElementId(n));
+                    } else
+                    {
+                        Reference pickedRef = null;
+                        try
+                        {
+                            pickedRef = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element, "Please select an Element");
+                        }
+
+                        #region catch and finally
+                        catch (Exception ex)
+                        {
+                        }
+                        finally
+                        {
+                        }
+                        #endregion
+
+                        if (pickedRef == null) return;
+                        myElement = doc.GetElement(pickedRef.ElementId);
                     }
-                    myElement = doc.GetElement(new ElementId(n));
                 }
                 else
                 {
@@ -88,7 +111,7 @@ namespace _929_Bilt2020_PlaypenChild
                     tx.Commit();
                 }
 
-                uidoc.Selection.SetElementIds(new List<ElementId>());
+                uidoc.Selection.SetElementIds(new List<ElementId>() );
             }
 
             #region catch and finally

@@ -112,7 +112,7 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 myWindow1 = new MainWindow(commandData, this);
-
+                myWindow1.myEE04_ManualColorOverride.myBool_RunFromModeless = false;
                 myWindow1.myExternalEvent_EE04_ManualColorOverride.Raise();
             }
 

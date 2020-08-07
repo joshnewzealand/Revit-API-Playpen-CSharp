@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.Window1617_AddEditParameters"
         mc:Ignorable="d"
-        Title="Add and edit parameters" Height="547.451" Width="671.412" Background="#FFD6EDFF"  ResizeMode="NoResize">
+        Title="Add and edit parameters" Height="547.451" Width="671.412" Background="#FFE7F4FF"  ResizeMode="NoResize">
     <Grid>
         <Grid >
             <Grid.ColumnDefinitions>
