@@ -115,7 +115,7 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            ///                        TECHNIQUE 11 OF 19
+            ///           TECHNIQUE 11 OF 19 (EE11_GridOutCirclesOnFace.cs)
             ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ GRID OUT CIRCLES ON FACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
             ///
             /// Interfaces and ENUM's:
@@ -131,7 +131,8 @@ namespace _929_Bilt2020_PlaypenChild
             /// 
             ///
             ///
-            /// * class is actually part of the .NET framework (not Revit API)
+            /// * class is part xceed.wpf.toolkit (not Revit API)
+			///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
             using (Transaction tx = new Transaction(doc))

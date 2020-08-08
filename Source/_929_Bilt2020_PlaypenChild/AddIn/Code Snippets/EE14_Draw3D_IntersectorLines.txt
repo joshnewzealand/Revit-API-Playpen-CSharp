@@ -1,4 +1,4 @@
-﻿                ///                            TECHNIQUE 14 OF 19 (EE14_Draw3D_IntersectorLines.cs)
+﻿                ///            TECHNIQUE 14 OF 19 (EE14_Draw3D_IntersectorLines.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAW INTERSECTOR LINES FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -26,3 +26,6 @@
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

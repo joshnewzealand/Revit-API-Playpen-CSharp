@@ -25,25 +25,28 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                ///                  TECHNIQUE 4 OF 19
+                ///                  TECHNIQUE 4 OF 19 (EE04_ManualColorOverride.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ COLOUR OVERRIDE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
                 ///     BuiltInParameter.VIEW_DESCRIPTION
                 /// 
                 /// Demonstrates classes:
-                ///     UIDocument
+                ///     View
                 ///     OverrideGraphicSettings
                 ///     FillPatternElement
                 /// 
                 /// Key methods:
-                ///     GetElementOverrides
+                ///     doc.ActiveView.GetElementOverrides(
                 ///     ogs.SetSurfaceBackgroundPatternId(
                 ///     ogs.SetSurfaceBackgroundPatternColor(
-                ///     SetElementOverrides
+                ///     doc.ActiveView.SetElementOverrides(
                 ///
-                /// 
-                /// * class is actually part of the .NET framework (not Revit API)
+                /// 	uidoc.ActiveView.get_Parameter(BuiltInParameter.VIEW_DESCRIPTION).Set(
+				///	
+				///	
+				///	
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 Element myElement = null;

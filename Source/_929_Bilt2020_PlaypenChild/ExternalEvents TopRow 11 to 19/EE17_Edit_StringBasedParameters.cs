@@ -30,7 +30,7 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
 
-                ///                         TECHNIQUE 18 OF 19
+                ///        TECHNIQUE 18 OF 19 (EE17_Edit_StringBasedParameters.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ EDIT STRING BASED PARAMETERS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -45,7 +45,12 @@ namespace _929_Bilt2020_PlaypenChild
                 ///     myParameter.Set(
                 ///     
                 ///     
-                /// 
+                /// It is much nicer it is to edit text in a wpf textbox than it is in a properties grid. 
+                /// And where the carriage return goes is important for schedule comprehension.
+                /// Multiline text paramter can't be added codally.
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 if (myWindow2.myIntegerUpDown.Value.Value == -1)

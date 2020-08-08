@@ -56,7 +56,7 @@ namespace _929_Bilt2020_PlaypenChild
                         }
                         else
                         {
-                            ///                              TECHNIQUE 12 OF 19
+                            ///                      TECHNIQUE 12 OF 19 (EE12_SetupRoom.cs)
                             ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ARRANGE FURNITURE IN A ROOM WITH GLASS WALLS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                             ///
                             /// Interfaces and ENUM's:
@@ -75,7 +75,7 @@ namespace _929_Bilt2020_PlaypenChild
                             /// 
                             ///
                             ///
-                            /// * class is actually part of the .NET framework (not Revit API)
+							///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                             // Build a wall profile for the wall creation

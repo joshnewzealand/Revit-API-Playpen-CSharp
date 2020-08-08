@@ -46,7 +46,6 @@ namespace RevitTransformSliders
         }
     }
 
-
     public partial class Window1 : Window
     {
         public Xceed.Wpf.Toolkit.IntegerUpDown myToolKit_IntUpDown { get; set; }
@@ -189,10 +188,10 @@ namespace RevitTransformSliders
         {
             return IsZero(a, _eps);
         }
-
-
-        ///             TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
-        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        
+        
+        /// TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
+        ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         ///
         /// Interfaces and ENUM's:
         /// 
@@ -206,7 +205,12 @@ namespace RevitTransformSliders
         ///     
         ///     
         ///     
-        /// 
+        /// Illustrates that it is possible to do animations in revit 3D view
+        /// Usually you need an application like navisworks or 3DS max
+        ///
+        ///
+        ///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+
 
 
         public void myMethod_whichTook_120Hours_OfCoding()

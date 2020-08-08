@@ -105,7 +105,7 @@ namespace RevitTransformSliders
                 /// 
                 /// 
                 /// Demonstrates classes:
-                ///     Transform
+                ///     
                 /// 
                 /// 
                 /// Key methods:
@@ -113,7 +113,9 @@ namespace RevitTransformSliders
                 ///     myTransform.BasisZ.CrossProduct(
                 ///     Transform.CreateRotationAtPoint(
                 ///     
-                /// 
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 FamilyInstance myFamilyInstance_Middle2 = doc.GetElement(new ElementId(myWindow1.myIntUpDown_Middle2.Value.Value)) as FamilyInstance;

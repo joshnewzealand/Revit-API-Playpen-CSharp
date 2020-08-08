@@ -82,12 +82,12 @@ namespace _929_Bilt2020_PlaypenChild
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            ///                                 TECHNIQUE 06 OF 19
-            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ PLACEING A FAMILY THEN RELEASING THE COMMMAND ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            ///                TECHNIQUE 06 OF 19 (EE06_PlaceAFamily_OnDoubleClick.cs)
+            ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ PLACING A FAMILY THEN RELEASING THE COMMMAND ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
             ///
             /// Interfaces and ENUM's:
             ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
-            ///     
+            ///     using System.Runtime.InteropServices (namespace)
             /// 
             /// Demonstrates classes:
             ///     DocumentChangedEventArgs*
@@ -98,10 +98,17 @@ namespace _929_Bilt2020_PlaypenChild
             /// Key methods:
             ///     SketchPlane.Create(doc, myLevel.GetPlaneReference());
             ///     uidoc.PromptForFamilyInstancePlacement(myFamilySymbol);
+            ///	    SetForegroundWindow(
+            ///     keybd_event(
             ///
-            /// 
             ///
             /// * class is actually part of the .NET framework (not Revit API)
+			///	
+			///	
+			///	
+			///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+            ///	
+
 
             uidoc.Application.Application.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
 

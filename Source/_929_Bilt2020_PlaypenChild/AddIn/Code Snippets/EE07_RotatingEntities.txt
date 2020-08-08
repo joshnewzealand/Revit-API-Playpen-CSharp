@@ -1,4 +1,4 @@
-﻿                ///              TECHNIQUE 07 OF 19 (EE07_RotatingEntities.cs)
+﻿                ///          TECHNIQUE 07 OF 19 (EE07_RotatingEntities.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ROTATING ENTITIES ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -9,6 +9,7 @@
                 ///     Line
                 ///     Wall
                 ///     Curve
+				///     ElementTransformUtils
                 /// 
                 /// 
                 /// Key methods:
@@ -20,6 +21,7 @@
                 ///     XYZ myXYZ = (myCurve.GetEndPoint(1) + myCurve.GetEndPoint(0)) / 2;
                 ///
                 ///     ElementTransformUtils.RotateElement(
-                ///
-                ///
-                ///   ..josh is ElementTransformUtils is a class
+				///	
+				///	
+				///	
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

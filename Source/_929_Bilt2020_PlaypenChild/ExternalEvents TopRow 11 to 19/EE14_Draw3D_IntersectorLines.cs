@@ -123,7 +123,7 @@ namespace _929_Bilt2020_PlaypenChild
                     return;
                 }
 
-                ///                            TECHNIQUE 14 OF 19
+                ///            TECHNIQUE 14 OF 19 (EE14_Draw3D_IntersectorLines.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAW INTERSECTOR LINES FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -151,6 +151,9 @@ namespace _929_Bilt2020_PlaypenChild
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
                 uidoc.Selection.SetElementIds(new List<ElementId>());
 

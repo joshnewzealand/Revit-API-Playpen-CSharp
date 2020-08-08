@@ -108,7 +108,7 @@ namespace _929_Bilt2020_PlaypenChild
 
             try
             {
-                ///                            TECHNIQUE 16 OF 19
+                ///               TECHNIQUE 16 OF 19 (EE16_AddSharedParameters_InVariousWays.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ADDING SHARED PARAMETERS IN VARIOUS WAYS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -129,10 +129,12 @@ namespace _929_Bilt2020_PlaypenChild
                 ///     uidoc.Application.Application.Create.NewTypeBinding(
                 ///     uidoc.Application.Application.Create.NewInstanceBinding(
                 ///     doc.ParameterBindings.Insert(
-                ///     new ElementId(
+                ///     
                 ///     famDoc.FamilyManager.AddParameter(
                 /// 
-                /// 
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 uidoc.Application.Application.SharedParametersFilename = path;

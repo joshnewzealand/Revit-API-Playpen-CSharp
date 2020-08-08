@@ -25,7 +25,7 @@ namespace _929_Bilt2020_PlaypenChild
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                ///                  TECHNIQUE 3 OF 19
+                ///         TECHNIQUE 3 OF 19 (EE03_SetDefaultType.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SET DEFAULT TYPE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -36,10 +36,17 @@ namespace _929_Bilt2020_PlaypenChild
                 /// 
                 /// 
                 /// Key methods:
-                ///     myElement.GetType()
-                ///     doc.SetDefaultFamilyTypeId(
+                ///     if (myElement.GetType() == typeof(FamilyInstance))
                 ///     doc.SetDefaultElementTypeId(
+                ///     doc.SetDefaultFamilyTypeId(
                 ///
+                ///
+                /// Also works on non-system families (e.g. light fittings)
+                /// Was never able to find a button on the Revit GUI to the set default type per category.
+                ///	
+                ///	
+                ///	
+                ///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 if (uidoc.Selection.GetElementIds().Count != 1)

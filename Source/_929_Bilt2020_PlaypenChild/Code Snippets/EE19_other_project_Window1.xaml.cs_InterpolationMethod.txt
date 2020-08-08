@@ -1,5 +1,5 @@
-﻿                ///             TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+﻿                /// TECHNIQUE 19 OF 19 (Window1.xaml.cs) (scroll down to project 'RevitTransformSliders')
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERPOLATION ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
                 /// 
@@ -14,6 +14,7 @@
                 ///     
                 ///     
                 /// Illustrates that it is possible to do animations in revit 3D view
-                /// 
-                /// Usually you need an application like navisworks or 3DS max, but revit is my tools an it means not have go
-		/// an elaborate export process to benefit from the learnings.
+                /// Usually you need an application like navisworks or 3DS max
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

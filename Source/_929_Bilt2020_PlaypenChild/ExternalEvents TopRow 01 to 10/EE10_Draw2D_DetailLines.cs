@@ -51,7 +51,7 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
-                ///                                TECHNIQUE 10 OF 19
+                ///                TECHNIQUE 10 OF 19 (EE10_Draw2D_DetailLines.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 2D DETAIL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -68,6 +68,7 @@ namespace _929_Bilt2020_PlaypenChild
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
 

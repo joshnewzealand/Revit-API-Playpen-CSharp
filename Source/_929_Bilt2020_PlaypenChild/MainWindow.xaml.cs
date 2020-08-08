@@ -225,14 +225,9 @@ namespace _929_Bilt2020_PlaypenChild
             myEE17_Edit_StringBasedParameters.myWindow1 = this;
             myExternalEvent_EE17_Edit_StringBasedParameters = ExternalEvent.Create(myEE17_Edit_StringBasedParameters);
 
-
-        //            public EE18_UnderStandingTransforms myEE18_UnderStandingTransforms { get; set; }
-        //public ExternalEvent myExternalEvent_EE18_UnderStandingTransforms { get; set; }
-
-        myEE18_UnderStandingTransforms = new EE18_UnderStandingTransforms();
+            myEE18_UnderStandingTransforms = new EE18_UnderStandingTransforms();
             myEE18_UnderStandingTransforms.myWindow1 = this;
             myExternalEvent_EE18_UnderStandingTransforms = ExternalEvent.Create(myEE18_UnderStandingTransforms);
-                                                                   
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -49,8 +49,10 @@ namespace _929_Bilt2020_PlaypenChild
                     }
                 }
 
-                ///                             TECHNIQUE 08 OF 19
+                ///                             TECHNIQUE 08 OF 19 (EE08_MoveElementAroundHostingSurface.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ MOVING ELEMENTS AROUND A HOSTING SURFACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                /// The people walk around the perimeter of the wall, and it will work on any surface
+                ///
                 ///
                 /// Interfaces and ENUM's:
                 /// 
@@ -69,15 +71,20 @@ namespace _929_Bilt2020_PlaypenChild
                 ///     (myElementWall as FamilyInstance).GetTotalTransform();
                 ///     myFace.GetBoundingBox().Min
                 ///     myFace.Evaluate(myUV_Min)
+                /// 
                 ///     myXYZ_FamilyTransform.OfPoint(myXYZ_CornerOne)
                 ///     myXYZ_FamilyTransform.OfVector(myPlanarFace.XVector);
                 ///     myCurveLoop.GetExactLength();
-                ///     L1.GetEndPoint(0)).Normalize().Multiply(myDouble_ThisFarAlong);
-                ///     ElementTransformUtils.MoveElement(doc, myFamilyInstance.Id, myXYZ_MoveThisMuch);
-                /// 
-                ///
+                ///     
+                ///     
+                /// 	L1.GetEndPoint(0)).Normalize().Multiply(myDouble_ThisFarAlong);
+                ///	ElementTransformUtils.MoveElement(doc, myFamilyInstance.Id, myXYZ_MoveThisMuch);
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+                /// 
+                /// 
+                /// 
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
                 List<Element> myListOfStuffOnWall = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_GenericModel).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();
                 List<Element> myListOfFurniture = new FilteredElementCollector(doc).OfClass(typeof(FamilyInstance)).OfCategory(BuiltInCategory.OST_Furniture).Where(x => (((FamilyInstance)x).Host != null)).Where(x => ((FamilyInstance)x).Host.Id == myElementWall.Id).ToList();

@@ -1,4 +1,4 @@
-﻿                ///             TECHNIQUE 18 OF 19 (EE17_Edit_StringBasedParameters.cs)
+﻿                ///        TECHNIQUE 18 OF 19 (EE17_Edit_StringBasedParameters.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ EDIT STRING BASED PARAMETERS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -13,6 +13,9 @@
                 ///     myParameter.Set(
                 ///     
                 ///     
-                /// The reason why I'm taking time with this is to show much much nicer it is to edit text in a wpf textbox than it is in a properties grid. 
-                /// And where the carriage return goes is massively important for schedule comprehension.
+                /// It is much nicer it is to edit text in a wpf textbox than it is in a properties grid. 
+                /// And where the carriage return goes is important for schedule comprehension.
                 /// Multiline text paramter can't be added codally.
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

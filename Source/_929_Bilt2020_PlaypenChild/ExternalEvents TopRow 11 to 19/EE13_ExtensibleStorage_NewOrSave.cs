@@ -28,7 +28,7 @@ namespace _929_Bilt2020_PlaypenChild
         {
             try
             {
-                ///                      TECHNIQUE 13 OF 19
+                ///            TECHNIQUE 13 OF 19 (EE13_ExtensibleStorage_NewOrSave.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERSECTOR LINE FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -45,15 +45,22 @@ namespace _929_Bilt2020_PlaypenChild
                 /// 
                 /// Key methods:
                 ///     ((FamilyInstance)myEle).GetTransform().BasisX.AngleOnPlaneTo(XYZ.BasisY, XYZ.BasisZ);
-                ///     dict_Child_Angle.Add(
-                ///     ent_Child.Set(
-                ///     myDatastorage.GetEntity(
-                ///     ent_Parent.Get<IDictionary<string, Entity>>(
+                ///
+                ///     ent_Parent = myDatastorage.GetEntity(schema_FurnLocations_Index);
+                ///     dict_Parent = ent_Parent.Get<IDictionary<string, Entity>>(
                 ///     dict_Parent.Add(
-                ///     myDatastorage.SetEntity(
+                ///     ent_Parent.Set(dict_Parent
+                ///     myDatastorage.SetEntity(ent_Parent);
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+                /// 
+                /// Schema allows data to be structured more like database tables, (lists within lists)
+                /// Entity can exist in standalone DataStorage OR any other element.
+                /// Unwrap to use and wrap up again to store...like a Christmas present
+                ///
+                ///
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
 
 
                 //if it is new then this value gets stored

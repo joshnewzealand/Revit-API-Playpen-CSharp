@@ -1,4 +1,4 @@
-﻿                ///                                TECHNIQUE 10 OF 19 (EE10_Draw2D_DetailLines.cs)
+﻿                ///                TECHNIQUE 10 OF 19 (EE10_Draw2D_DetailLines.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ DRAWING 2D DETAIL LINES (A SIMILY FACE) ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
@@ -15,3 +15,4 @@
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

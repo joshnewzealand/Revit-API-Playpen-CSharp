@@ -44,7 +44,12 @@ namespace _929_Bilt2020_PlaypenChild
                 ///     Wall.Create(
                 ///     myWall.get_Parameter(
                 ///
-                ///
+                ///    Loops out (foreach) all the wall types 3 feet apar (myX = myX + 3)
+				///	
+				///	
+				///	
+				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+
 
 
                 using (Transaction y = new Transaction(doc, "Foreach on each wall type."))
