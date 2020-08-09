@@ -5,7 +5,7 @@
             ///     BuiltInParameter.FAMILY_WORK_PLANE_BASED
             ///     using System.Runtime.InteropServices (namespace)
             /// 
-            /// Demonstrates classes:
+            /// Introduces classes:
             ///     DocumentChangedEventArgs*
             ///     PromptForFamilyInstancePlacementOptions
             ///     SketchPlane
@@ -19,7 +19,7 @@
             ///
             ///
             /// * class is actually part of the .NET framework (not Revit API)
-			///	
-			///	
-			///	
-			///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+	    ///	
+	    ///		
+	    ///		
+	    ///		https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

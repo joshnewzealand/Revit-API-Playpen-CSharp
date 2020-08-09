@@ -4,8 +4,8 @@
                 /// Interfaces and ENUM's:
                 /// 
                 /// 
-                /// Demonstrates classes:
-                ///     Numerics.Vector3
+                /// Introduces classes:
+                ///     Numerics.Vector3*
                 /// 
                 /// 
                 /// Key methods:
@@ -17,4 +17,8 @@
                 /// Usually you need an application like navisworks or 3DS max
                 ///
                 ///
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+                ///
+                /// * class is actually part of the .NET framework (not Revit API)
+                ///
+                ///
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

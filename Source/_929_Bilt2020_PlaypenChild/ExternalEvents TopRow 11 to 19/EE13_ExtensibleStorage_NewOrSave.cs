@@ -29,7 +29,7 @@ namespace _929_Bilt2020_PlaypenChild
             try
             {
                 ///            TECHNIQUE 13 OF 19 (EE13_ExtensibleStorage_NewOrSave.cs)
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERSECTOR LINE FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓ SCHEMA DATA STRUCTURES (ENTITIES) TO THE ELEMENTS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
                 ///     

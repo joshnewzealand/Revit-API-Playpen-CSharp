@@ -4,12 +4,12 @@
                 /// Interfaces and ENUM's:
                 ///
                 /// 
-                /// Demonstrates classes:
+                /// Introduces classes:
                 ///     FamilyInstance
                 ///     Line
                 ///     Wall
                 ///     Curve
-				///     ElementTransformUtils
+		///     ElementTransformUtils
                 /// 
                 /// 
                 /// Key methods:
@@ -21,7 +21,7 @@
                 ///     XYZ myXYZ = (myCurve.GetEndPoint(1) + myCurve.GetEndPoint(0)) / 2;
                 ///
                 ///     ElementTransformUtils.RotateElement(
-				///	
-				///	
-				///	
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		///	
+		///	
+		///	
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

@@ -4,7 +4,7 @@
                 /// Interfaces and ENUM's:
                 /// 
                 /// 
-                /// Demonstrates classes::
+                /// Introduces classes::
                 ///     DefinitionFile
                 ///     CategorySet
                 ///     DefinitionGroup
@@ -24,4 +24,4 @@
                 /// 
                 ///
                 ///
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

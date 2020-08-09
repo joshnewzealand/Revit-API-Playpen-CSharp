@@ -1,10 +1,10 @@
 ﻿                ///            TECHNIQUE 13 OF 19 (EE13_ExtensibleStorage_NewOrSave.cs)
-                ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ INTERSECTOR LINE FROM NERF GUN ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                ///↓↓↓↓↓↓↓↓↓↓↓↓↓ SET SCHEMA DATA STRUCTURES (ENTITIES) TO THE ELEMENTS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
                 ///     
                 /// 
-                /// Demonstrates classes:
+                /// Introduces classes:
                 ///     KeyValuePair*
                 ///     DataStorage
                 ///     Schema
@@ -30,4 +30,4 @@
                 /// Unwrap to use and wrap up again to store...like a Christmas present
                 ///
                 ///
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

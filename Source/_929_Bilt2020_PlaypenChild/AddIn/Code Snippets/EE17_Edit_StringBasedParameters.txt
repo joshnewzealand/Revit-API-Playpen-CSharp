@@ -4,7 +4,7 @@
                 /// Interfaces and ENUM's:
                 /// 
                 /// 
-                /// Demonstrates classes:
+                /// Introduces classes:
                 ///     Parameter
                 /// 
                 /// 
@@ -18,4 +18,4 @@
                 /// Multiline text paramter can't be added codally.
                 ///
                 ///
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		/// https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

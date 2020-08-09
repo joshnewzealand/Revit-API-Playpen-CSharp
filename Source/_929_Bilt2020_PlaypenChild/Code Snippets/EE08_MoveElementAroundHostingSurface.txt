@@ -1,4 +1,4 @@
-﻿                ///                             TECHNIQUE 08 OF 19 (EE08_MoveElementAroundHostingSurface.cs)
+﻿                ///            TECHNIQUE 08 OF 19 (EE08_MoveElementAroundHostingSurface.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ MOVING ELEMENTS AROUND A HOSTING SURFACE ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 /// The people walk around the perimeter of the wall, and it will work on any surface
                 ///
@@ -6,7 +6,7 @@
                 /// Interfaces and ENUM's:
                 /// 
                 /// 
-                /// Demonstrates classes:
+                /// Introduces classes:
                 ///     Reference
                 ///     Face
                 ///     Transform
@@ -33,4 +33,4 @@
                 /// 
                 /// 
                 /// 
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

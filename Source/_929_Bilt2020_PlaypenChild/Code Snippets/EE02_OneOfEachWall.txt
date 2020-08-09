@@ -1,11 +1,11 @@
-﻿                ///                  TECHNIQUE 2 OF 19 (EE02_OneOfEachWall.cs)
+﻿                ///      TECHNIQUE 2 OF 19 (EE02_OneOfEachWall.cs)
                 ///↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ONE OF EACH WALL ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                 ///
                 /// Interfaces and ENUM's:
                 ///     BuiltInCategory.OST_Walls
                 ///     BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS
                 /// 
-                /// Demonstrates classes:
+                /// Introduces classes:
                 ///     FilteredElementCollector
                 ///     Line
                 ///     Wall
@@ -18,7 +18,7 @@
                 ///     myWall.get_Parameter(
                 ///
                 ///    Loops out (foreach) all the wall types 3 feet apar (myX = myX + 3)
-				///	
-				///	
-				///	
-				///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		///	
+		///	
+		///	
+		///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

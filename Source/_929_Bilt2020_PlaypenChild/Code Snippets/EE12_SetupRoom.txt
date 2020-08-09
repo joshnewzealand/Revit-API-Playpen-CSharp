@@ -4,17 +4,14 @@
                             /// Interfaces and ENUM's:
                             ///     IFamilyLoadOptions
                             /// 
-                            /// Demonstrates classes:
+                            /// Introduces classes:
                             ///     DataStorage
-                            ///     FamilySymbol
                             /// 
                             /// 
                             /// Key methods:
                             ///     DataStorage.Create(
-                            ///     doc.LoadFamily(
-                            ///     doc.GetElement(myFamily.GetFamilySymbolIds().First()) as FamilySymbol;
                             ///     
                             /// 
                             ///
                             ///
-							///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+			    ///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp

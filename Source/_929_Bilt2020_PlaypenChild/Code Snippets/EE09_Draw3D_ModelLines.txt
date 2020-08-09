@@ -5,7 +5,7 @@
                     ///     FailureHandlingOptions
                     ///     
                     /// 
-                    /// Demonstrates classes:
+                    /// Introduces classes:
                     ///     Arc
                     ///     Line
                     ///     Curve
@@ -21,4 +21,4 @@
                     ///
                     ///
                     /// * class is actually part of the .NET framework (not Revit API)
-					///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
+		    ///	https://github.com/joshnewzealand/Revit-API-Playpen-CSharp
