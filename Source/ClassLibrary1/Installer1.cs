@@ -24,6 +24,9 @@ namespace ClassLibrary1
 
         string myAddinDLL = "_929_Bilt2020_PlaypenParent";
 
+
+
+
         public override void Uninstall(System.Collections.IDictionary stateSaver)
         {
             string sDir = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Autodesk\\Revit\\Addins";
@@ -55,6 +58,7 @@ namespace ClassLibrary1
         public override void Install(System.Collections.IDictionary stateSaver)
         {
 
+
             //2 August 2019: The next 4 lines were added in Take 10 in order prevent double loading of packages.
             Microsoft.Win32.RegistryKey rkbase = null;
             rkbase = Microsoft.Win32.RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, Microsoft.Win32.RegistryView.Registry64);
@@ -84,9 +88,29 @@ namespace ClassLibrary1
             {
                 foreach (string d in Directory.GetDirectories(sDir))
                 {
-                    //DirSearch.Add(d);
-                    new XDocument(XElementRevitAddIns).Save(d + "\\" + myAddinDLL + ".addin");
-                    //files.AddRange(DirSearch.Add(d));
+                    
+
+                    string myString_ManifestPath = d + "\\" + myAddinDLL + ".addin";
+
+                    string[] directories = d.Split(Path.DirectorySeparatorChar);
+
+                    //System.Windows.Forms.MessageBox.Show(directories[directories.Count() - 1]);
+
+                    if (int.TryParse(directories[directories.Count() - 1], out int myInt_FromTextBox))
+                    {
+                        if (myInt_FromTextBox >= 2019)  //installs on version 2019 and above
+                        {
+                            new XDocument(XElementRevitAddIns).Save(myString_ManifestPath);
+                        }
+                        else
+                        {
+                            if (File.Exists(myString_ManifestPath))
+                            {
+                                File.Delete(myString_ManifestPath);
+                            }
+
+                        }
+                    }
                 }
             }
             catch (System.Exception excpt)

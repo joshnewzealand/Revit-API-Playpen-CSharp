@@ -77,7 +77,7 @@ namespace _929_Bilt2020_PlaypenParent
             #region catch and finally
             catch (Exception ex)
             {
-                ParentSupportMethods.writeDebug("Invoke01" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+                ParentSupportMethods.writeDebug("Invoke1617_AddEditParameters" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
 
             }
             finally
@@ -158,9 +158,8 @@ namespace _929_Bilt2020_PlaypenParent
             #region catch and finally
             catch (Exception ex)
             {
-                TaskDialog.Show("Catch", "Failed due to: " + ex.Message);
-
-                string pathHeader = "Please check this file (and directory) exist: " + Environment.NewLine;
+                string pathPreHeader = "DevInvoke1617_AddEditParameters" + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException + Environment.NewLine + Environment.NewLine;
+                string pathHeader = pathPreHeader + "Please check this file (and directory) exist: " + Environment.NewLine;
                 string path = Properties.Settings.Default.DevelopmentPathRoot + "";
                 ParentSupportMethods.writeDebug(pathHeader + path + "\\" + dllModuleName + "\\AddIn\\" + dllModuleName + ".dll", true);
             }

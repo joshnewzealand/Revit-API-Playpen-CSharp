@@ -29,7 +29,6 @@ namespace RevitTransformSliders
 
 		}
 
-
         public string messageConst { get; set; }
         //this is is the method that invoked from outside
 
