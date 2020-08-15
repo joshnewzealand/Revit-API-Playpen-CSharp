@@ -10,8 +10,8 @@
                 /// 
                 /// Key methods:
                 ///     if (myElement.GetType() == typeof(FamilyInstance))
-                ///     doc.SetDefaultElementTypeId(
-                ///     doc.SetDefaultFamilyTypeId(
+                ///     doc.SetDefaultElementTypeId(         system families
+                ///     doc.SetDefaultFamilyTypeId(			 loadable families
                 ///
                 ///
                 /// Also works on non-system families (e.g. light fittings)

@@ -61,3 +61,4 @@ R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button15_SingleClickFamilyBackup.png
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button1617_AddEditParameters.png
 R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Addin\Images\Button1819_UnderstandingTransforms.png
+R:\_001_GitHubRespositories\joshnewzealand\Revit-API-Playpen-CSharp\Source\_929_Bilt2020_PlaypenParent\obj\Debug\_929_Bilt2020_PlaypenParent.csprojAssemblyReference.cache

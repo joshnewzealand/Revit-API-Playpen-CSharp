@@ -20,7 +20,8 @@
                 ///     dict_Parent = ent_Parent.Get<IDictionary<string, Entity>>(
                 ///     dict_Parent.Add(
                 ///     ent_Parent.Set(dict_Parent
-                ///     myDatastorage.SetEntity(ent_Parent);
+                ///
+                ///     myDatastorage.SetEntity(ent_Parent);  //this is key
                 ///
                 ///
                 /// * class is actually part of the .NET framework (not Revit API)

@@ -44,7 +44,7 @@ namespace _929_Bilt2020_PlaypenChild
                 ///     Wall.Create(
                 ///     myWall.get_Parameter(
                 ///
-                ///    Loops out (foreach) all the wall types 3 feet apar (myX = myX + 3)
+                ///    Loops out (foreach) all the wall types 3 feet apart (myX = myX + 3)
 				///	
 				///	
 				///	
@@ -83,6 +83,31 @@ namespace _929_Bilt2020_PlaypenChild
 
                     y.Commit();
                 }
+
+                if (false) //used in presentation, please ignore
+                {
+                    using (Transaction y = new Transaction(doc, "Foreach on each wall type."))
+                    {
+                        y.Start();
+                        FilteredElementCollector myFEC_WallTypes = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType();
+
+                        double myX = 0;
+                        Element myLevel = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().First();
+
+                        foreach (ElementId myElementID in myFEC_WallTypes.ToElementIds())
+                        {
+                            XYZ startPoint = new XYZ(myX, 10, 0);
+                            XYZ endPoint = new XYZ(myX, 0, 0);
+                            Line geomLine = Line.CreateBound(startPoint, endPoint);
+
+                            Wall myWall = Wall.Create(doc, geomLine, myElementID, myLevel.Id, 10, 0, false, false);
+
+                            myX = myX + 3;
+                        }
+                        y.Commit();
+                    }
+                }
+
             }
 
             #region catch and finally
