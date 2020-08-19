@@ -5,7 +5,7 @@
                 ///     IFamilyLoadOptions
                 /// 
                 /// Introduces classes:
-                ///     Window0506_LoadAndPlaceFamilies.ListView_Class*
+                ///     Families_ThatMustBeLoaded (custom static class)
                 ///     
                 /// 
                 /// Key methods:
