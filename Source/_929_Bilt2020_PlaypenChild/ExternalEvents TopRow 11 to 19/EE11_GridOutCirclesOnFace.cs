@@ -128,6 +128,16 @@ namespace _929_Bilt2020_PlaypenChild
             /// Key methods:
             ///     doc.Delete(
             ///
+            ///   A 2 DIMENSION MATRIX IS A LOOP WITIN A LOOP
+            ///        for (int int_Outer = 1; int_Outer <= myWindow1.my11IntegerUpDown_Columns.Value.Value * (myBool_OneTwoOneLayout ? 2 : 1); int_Outer++)
+            ///        {
+            ///                for (int int_Inner = 1; int_Inner <= myWindow1.my11IntegerUpDown_Rows.Value.Value * (myBool_OneTwoOneLayout ? 2 : 1); int_Inner++)
+            ///                {
+            ///                    XYZ myXYZ_GridPoint = new XYZ(myXYZ_DifferernceColumn.X * int_Outer, myXYZ_DifferernceRow.Y * int_Inner, 0);
+            ///                        Arc geomPlane3 = Arc.Create(myTransform.OfPoint(myXYZ_GridPoint), radius, startAngle, endAngle, myTransform.BasisX, myTransform.BasisY);
+            ///                        doc.Create.NewModelCurve(geomPlane3, mySketchPlane).Id;
+            ///                }
+            ///        }
             /// 
             ///
             ///
