@@ -50,8 +50,8 @@ namespace _929_Bilt2020_PlaypenChild
     class Schema_FurnLocations
     {
 
-        public const string myConstantStringSchema_FurnLocations_Index = "d4afae09-95b2-47d1-a966-468995d06cf9";
-        public const string myConstantStringSchema_FurnLocations = "d001de57-02c8-465b-8cff-6c6af5d86ebf";
+        public const string myConstantStringSchema_FurnLocations_Index = "3e2b5963-de35-4d50-9284-cd3154f202fa";
+        public const string myConstantStringSchema_FurnLocations = "330a1ede-d77b-4350-963d-3505f7ae5e23";
 
         public static Schema createSchema_FurnLocations_Index()
         {
@@ -76,6 +76,13 @@ namespace _929_Bilt2020_PlaypenChild
             FieldBuilder mapField_Child_Angle = mySchemaBuilder.AddMapField("FurnLocations_Angle", typeof(ElementId), typeof(double));
             mapField_Child_Angle.SetUnitType(UnitType.UT_Length);
             //IList<int> list = new List<int>() { 111, 222, 333 };
+
+
+            FieldBuilder mapField_Child_Pattern = mySchemaBuilder.AddMapField("FurnLocations_Pattern", typeof(ElementId), typeof(ElementId));
+            FieldBuilder mapField_Child_Red = mySchemaBuilder.AddMapField("FurnLocations_ColorRed", typeof(ElementId), typeof(int));
+            FieldBuilder mapField_Child_Green = mySchemaBuilder.AddMapField("FurnLocations_ColorGreen", typeof(ElementId), typeof(int));
+            FieldBuilder mapField_Child_Blue = mySchemaBuilder.AddMapField("FurnLocations_ColorBlue", typeof(ElementId), typeof(int));
+
 
             return mySchemaBuilder.Finish();
         }

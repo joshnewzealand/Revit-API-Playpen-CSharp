@@ -87,6 +87,13 @@ namespace _929_Bilt2020_PlaypenChild
                 IDictionary<ElementId, XYZ> dict_Child = new Dictionary<ElementId, XYZ>();
                 IDictionary<ElementId, double> dict_Child_Angle = new Dictionary<ElementId, double>();
 
+
+                IDictionary<ElementId, ElementId> dict_Child_PatternID = new Dictionary<ElementId, ElementId>();
+                IDictionary<ElementId, int> dict_Child_ColourRed = new Dictionary<ElementId, int>();
+                IDictionary<ElementId, int> dict_Child_ColourGreen = new Dictionary<ElementId, int>();
+                IDictionary<ElementId, int> dict_Child_ColourBlue = new Dictionary<ElementId, int>();
+
+
                 foreach (Element myEle in myFEC_RoomSetupEntities)
                 {
                     if (myEle.Location.GetType() == typeof(LocationPoint))
@@ -95,11 +102,34 @@ namespace _929_Bilt2020_PlaypenChild
 
                         double myDouble = ((FamilyInstance)myEle).GetTransform().BasisX.AngleOnPlaneTo(XYZ.BasisY, XYZ.BasisZ);
                         dict_Child_Angle.Add(myEle.Id, myDouble);
+
+
+                        OverrideGraphicSettings ogs = doc.ActiveView.GetElementOverrides(myEle.Id);
+                        dict_Child_PatternID.Add(myEle.Id, ogs.SurfaceForegroundPatternId);
+
+                        if (ogs.ProjectionLineColor.IsValid)
+                        {
+                            dict_Child_ColourRed.Add(myEle.Id, Convert.ToInt32(ogs.ProjectionLineColor.Red));
+                            dict_Child_ColourGreen.Add(myEle.Id, Convert.ToInt32(ogs.ProjectionLineColor.Green));
+                            dict_Child_ColourBlue.Add(myEle.Id, Convert.ToInt32(ogs.ProjectionLineColor.Blue));
+                        }
+                        else
+                        {
+                            dict_Child_ColourRed.Add(myEle.Id, 0);
+                            dict_Child_ColourGreen.Add(myEle.Id, 0);
+                            dict_Child_ColourBlue.Add(myEle.Id, 0);
+                        }
                     }
                 }
 
                 ent_Child.Set("FurnLocations", dict_Child, DisplayUnitType.DUT_MILLIMETERS);
                 ent_Child.Set("FurnLocations_Angle", dict_Child_Angle, DisplayUnitType.DUT_MILLIMETERS);
+
+                ent_Child.Set("FurnLocations_Pattern", dict_Child_PatternID, DisplayUnitType.DUT_MILLIMETERS);
+                ent_Child.Set("FurnLocations_ColorRed", dict_Child_ColourRed, DisplayUnitType.DUT_MILLIMETERS);
+                ent_Child.Set("FurnLocations_ColorGreen", dict_Child_ColourGreen, DisplayUnitType.DUT_MILLIMETERS);
+                ent_Child.Set("FurnLocations_ColorBlue", dict_Child_ColourBlue, DisplayUnitType.DUT_MILLIMETERS);
+
 
                 Schema schema_FurnLocations_Index = Schema.Lookup(new Guid(Schema_FurnLocations.myConstantStringSchema_FurnLocations_Index));
                 if (schema_FurnLocations_Index == null) schema_FurnLocations_Index = Schema_FurnLocations.createSchema_FurnLocations_Index();
@@ -128,6 +158,8 @@ namespace _929_Bilt2020_PlaypenChild
 
 
                 ent_Parent.Set("FurnLocations_Index", dict_Parent, DisplayUnitType.DUT_MILLIMETERS);
+
+
                 using (Transaction y = new Transaction(doc, "New Furniture Arrangement"))
                 {
                     y.Start();

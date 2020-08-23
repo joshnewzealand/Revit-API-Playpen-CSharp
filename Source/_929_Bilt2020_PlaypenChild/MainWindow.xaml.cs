@@ -83,6 +83,9 @@ namespace _929_Bilt2020_PlaypenChild
         public EE13_ExtensibleStorage_DeleteItem myEE13_ExtensibleStorage_DeleteItem { get; set; }
         public ExternalEvent myExternalEvent_EE13_ExtensibleStorage_DeleteItem { get; set; }
 
+        public EE13_ExtensibleStorage_zRandomise myEE13_ExtensibleStorage_zRandomise { get; set; }
+        public ExternalEvent myExternalEvent_EE13_ExtensibleStorage_zRandomise { get; set; }
+
         public EE13_ExtensibleStorage_NewOrSave myEE13_ExtensibleStorage_NewOrSave { get; set; }
         public ExternalEvent myExternalEvent_EE13_ExtensibleStorage_NewOrSave { get; set; }
 
@@ -201,7 +204,12 @@ namespace _929_Bilt2020_PlaypenChild
             myEE13_ExtensibleStorage_DeleteAll.myWindow1 = this;
             myExternalEvent_EE13_ExtensibleStorage_DeleteAll = ExternalEvent.Create(myEE13_ExtensibleStorage_DeleteAll);
 
-            myEE12_SetupRoom = new EE12_SetupRoom();
+
+        myEE13_ExtensibleStorage_zRandomise = new EE13_ExtensibleStorage_zRandomise();
+        myEE13_ExtensibleStorage_zRandomise.myWindow1 = this;
+            myExternalEvent_EE13_ExtensibleStorage_zRandomise = ExternalEvent.Create(myEE13_ExtensibleStorage_zRandomise);
+
+        myEE12_SetupRoom = new EE12_SetupRoom();
             myEE12_SetupRoom.myWindow1 = this;
             myExternalEvent_EE12_SetupRoom = ExternalEvent.Create(myEE12_SetupRoom);
 

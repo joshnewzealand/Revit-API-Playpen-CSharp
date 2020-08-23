@@ -83,6 +83,7 @@
     <Compile Include="ExternalEvents TopRow 01 to 10\EE08_MoveElementAroundHostingSurface.cs" />
     <Compile Include="ExternalEvents TopRow 01 to 10\EE09_Draw3D_ModelLines.cs" />
     <Compile Include="ExternalEvents TopRow 01 to 10\EE10_Draw2D_DetailLines.cs" />
+    <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_zRandomise.cs" />
     <Compile Include="ExternalEvents TopRow 11 to 19\EE16_AddSharedParameters_InVariousWays.cs" />
     <Compile Include="ExternalEvents TopRow 11 to 19\EE14_Draw3D_IntersectorLines.cs" />
     <Compile Include="ExternalEvents TopRow 11 to 19\EE13_ExtensibleStorage_DeleteAll.cs" />
@@ -180,6 +181,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Families\Generic Model Man Women Construction Worker.rfa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Families\MiniDigger.rfa">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />

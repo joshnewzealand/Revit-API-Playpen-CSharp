@@ -70,6 +70,45 @@ namespace _929_Bilt2020_PlaypenChild
                         myStringAggregate_Angle = myStringAggregate_Angle + Environment.NewLine + (IsZero(myKP.Value, _eps) ? 0 : Math.Round(myKP.Value, 2));
                     }
 
+
+
+                    IDictionary<ElementId, ElementId> dict_Child_Pattern = myKeyValuePair.Value.Get<IDictionary<ElementId, ElementId>>("FurnLocations_Pattern", DisplayUnitType.DUT_MILLIMETERS);
+                    IDictionary<ElementId, int> dict_Child_Red = myKeyValuePair.Value.Get<IDictionary<ElementId, int>>("FurnLocations_ColorRed", DisplayUnitType.DUT_MILLIMETERS);
+                    IDictionary<ElementId, int> dict_Child_Green = myKeyValuePair.Value.Get<IDictionary<ElementId, int>>("FurnLocations_ColorGreen", DisplayUnitType.DUT_MILLIMETERS);
+                    IDictionary<ElementId, int> dict_Child_Blue = myKeyValuePair.Value.Get<IDictionary<ElementId, int>>("FurnLocations_ColorBlue", DisplayUnitType.DUT_MILLIMETERS);
+
+
+
+                    int myInt = -1;
+                    foreach (KeyValuePair<ElementId, ElementId> myKP in dict_Child_Pattern)
+                    {
+                        myInt++;
+                        FamilyInstance Searchelem = doc.GetElement(myKP.Key) as FamilyInstance;
+                        if (Searchelem == null) continue;
+                        if (Searchelem.Category.Name != "Furniture") continue;
+
+                        OverrideGraphicSettings ogs = new OverrideGraphicSettings();
+                        OverrideGraphicSettings ogsCheeck = doc.ActiveView.GetElementOverrides(myKP.Key);
+
+                        Color myColor = new Autodesk.Revit.DB.Color((byte)dict_Child_Red[myKP.Key], (byte)dict_Child_Green[myKP.Key], (byte)dict_Child_Blue[myKP.Key]);
+                        Color myColorBrighter = ChangeColorBrightness(myColor, (float)0.5);
+
+
+                        ogs.SetSurfaceForegroundPatternId(myKP.Value);
+                        ogs.SetSurfaceForegroundPatternColor(myColor);
+                        ogs.SetProjectionLineWeight(5);
+                        ogs.SetProjectionLineColor(myColor);
+
+
+                        FillPatternElement myFillPattern_SolidFill = new FilteredElementCollector(doc).OfClass(typeof(FillPatternElement)).Cast<FillPatternElement>().First(a => a.Name.Contains("Solid fill"));
+                        ogs.SetSurfaceBackgroundPatternId(myFillPattern_SolidFill.Id);
+                        ogs.SetSurfaceBackgroundPatternColor(myColorBrighter);
+
+
+                        doc.ActiveView.SetElementOverrides(myKP.Key, ogs);
+                    }
+
+
                     tx.Commit();
                 }
             }
@@ -83,6 +122,32 @@ namespace _929_Bilt2020_PlaypenChild
             {
             }
             #endregion
+        }
+
+
+        public static Color ChangeColorBrightness(Color color, float correctionFactor)
+        {
+            float red = (float)color.Red;
+            float green = (float)color.Green;
+            float blue = (float)color.Blue;
+
+            if (correctionFactor < 0)
+            {
+                correctionFactor = 1 + correctionFactor;
+                red *= correctionFactor;
+                green *= correctionFactor;
+                blue *= correctionFactor;
+            }
+            else
+            {
+                red = (255 - red) * correctionFactor + red;
+                green = (255 - green) * correctionFactor + green;
+                blue = (255 - blue) * correctionFactor + blue;
+            }
+
+            Color myColorReturn = new Autodesk.Revit.DB.Color((byte)red, (byte)green, (byte)blue);
+
+            return myColorReturn;
         }
 
         public string GetName()

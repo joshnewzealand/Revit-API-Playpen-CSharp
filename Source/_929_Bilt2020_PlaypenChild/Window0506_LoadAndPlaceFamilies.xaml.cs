@@ -36,8 +36,9 @@ namespace _929_Bilt2020_PlaypenChild
         public static string myString07 = "Generic Model Man Sitting Eating";
         public static string myString08 = "Generic Model Man Women Construction Worker";
         public static string myString09 = "Generic Model Tipping Hat Man";
+        public static string myString10 = "MiniDigger";
 
-        public static List<string> ListStringMustHaveFamilies = new List<string>() { myString00, myString01, myString02, myString03, myString04, myString05, myString06, myString07, myString08, myString09 };
+        public static List<string> ListStringMustHaveFamilies = new List<string>() { myString00, myString01, myString02, myString03, myString04, myString05, myString06, myString07, myString08, myString09, myString10 };
     }
 
 
@@ -165,6 +166,14 @@ namespace _929_Bilt2020_PlaypenChild
 
             try
             {
+                MessageBoxResult result = System.Windows.MessageBox.Show("Loading all families will take approx 5 min?", "Continue?", System.Windows.MessageBoxButton.YesNoCancel);
+
+                if (result != MessageBoxResult.Yes)
+                {
+                    return;
+                }
+
+
                 myWindow1.myExternalEvent_EE05_LoadAllFamilies.Raise();
             }
 

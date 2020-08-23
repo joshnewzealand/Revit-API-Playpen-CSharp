@@ -330,5 +330,25 @@ namespace _929_Bilt2020_PlaypenChild
             }
             #endregion
         }
+
+        private void myButtonRandomise_Click(object sender, RoutedEventArgs e)
+        {
+            int eL = -1;
+
+            try
+            {
+                myWindow1.myExternalEvent_EE13_ExtensibleStorage_zRandomise.Raise();
+            }
+
+            #region catch and finally
+            catch (Exception ex)
+            {
+                _952_PRLoogleClassLibrary.DatabaseMethods.writeDebug("myButtonRandomise_Click, error line:" + eL + Environment.NewLine + ex.Message + Environment.NewLine + ex.InnerException, true);
+            }
+            finally
+            {
+            }
+            #endregion
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_929_Bilt2020_PlaypenChild"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="_929_Bilt2020_PlaypenChild.Window1213_ExtensibleStorage" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="Extensible storage example" Height="225" Width="371.333">
+        Title="Extensible storage example" Height="279.865" Width="371.333">
     <Grid>
 
         <xctk:IntegerUpDown x:Name="myIntegerUpDown" HorizontalAlignment="Left" Margin="91,157,0,0" VerticalAlignment="Top" Height="22" Width="62" IsEnabled="False"/>
@@ -38,6 +38,7 @@
         </ListView>
         <Button x:Name="myButtonPlaceRoom" Content="Place room&#xD;&#xA;(click once only)" HorizontalAlignment="Left" Margin="254,10,0,0" VerticalAlignment="Top" Width="91" Height="42" Click="myButtonPlaceRoom_Click"/>
         <Button x:Name="myButtonNew" Content="New" HorizontalAlignment="Left" Margin="254,70,0,0" VerticalAlignment="Top" Width="91" Click="myButtonNew_Click"/>
+        <Button x:Name="myButtonRandomise" Content="Randomise Colour" HorizontalAlignment="Left" Margin="38,196,0,0" VerticalAlignment="Top" Width="181" Click="myButtonRandomise_Click"/>
 
     </Grid>
 </Window>
